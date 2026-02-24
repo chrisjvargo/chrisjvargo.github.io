@@ -33,7 +33,7 @@ jobs:
 
       - name: Build static site
         run: |
-          python src/build.py --input cv/Vargo_CV.tex --preprints preprints.csv --out dist --site-url https://chrisjvargo.com --domain chrisjvargo.com
+          python src/build.py --input cv/Vargo_CV.tex --preprints preprints.csv --out dist --site-url https://chrisjvargo.github.io
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

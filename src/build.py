@@ -226,7 +226,13 @@ def render_build_report_text(report: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def build_site(input_tex: Path, preprints_csv: Path, out_dir: Path, site_url: str, domain: str) -> dict[str, Any]:
+def build_site(
+    input_tex: Path,
+    preprints_csv: Path,
+    out_dir: Path,
+    site_url: str,
+    domain: str | None,
+) -> dict[str, Any]:
     repo_root = Path(__file__).resolve().parents[1]
     templates_dir = SCRIPT_DIR / "templates"
     static_dir = SCRIPT_DIR / "static"
@@ -372,8 +378,12 @@ def build_site(input_tex: Path, preprints_csv: Path, out_dir: Path, site_url: st
         ),
     )
 
-    # CNAME for custom domain clarity.
-    write_text(out_dir / "CNAME", f"{domain}\n")
+    # CNAME is optional; clean stale files when no domain is requested.
+    cname_path = out_dir / "CNAME"
+    if domain:
+        write_text(cname_path, f"{domain.strip()}\n")
+    elif cname_path.exists():
+        cname_path.unlink()
 
     # Sitemap
     page_paths = [
@@ -402,8 +412,8 @@ def main() -> None:
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--preprints", required=True, type=Path)
     parser.add_argument("--out", default=Path("dist"), type=Path)
-    parser.add_argument("--site-url", default="https://chrisjvargo.com")
-    parser.add_argument("--domain", default="chrisjvargo.com")
+    parser.add_argument("--site-url", default="https://chrisjvargo.github.io")
+    parser.add_argument("--domain", default=None)
     args = parser.parse_args()
 
     report = build_site(args.input, args.preprints, args.out, args.site_url, args.domain)
