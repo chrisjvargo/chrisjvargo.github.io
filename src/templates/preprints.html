@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% set page_title = "Preprints" %}
+{% block content %}
+<section>
+  <h2>Preprints</h2>
+  {% if preprints %}
+    <ol>
+      {% for item in preprints %}
+        <li>
+          {{ item.text }}
+          <div class="pub-links">
+            <a href="{{ item.preprint_url }}" target="_blank" rel="noopener noreferrer">[preprint]</a>
+            {% if item.doi %}
+              <a href="https://doi.org/{{ item.doi }}" target="_blank" rel="noopener noreferrer">[doi]</a>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p>No preprint links matched the current mapping file.</p>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% set page_title = "Publications" %}
+{% block content %}
+<section>
+  <h2>Publications</h2>
+  <label for="pub-filter">Filter</label>
+  <input id="pub-filter" type="search" placeholder="Type to filter publications" autocomplete="off">
+</section>
+
+{% for group in publication_groups %}
+<section>
+  <h3>{{ group.title }}</h3>
+  <ol>
+    {% for item in group["items"] %}
+      <li class="pub-item" data-pub-text="{{ item.text | lower }}">
+        {{ item.text }}
+        {% if item.links %}
+        <div class="pub-links">
+          {% for link in item.links %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.label }}]</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}
+{% endblock %}

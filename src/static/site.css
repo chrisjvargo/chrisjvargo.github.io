@@ -1,0 +1,40 @@
+:root {
+  color-scheme: light;
+}
+
+nav {
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+a {
+  overflow-wrap: anywhere;
+}
+
+.pub-links {
+  margin-top: 0.25rem;
+}
+
+.pub-links a {
+  margin-right: 0.45rem;
+  white-space: nowrap;
+}
+
+#pub-filter {
+  width: 100%;
+  max-width: 28rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
+  font-family: "Latin Modern Mono", "CMU Typewriter Text", "Courier New", monospace;
+}
+
+.cv-html {
+  border-top: 1px solid #000;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+}
+
+footer {
+  margin-top: 2rem;
+}

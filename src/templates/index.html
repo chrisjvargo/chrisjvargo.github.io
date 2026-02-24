@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% set page_title = "Home" %}
+{% block content %}
+<section>
+  <h2>Bio</h2>
+  <p>{{ bio_text }}</p>
+</section>
+
+<section>
+  <h2>Research Interests</h2>
+  <ul>
+    {% for interest in research_interests %}
+      <li>{{ interest }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>Quick Links</h2>
+  <ul>
+    {% for item in quick_links %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

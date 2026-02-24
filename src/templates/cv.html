@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set page_title = "CV" %}
+{% block content %}
+<section>
+  <h2>Curriculum Vitae</h2>
+  {% if cv_pdf_ok %}
+    <p><a href="/assets/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></p>
+  {% else %}
+    <p>PDF not available in this build.</p>
+  {% endif %}
+</section>
+
+<section>
+  <h3>HTML View</h3>
+  {% if cv_html %}
+    <article class="cv-html">
+      {{ cv_html | safe }}
+    </article>
+  {% else %}
+    <p>Pandoc HTML conversion is not available in this environment. Use the PDF link above.</p>
+  {% endif %}
+</section>
+{% endblock %}

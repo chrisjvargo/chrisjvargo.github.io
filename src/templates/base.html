@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page_title %}{{ page_title }} | {% endif %}{{ meta.name }}</title>
+  <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header>
+    <h1>{{ meta.name }}</h1>
+    <p>
+      {% if meta.address_lines %}
+        {{ meta.address_lines[0] }}
+      {% endif %}
+      {% if meta.email %}
+        {% if meta.address_lines %} | {% endif %}<a href="mailto:{{ meta.email }}">{{ meta.email_display or meta.email }}</a>
+      {% endif %}
+      {% if meta.orcid %}
+        | <a href="https://orcid.org/{{ meta.orcid }}">ORCID {{ meta.orcid }}</a>
+      {% endif %}
+    </p>
+    <nav aria-label="Primary">
+      {% for item in nav %}
+        <a href="{{ item.url }}">{{ item.title }}</a>{% if not loop.last %} | {% endif %}
+      {% endfor %}
+    </nav>
+  </header>
+
+  <main id="content">
+    {% if content_html %}
+      {{ content_html | safe }}
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <small>
+      Last updated (CV): {{ meta.current_as_of or 'Unknown' }} | Site build: {{ build_timestamp }}
+    </small>
+  </footer>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% set page_title = section.title %}
+{% block content %}
+<section>
+  <h2>{{ section.title }}</h2>
+
+  {% if section.entries %}
+    <ul>
+      {% for entry in section.entries %}
+        <li>{{ entry }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% for sub in section.subsections %}
+    <h3>{{ sub.title }}</h3>
+    <ul>
+      {% for entry in sub.entries %}
+        <li>{{ entry }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+</section>
+{% endblock %}
