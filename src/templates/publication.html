@@ -1,21 +1,90 @@
 {% extends "base.html" %}
 {% set page_title = publication.title %}
 {% block head_extra %}
-  {% for tag in publication.meta_tags %}
-  <meta name="{{ tag.name }}" content="{{ tag.content }}">
-  {% endfor %}
   <script type="application/ld+json">{{ publication.jsonld | safe }}</script>
 {% endblock %}
 {% block content %}
-<section>
-  <h2>{{ publication.title }}</h2>
-  <p><strong>Category:</strong> {{ publication.subsection }}</p>
-  <p><strong>Citation:</strong> {{ publication.text }}</p>
-  <div class="pub-links">
-    {% for link in publication.links %}
-      <a href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>[{{ link.label }}]</a>
+<article class="record-page">
+  <h1>{{ publication.title }}</h1>
+
+  {% if publication.author_links %}
+  <p class="record-authors">
+    <strong>Authors:</strong>
+    {% for author in publication.author_links %}
+      {% if author.orcid_url %}
+        <a href="{{ author.orcid_url }}" target="_blank" rel="noopener noreferrer">{{ author.name }}</a>{% if not loop.last %}; {% endif %}
+      {% else %}
+        {{ author.name }}{% if not loop.last %}; {% endif %}
+      {% endif %}
     {% endfor %}
-  </div>
+  </p>
+  {% endif %}
+
+  {% if publication.venue_line %}
+  <p><strong>Publication:</strong> {{ publication.venue_line }}</p>
+  {% endif %}
+
+  {% if publication.doi %}
+  <p><a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noopener noreferrer">Version of record (DOI)</a></p>
+  {% endif %}
+
+  {% if publication.local_pdf_url %}
+  <p class="record-download"><a href="{{ publication.local_pdf_url }}">Download preprint PDF</a></p>
+    {% if publication.external_pdf_url %}
+  <p><a href="{{ publication.external_pdf_url }}" target="_blank" rel="noopener noreferrer">Alternate download</a></p>
+    {% endif %}
+  {% elif publication.external_pdf_url %}
+  <p class="record-download"><a href="{{ publication.external_pdf_url }}" target="_blank" rel="noopener noreferrer">Preprint</a></p>
+  {% endif %}
+
+  <section>
+    <h2>Abstract</h2>
+    <p>{{ publication.abstract_display }}</p>
+  </section>
+
+  {% if publication.keywords %}
+  <section>
+    <h2>Keywords</h2>
+    <p>{{ publication.keywords | join('; ') }}</p>
+  </section>
+  {% endif %}
+
+  <section>
+    <h2>How to Cite</h2>
+    <p>{{ publication.citation_text }}</p>
+    <p class="citation-downloads">
+      <a href="{{ publication.citation_files.bib }}">BibTeX (.bib)</a>
+      <a href="{{ publication.citation_files.ris }}">RIS (.ris)</a>
+      <a href="{{ publication.citation_files.json }}">CSL-JSON (.json)</a>
+    </p>
+  </section>
+
+  {% if publication.open_resources.code_url or publication.open_resources.data_url or publication.open_resources.materials_url %}
+  <section>
+    <h2>Open Resources</h2>
+    <ul>
+      {% if publication.open_resources.code_url %}<li><a href="{{ publication.open_resources.code_url }}" target="_blank" rel="noopener noreferrer">Code</a></li>{% endif %}
+      {% if publication.open_resources.data_url %}<li><a href="{{ publication.open_resources.data_url }}" target="_blank" rel="noopener noreferrer">Data</a></li>{% endif %}
+      {% if publication.open_resources.materials_url %}<li><a href="{{ publication.open_resources.materials_url }}" target="_blank" rel="noopener noreferrer">Materials</a></li>{% endif %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if rights_note or publication.license.license_name or publication.license.license_url %}
+  <section>
+    <h2>Version and Rights</h2>
+    {% if rights_note %}<p>{{ rights_note }}</p>{% endif %}
+    {% if publication.license.license_name and publication.license.license_url %}
+      <p>License: <a href="{{ publication.license.license_url }}" target="_blank" rel="noopener noreferrer">{{ publication.license.license_name }}</a></p>
+    {% elif publication.license.license_url %}
+      <p>License: <a href="{{ publication.license.license_url }}" target="_blank" rel="noopener noreferrer">{{ publication.license.license_url }}</a></p>
+    {% elif publication.license.license_name %}
+      <p>License: {{ publication.license.license_name }}</p>
+    {% endif %}
+  </section>
+  {% endif %}
+
   <p><a href="/publications/">&larr; Back to publications</a></p>
-</section>
+  <span class="sr-only Z3988" title="{{ publication.coins }}"></span>
+</article>
 {% endblock %}

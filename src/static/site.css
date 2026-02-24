@@ -102,6 +102,36 @@ main ul li {
   white-space: nowrap;
 }
 
+.record-page h1 {
+  margin-bottom: 0.35rem;
+}
+
+.record-authors {
+  margin-bottom: 0.5rem;
+}
+
+.record-download {
+  font-weight: 600;
+}
+
+.citation-downloads a {
+  margin-right: 0.7rem;
+  white-space: nowrap;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 #pub-filter {
   width: 100%;
   max-width: 28rem;

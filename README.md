@@ -25,6 +25,24 @@ The build generates publication detail pages at `/publications/<slug>/` and inje
 - Google Scholar/Highwire `citation_*` metadata
 - Dublin Core `DC.*` metadata
 - `schema.org/ScholarlyArticle` JSON-LD
+- COinS (`Z3988`) metadata for Zotero/Mendeley
+- Per-record downloadable citation files (`citation.bib`, `citation.ris`, `citation.json`)
+- Site-wide citation exports (`/publications.bib`, `/publications.ris`, `/publications.json`)
+- Atom feed (`/feed.xml`), sitemap (`/sitemap.xml`), robots (`/robots.txt`), and `/llms.txt`
+
+## Publication Overrides
+Optional file: `publication_overrides.json`
+
+Use this to provide metadata that cannot be reliably inferred from CV citations, including:
+- `abstract`, `keywords`, `no_abstract_ok`
+- `online_date`, `publication_date`, `year`
+- `publisher_url`, `doi`
+- `version_label`
+- `pdf.local_pdf_path`, `pdf.public_pdf_filename`, `pdf.external_pdf_url`
+- `license.license_name`, `license.license_url`
+- `open_resources.code_url`, `open_resources.data_url`, `open_resources.materials_url`
+
+Matching keys can be set in either `by_slug` or `by_doi`.
 
 ## Preprint Mapping
 File: `preprints.csv` (UTF-8, header required)
@@ -50,6 +68,7 @@ Matching rules:
 - `make cv` - compile `cv/Vargo_CV.pdf` with `latexmk`
 - `make preprints` - download/convert/verify preprints and rewrite `preprints.csv`
 - `make build` - generate `dist/`
+- `make validate` - run build output checks for required publication metadata
 - `make serve` - local preview at `http://localhost:8000`
 
 ## Local Build

@@ -9,6 +9,29 @@
   {% if canonical_url %}
   <link rel="canonical" href="{{ canonical_url }}">
   {% endif %}
+
+  <meta property="og:type" content="{{ og_type or 'website' }}">
+  <meta property="og:title" content="{{ social_title or page_title or meta.name }}">
+  <meta property="og:description" content="{{ social_description or page_description or ('Academic website for ' ~ meta.name) }}">
+  <meta property="og:url" content="{{ social_url or canonical_url or site_url }}">
+  <meta property="og:image" content="{{ social_image }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ social_title or page_title or meta.name }}">
+  <meta name="twitter:description" content="{{ social_description or page_description or ('Academic website for ' ~ meta.name) }}">
+  <meta name="twitter:image" content="{{ social_image }}">
+
+  {% for tag in head_meta_tags or [] %}
+    {% if tag.property %}
+  <meta property="{{ tag.property }}" content="{{ tag.content }}">
+    {% else %}
+  <meta name="{{ tag.name }}" content="{{ tag.content }}">
+    {% endif %}
+  {% endfor %}
+
+  {% for link in head_links or [] %}
+  <link rel="{{ link.rel }}" href="{{ link.href }}"{% if link.type %} type="{{ link.type }}"{% endif %}{% if link.title %} title="{{ link.title }}"{% endif %}>
+  {% endfor %}
+
   <link rel="stylesheet" href="https://latex.vercel.app/style.css">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -37,7 +60,9 @@
     <nav aria-label="Primary">
       <ul class="top-nav">
         {% for item in nav %}
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          <li>
+            <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
+          </li>
         {% endfor %}
       </ul>
     </nav>
