@@ -39,6 +39,8 @@ Use this to provide metadata that cannot be reliably inferred from CV citations,
 - `publisher_url`, `doi`
 - `version_label`
 - `pdf.local_pdf_path`, `pdf.public_pdf_filename`, `pdf.external_pdf_url`
+- `chapter_preprints[]` for multiple chapter-level PDF links on one publication
+- `suppress_default_preprint_link` when chapter links should replace the single preprint link
 - `license.license_name`, `license.license_url`
 - `open_resources.code_url`, `open_resources.data_url`, `open_resources.materials_url`
 

@@ -28,7 +28,13 @@
   <p><a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noopener noreferrer">Version of record (DOI)</a></p>
   {% endif %}
 
-  {% if publication.local_pdf_url %}
+  {% if publication.chapter_preprints %}
+  <p class="record-download">
+    {% for chapter in publication.chapter_preprints %}
+      <a href="{{ chapter.url }}"{% if chapter.url.startswith('http://') or chapter.url.startswith('https://') %} target="_blank" rel="noopener noreferrer"{% endif %}>[{{ chapter.label }}]</a>{% if not loop.last %} {% endif %}
+    {% endfor %}
+  </p>
+  {% elif publication.local_pdf_url %}
   <p class="record-download"><a href="{{ publication.local_pdf_url }}">Download preprint PDF</a></p>
     {% if publication.external_pdf_url %}
   <p><a href="{{ publication.external_pdf_url }}" target="_blank" rel="noopener noreferrer">Alternate download</a></p>

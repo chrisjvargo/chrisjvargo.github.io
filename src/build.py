@@ -235,6 +235,39 @@ def resolve_local_pdf_override(path_value: str | None, repo_root: Path) -> Path 
     return None
 
 
+def parse_chapter_preprints(override: dict[str, Any], repo_root: Path) -> list[dict[str, Any]]:
+    raw_entries = override.get("chapter_preprints")
+    if not isinstance(raw_entries, list):
+        return []
+
+    out: list[dict[str, Any]] = []
+    for idx, raw in enumerate(raw_entries, start=1):
+        if not isinstance(raw, dict):
+            continue
+        label = normalize_whitespace(str(raw.get("label") or f"chapter {idx}"))
+        public_pdf_filename = str(raw.get("public_pdf_filename") or f"chapter-{idx:02d}.pdf").strip()
+        if not public_pdf_filename.lower().endswith(".pdf"):
+            public_pdf_filename = f"{public_pdf_filename}.pdf"
+
+        local_source_pdf = resolve_local_pdf_override(str(raw.get("local_pdf_path") or ""), repo_root)
+        external_pdf_url = str(raw.get("external_pdf_url") or "").strip() or None
+        if not local_source_pdf and not external_pdf_url:
+            continue
+
+        out.append(
+            {
+                "label": label,
+                "public_pdf_filename": public_pdf_filename,
+                "local_source_pdf": str(local_source_pdf) if local_source_pdf else None,
+                "external_pdf_url": external_pdf_url,
+                "url": None,
+                "absolute_url": None,
+            }
+        )
+
+    return out
+
+
 def format_venue_line(pub: dict[str, Any]) -> str | None:
     bits: list[str] = []
     if pub.get("venue_display"):
@@ -916,7 +949,19 @@ def build_record_links(pub: dict[str, Any]) -> list[dict[str, Any]]:
         links.append({"label": "publisher", "url": pub["publisher_url"], "external": True})
     if pub.get("doi"):
         links.append({"label": "doi", "url": f"https://doi.org/{pub['doi']}", "external": True})
-    if pub.get("local_pdf_url"):
+    if pub.get("chapter_preprints"):
+        for chapter in pub["chapter_preprints"]:
+            chapter_url = chapter.get("url")
+            if not chapter_url:
+                continue
+            links.append(
+                {
+                    "label": chapter.get("label") or "chapter",
+                    "url": chapter_url,
+                    "external": is_external(chapter_url),
+                }
+            )
+    elif pub.get("local_pdf_url"):
         links.append({"label": "pre-print", "url": pub["local_pdf_url"], "external": False})
     elif pub.get("external_pdf_url"):
         links.append({"label": "pre-print", "url": pub["external_pdf_url"], "external": True})
@@ -1022,6 +1067,7 @@ def build_publication_records(
         publication_date = parse_publication_date(item.get("raw") or "", citation_text, year)
 
         override = get_publication_override(overrides, slug, doi)
+        suppress_default_preprint = bool(override.get("suppress_default_preprint_link", False))
         override_year = override.get("year")
         if override_year:
             try:
@@ -1056,9 +1102,20 @@ def build_publication_records(
             str(pdf_override.get("external_pdf_url") or "").strip()
             or (preprint_url if preprint_url and is_external(preprint_url) else None)
         )
+        chapter_preprints = parse_chapter_preprints(override, repo_root)
+        if suppress_default_preprint and chapter_preprints:
+            local_source_pdf = None
+            external_pdf_url = None
 
         public_pdf_filename = str(pdf_override.get("public_pdf_filename") or "preprint.pdf")
         local_pdf_url = f"{detail_url}{public_pdf_filename}" if local_source_pdf else None
+        for chapter in chapter_preprints:
+            if chapter.get("local_source_pdf"):
+                chapter["url"] = f"{detail_url}{chapter['public_pdf_filename']}"
+                chapter["absolute_url"] = abs_url(site_url, chapter["url"])
+            elif chapter.get("external_pdf_url"):
+                chapter["url"] = chapter["external_pdf_url"]
+                chapter["absolute_url"] = chapter["external_pdf_url"]
 
         override_abstract = normalize_whitespace(str(override.get("abstract") or ""))
         override_keywords = override.get("keywords") if isinstance(override.get("keywords"), list) else []
@@ -1124,6 +1181,8 @@ def build_publication_records(
             "local_pdf_url": local_pdf_url,
             "local_pdf_absolute_url": abs_url(site_url, local_pdf_url) if local_pdf_url else None,
             "external_pdf_url": external_pdf_url,
+            "suppress_default_preprint_link": suppress_default_preprint,
+            "chapter_preprints": chapter_preprints,
             "container_type": venue["container_type"],
             "journal_title": venue.get("journal_title"),
             "conference_title": venue.get("conference_title"),
@@ -1405,6 +1464,17 @@ def build_site(
                 dst_pdf = pub_dir / pub["pdf"].get("public_pdf_filename", "preprint.pdf")
                 ensure_dir(dst_pdf.parent)
                 shutil.copy2(src_pdf, dst_pdf)
+
+        for chapter in pub.get("chapter_preprints", []):
+            src_chapter_pdf = chapter.get("local_source_pdf")
+            if isinstance(src_chapter_pdf, str) and src_chapter_pdf:
+                src_path = Path(src_chapter_pdf)
+            else:
+                src_path = None
+            if src_path and src_path.exists():
+                dst_chapter_pdf = pub_dir / str(chapter.get("public_pdf_filename") or "chapter.pdf")
+                ensure_dir(dst_chapter_pdf.parent)
+                shutil.copy2(src_path, dst_chapter_pdf)
 
         bib_text = bibtex_entry(pub)
         ris_text = ris_entry(pub)

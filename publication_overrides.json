@@ -1,4 +1,31 @@
 {
-  "by_slug": {},
+  "by_slug": {
+    "content-is-king-news-media-management-in-the-digital-age": {
+      "version_label": "Author chapter preprints",
+      "suppress_default_preprint_link": true,
+      "chapter_preprints": [
+        {
+          "label": "chapter 1",
+          "local_pdf_path": "/Users/chrisjvargo/My Drive/2work/completed_research_projects/bk03_content_is_king_book/1st Proofs/01 Chapter 1.pdf",
+          "public_pdf_filename": "chapter-01.pdf"
+        },
+        {
+          "label": "chapter 3",
+          "local_pdf_path": "/Users/chrisjvargo/My Drive/2work/completed_research_projects/bk03_content_is_king_book/1st Proofs/03 Chapter 3.pdf",
+          "public_pdf_filename": "chapter-03.pdf"
+        },
+        {
+          "label": "chapter 10",
+          "local_pdf_path": "/Users/chrisjvargo/My Drive/2work/completed_research_projects/bk03_content_is_king_book/1st Proofs/10 Chapter 10.pdf",
+          "public_pdf_filename": "chapter-10.pdf"
+        },
+        {
+          "label": "chapter 11",
+          "local_pdf_path": "/Users/chrisjvargo/My Drive/2work/completed_research_projects/bk03_content_is_king_book/1st Proofs/11 Chapter 11.pdf",
+          "public_pdf_filename": "chapter-11.pdf"
+        }
+      ]
+    }
+  },
   "by_doi": {}
 }
