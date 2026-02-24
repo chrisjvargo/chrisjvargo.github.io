@@ -27,6 +27,7 @@ body {
   border-bottom: 1px solid #444;
   margin-bottom: 1rem;
   padding-bottom: 0.8rem;
+  text-align: center;
 }
 
 .site-contact {
@@ -53,6 +54,7 @@ nav {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 0.65rem;
   row-gap: 0.25rem;
 }
