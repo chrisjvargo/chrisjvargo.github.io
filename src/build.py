@@ -613,7 +613,7 @@ def main() -> None:
     parser.add_argument("--input", required=True, type=Path)
     parser.add_argument("--preprints", required=True, type=Path)
     parser.add_argument("--out", default=Path("dist"), type=Path)
-    parser.add_argument("--site-url", default="https://chrisjvargo.github.io")
+    parser.add_argument("--site-url", default="https://chrisjvargo.com")
     parser.add_argument("--domain", default=None)
     args = parser.parse_args()
 
