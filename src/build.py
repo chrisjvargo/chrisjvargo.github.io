@@ -21,6 +21,8 @@ if str(SCRIPT_DIR) not in sys.path:
 from merge_preprints import attach_preprints  # noqa: E402
 from parse_cv import clean_latex_text, parse_cv  # noqa: E402
 
+AUTHOR_RE = re.compile(r"[A-Z][A-Za-z'’`.-]+,\s*(?:[A-Z]\.\s*){1,5}")
+
 
 def slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
@@ -100,6 +102,151 @@ def is_doi_url(url: str) -> bool:
     return bool(re.search(r"https?://(?:dx\.)?doi\.org/", url, flags=re.I))
 
 
+def abs_url(site_url: str, path_or_url: str) -> str:
+    if path_or_url.startswith("http://") or path_or_url.startswith("https://"):
+        return path_or_url
+    return f"{site_url.rstrip('/')}/{path_or_url.lstrip('/')}"
+
+
+def looks_like_pdf_url(url: str) -> bool:
+    return bool(re.search(r"\.pdf(?:$|[?#])", url, flags=re.I))
+
+
+def shorten(text: str, max_len: int = 220) -> str:
+    text = re.sub(r"\s+", " ", (text or "")).strip()
+    if len(text) <= max_len:
+        return text
+    return text[: max_len - 1].rstrip() + "…"
+
+
+def extract_authors(citation_text: str) -> list[str]:
+    head = clean_latex_text(citation_text.split("(", 1)[0])
+    matches = [m.strip().rstrip(",") for m in AUTHOR_RE.findall(head)]
+    if matches:
+        return matches
+
+    chunks = re.split(r"\s*(?:,|&| and )\s*", head)
+    fallback = [c.strip() for c in chunks if c.strip()]
+    return fallback[:8]
+
+
+def infer_venue(citation_text: str, title_guess: str | None, subsection: str) -> str | None:
+    text = citation_text or ""
+    title = title_guess or ""
+
+    if title and title in text:
+        tail = text.split(title, 1)[1]
+    else:
+        m = re.search(r"\)\.?\s+(.*)", text)
+        tail = m.group(1) if m else ""
+
+    tail = re.sub(r"https?://\S+", "", tail).strip(" .")
+    if not tail:
+        return None
+
+    if "Conference" in subsection or "Proceedings" in subsection:
+        venue = re.split(r"\.\s+", tail, maxsplit=1)[0].strip(" .")
+        return venue or None
+
+    if subsection in {"Books"}:
+        return None
+
+    m = re.match(r"(.+?)(?:,\s*\d|\.\s|$)", tail)
+    if not m:
+        return None
+    venue = m.group(1).strip(" .")
+    return venue or None
+
+
+def publication_meta_tags(
+    item: dict[str, Any],
+    subsection: str,
+    canonical_url: str,
+) -> list[dict[str, str]]:
+    title = item.get("title_guess") or item.get("text") or "Publication"
+    authors = extract_authors(item.get("text") or title)
+    venue = infer_venue(item.get("text") or "", item.get("title_guess"), subsection)
+    year = item.get("year")
+    doi = item.get("doi")
+    preprint_url = item.get("preprint_url")
+
+    tags: list[dict[str, str]] = []
+
+    def add(name: str, value: str | None) -> None:
+        if not value:
+            return
+        tags.append({"name": name, "content": value})
+
+    add("citation_title", title)
+    for author in authors:
+        add("citation_author", author)
+    if year:
+        add("citation_publication_date", str(year))
+    if venue:
+        if "Conference" in subsection or "Proceedings" in subsection:
+            add("citation_conference_title", venue)
+        elif subsection in {"Edited Book Chapters", "Peer Reviewed, Edited Chapters"}:
+            add("citation_book_title", venue)
+        else:
+            add("citation_journal_title", venue)
+    if doi:
+        add("citation_doi", doi)
+    add("citation_abstract_html_url", canonical_url)
+    add("citation_public_url", canonical_url)
+    if preprint_url:
+        if looks_like_pdf_url(preprint_url):
+            add("citation_pdf_url", preprint_url)
+        else:
+            add("citation_fulltext_html_url", preprint_url)
+
+    # Dublin Core helps indexers that consume DC metadata.
+    add("DC.type", "Text")
+    add("DC.title", title)
+    for author in authors:
+        add("DC.creator", author)
+    if year:
+        add("DC.date", str(year))
+    add("DC.identifier", canonical_url)
+    if doi:
+        add("DC.identifier", f"https://doi.org/{doi}")
+
+    return tags
+
+
+def publication_jsonld(item: dict[str, Any], subsection: str, canonical_url: str) -> str:
+    title = item.get("title_guess") or item.get("text") or "Publication"
+    authors = extract_authors(item.get("text") or title)
+    venue = infer_venue(item.get("text") or "", item.get("title_guess"), subsection)
+    year = item.get("year")
+    doi = item.get("doi")
+    preprint_url = item.get("preprint_url")
+    external_links = [link.get("url") for link in (item.get("links") or []) if link.get("url")]
+
+    payload: dict[str, Any] = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": title,
+        "name": title,
+        "url": canonical_url,
+        "mainEntityOfPage": canonical_url,
+    }
+
+    if authors:
+        payload["author"] = [{"@type": "Person", "name": a} for a in authors]
+    if year:
+        payload["datePublished"] = str(year)
+    if venue:
+        payload["isPartOf"] = {"@type": "Periodical", "name": venue}
+    if doi:
+        payload["identifier"] = [{"@type": "PropertyValue", "propertyID": "doi", "value": doi}]
+    if preprint_url:
+        payload["encoding"] = {"@type": "MediaObject", "contentUrl": preprint_url}
+    if external_links:
+        payload["sameAs"] = external_links
+
+    return json.dumps(payload, ensure_ascii=False)
+
+
 def publication_links(item: dict[str, Any]) -> list[dict[str, str]]:
     links: list[dict[str, str]] = []
     urls = item.get("urls", []) or []
@@ -117,13 +264,13 @@ def publication_links(item: dict[str, Any]) -> list[dict[str, str]]:
 
     doi = item.get("doi")
     if publisher:
-        links.append({"label": "publisher", "url": publisher})
+        links.append({"label": "publisher", "url": publisher, "external": "true"})
     if doi:
-        links.append({"label": "doi", "url": f"https://doi.org/{doi}"})
+        links.append({"label": "doi", "url": f"https://doi.org/{doi}", "external": "true"})
     if item.get("preprint_url"):
-        links.append({"label": "pre-print", "url": item["preprint_url"]})
+        links.append({"label": "pre-print", "url": item["preprint_url"], "external": "true"})
     if pdf_link:
-        links.append({"label": "pdf", "url": pdf_link})
+        links.append({"label": "pdf", "url": pdf_link, "external": "true"})
 
     return links
 
@@ -142,6 +289,25 @@ def collect_publication_groups(cv_data: dict[str, Any]) -> list[dict[str, Any]]:
             if items:
                 groups.append({"title": subsection.get("title", "Untitled"), "items": items})
     return groups
+
+
+def assign_publication_detail_urls(pub_groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    used: dict[str, int] = {}
+    flat: list[dict[str, Any]] = []
+
+    for group in pub_groups:
+        subsection = group.get("title", "Publications")
+        for item in group.get("items", []):
+            basis = item.get("title_guess") or item.get("text") or "publication"
+            root = slugify(basis)[:88].strip("-") or "publication"
+            seen = used.get(root, 0) + 1
+            used[root] = seen
+            slug = root if seen == 1 else f"{root}-{seen}"
+            detail_url = f"/publications/{slug}/"
+            item["detail_url"] = detail_url
+            flat.append({"subsection": subsection, "item": item})
+
+    return flat
 
 
 def collect_preprint_items(pub_groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -256,6 +422,7 @@ def build_site(
     cv_data, preprint_report = attach_preprints(cv_data, preprints_csv, threshold=0.86)
 
     pub_groups = collect_publication_groups(cv_data)
+    publication_records = assign_publication_detail_urls(pub_groups)
     preprint_items = collect_preprint_items(pub_groups)
 
     # Optional section pages requested by user.
@@ -318,6 +485,8 @@ def build_site(
     # Home
     home_html = env.get_template("index.html").render(
         **common_ctx,
+        canonical_url=abs_url(site_url, "/"),
+        page_description="Academic profile, publications, and CV for Chris J. Vargo.",
         bio_text=bio_text,
         research_interests=research_interests,
         quick_links=nav,
@@ -327,13 +496,45 @@ def build_site(
     # Publications
     pubs_html = env.get_template("publications.html").render(
         **common_ctx,
+        canonical_url=abs_url(site_url, "/publications/"),
+        page_description="Publication list with DOI, publisher, and pre-print links.",
         publication_groups=pub_groups,
     )
     write_text(out_dir / "publications" / "index.html", pubs_html)
 
+    # Publication detail pages with citation metadata for indexers.
+    publication_template = env.get_template("publication.html")
+    publication_detail_paths: list[str] = []
+    for record in publication_records:
+        subsection = record["subsection"]
+        item = record["item"]
+        detail_url = item["detail_url"]
+        canonical_url = abs_url(site_url, detail_url)
+        publication = {
+            "title": item.get("title_guess") or item.get("text") or "Publication",
+            "text": item.get("text") or "",
+            "subsection": subsection,
+            "links": item.get("links") or [],
+            "detail_url": detail_url,
+            "canonical_url": canonical_url,
+            "meta_tags": publication_meta_tags(item, subsection, canonical_url),
+            "jsonld": publication_jsonld(item, subsection, canonical_url),
+        }
+
+        rendered = publication_template.render(
+            **common_ctx,
+            canonical_url=canonical_url,
+            page_description=shorten(publication["text"]),
+            publication=publication,
+        )
+        write_text(out_dir / detail_url.strip("/") / "index.html", rendered)
+        publication_detail_paths.append(detail_url)
+
     # CV page
     cv_html_page = env.get_template("cv.html").render(
         **common_ctx,
+        canonical_url=abs_url(site_url, "/cv/"),
+        page_description="Curriculum Vitae of Chris J. Vargo.",
         cv_html=cv_html,
         cv_html_status=cv_html_status,
         cv_pdf_ok=cv_pdf_ok,
@@ -343,7 +544,12 @@ def build_site(
     # Optional pages
     section_template = env.get_template("section.html")
     for sec in optional_sections:
-        rendered = section_template.render(**common_ctx, section=sec)
+        rendered = section_template.render(
+            **common_ctx,
+            canonical_url=abs_url(site_url, f"/{sec['slug']}/"),
+            page_description=f"{sec['title']} information for {meta.get('name', 'Chris J. Vargo')}.",
+            section=sec,
+        )
         write_text(out_dir / sec["slug"] / "index.html", rendered)
 
     # Build reports
@@ -353,6 +559,7 @@ def build_site(
         "cv_pdf_status": cv_pdf_status,
         "publication_groups": [g.get("title") for g in pub_groups],
         "preprints_page_count": len(preprint_items),
+        "publication_detail_pages": len(publication_detail_paths),
         "build_timestamp": timestamp,
     }
     write_text(out_dir / "build_report.json", json.dumps(report, indent=2, ensure_ascii=False))
@@ -368,6 +575,7 @@ def build_site(
         env.get_template("base.html").render(
             **common_ctx,
             page_title="Page Not Found",
+            page_description="Page not found.",
             content_html="<h2>404</h2><p>The page you requested does not exist.</p><p><a href='/'>&larr; Back to home</a></p>",
         ),
     )
@@ -384,7 +592,7 @@ def build_site(
         "/",
         "/publications/",
         "/cv/",
-    ] + [x["url"] for x in optional_nav]
+    ] + [x["url"] for x in optional_nav] + publication_detail_paths
 
     urls_xml = "\n".join(
         f"  <url><loc>{html.escape(site_url.rstrip('/') + path)}</loc></url>" for path in page_paths

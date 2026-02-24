@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% set page_title = publication.title %}
+{% block head_extra %}
+  {% for tag in publication.meta_tags %}
+  <meta name="{{ tag.name }}" content="{{ tag.content }}">
+  {% endfor %}
+  <script type="application/ld+json">{{ publication.jsonld | safe }}</script>
+{% endblock %}
+{% block content %}
+<section>
+  <h2>{{ publication.title }}</h2>
+  <p><strong>Category:</strong> {{ publication.subsection }}</p>
+  <p><strong>Citation:</strong> {{ publication.text }}</p>
+  <div class="pub-links">
+    {% for link in publication.links %}
+      <a href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>[{{ link.label }}]</a>
+    {% endfor %}
+  </div>
+  <p><a href="/publications/">&larr; Back to publications</a></p>
+</section>
+{% endblock %}

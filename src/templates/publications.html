@@ -14,10 +14,13 @@
     {% for item in group["items"] %}
       <li class="pub-item" data-pub-text="{{ item.text | lower }}">
         {{ item.text }}
-        {% if item.links %}
+        {% if item.links or item.detail_url %}
         <div class="pub-links">
+          {% if item.detail_url %}
+            <a href="{{ item.detail_url }}">[record]</a>
+          {% endif %}
           {% for link in item.links %}
-            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.label }}]</a>
+            <a href="{{ link.url }}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>[{{ link.label }}]</a>
           {% endfor %}
         </div>
         {% endif %}

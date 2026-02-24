@@ -20,6 +20,11 @@ No analytics, trackers, cookies, database, or client framework.
 - `src/static/`: static assets
 - `.github/workflows/pages.yml`: build and deploy workflow
 
+The build generates publication detail pages at `/publications/<slug>/` and injects:
+- Google Scholar/Highwire `citation_*` metadata
+- Dublin Core `DC.*` metadata
+- `schema.org/ScholarlyArticle` JSON-LD
+
 ## Preprint Mapping
 File: `preprints.csv` (UTF-8, header required)
 
