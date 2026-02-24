@@ -461,7 +461,8 @@ def build_site(
         optional_nav.append({"title": sec["title"], "url": f"/{slug}/"})
 
     nav = base_nav + optional_nav + [
-        {"title": "GitHub", "url": "https://github.com/chrisjvargo", "external": True}
+        {"title": "GitHub", "url": "https://github.com/chrisjvargo", "external": True},
+        {"title": "LinkedIn", "url": "https://www.linkedin.com/in/chrisjvargo/", "external": True},
     ]
 
     timestamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
