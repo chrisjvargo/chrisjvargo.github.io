@@ -121,7 +121,7 @@ def publication_links(item: dict[str, Any]) -> list[dict[str, str]]:
     if doi:
         links.append({"label": "doi", "url": f"https://doi.org/{doi}"})
     if item.get("preprint_url"):
-        links.append({"label": "preprint", "url": item["preprint_url"]})
+        links.append({"label": "pre-print", "url": item["preprint_url"]})
     if pdf_link:
         links.append({"label": "pdf", "url": pdf_link})
 
@@ -244,6 +244,8 @@ def build_site(
         lstrip_blocks=True,
     )
 
+    if out_dir.exists():
+        shutil.rmtree(out_dir)
     ensure_dir(out_dir)
     ensure_dir(out_dir / "assets")
 
@@ -260,7 +262,6 @@ def build_site(
     optional_titles = {
         "Teaching",
         "Service",
-        "Grant Applications & Funds Raised",
         "Awards",
     }
 
@@ -275,7 +276,6 @@ def build_site(
     base_nav = [
         {"title": "Home", "url": "/"},
         {"title": "Publications", "url": "/publications/"},
-        {"title": "Preprints", "url": "/preprints/"},
         {"title": "CV", "url": "/cv/"},
     ]
 
@@ -330,13 +330,6 @@ def build_site(
     )
     write_text(out_dir / "publications" / "index.html", pubs_html)
 
-    # Preprints
-    preprints_html = env.get_template("preprints.html").render(
-        **common_ctx,
-        preprints=preprint_items,
-    )
-    write_text(out_dir / "preprints" / "index.html", preprints_html)
-
     # CV page
     cv_html_page = env.get_template("cv.html").render(
         **common_ctx,
@@ -389,7 +382,6 @@ def build_site(
     page_paths = [
         "/",
         "/publications/",
-        "/preprints/",
         "/cv/",
     ] + [x["url"] for x in optional_nav]
 
