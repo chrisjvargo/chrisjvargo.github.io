@@ -58,6 +58,11 @@ def load_preprints(path: Path) -> list[PreprintRow]:
     with path.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         for idx, row in enumerate(reader, start=1):
+            verify_status = (row.get("verify_status") or "").strip().lower()
+            if verify_status and verify_status not in {"verified", "likely", "manual_verified"}:
+                # Keep uncertain rows in CSV for audit, but do not publish as linked preprints.
+                continue
+
             doi = normalize_doi((row.get("doi") or "").strip())
             title = (row.get("title") or "").strip()
             preprint_url = (row.get("preprint_url") or "").strip()

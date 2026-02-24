@@ -40,9 +40,12 @@ def write_text(path: Path, content: str) -> None:
 
 def copy_static(static_dir: Path, out_assets: Path) -> None:
     ensure_dir(out_assets)
-    for src in static_dir.glob("*"):
+    for src in static_dir.rglob("*"):
         if src.is_file():
-            shutil.copy2(src, out_assets / src.name)
+            rel = src.relative_to(static_dir)
+            dst = out_assets / rel
+            ensure_dir(dst.parent)
+            shutil.copy2(src, dst)
 
 
 def extract_body_html(pandoc_html: str) -> str | None:
@@ -162,6 +165,7 @@ def publication_meta_tags(
     item: dict[str, Any],
     subsection: str,
     canonical_url: str,
+    site_url: str,
 ) -> list[dict[str, str]]:
     title = item.get("title_guess") or item.get("text") or "Publication"
     authors = extract_authors(item.get("text") or title)
@@ -169,6 +173,7 @@ def publication_meta_tags(
     year = item.get("year")
     doi = item.get("doi")
     preprint_url = item.get("preprint_url")
+    preprint_abs = abs_url(site_url, preprint_url) if preprint_url else None
 
     tags: list[dict[str, str]] = []
 
@@ -193,11 +198,11 @@ def publication_meta_tags(
         add("citation_doi", doi)
     add("citation_abstract_html_url", canonical_url)
     add("citation_public_url", canonical_url)
-    if preprint_url:
-        if looks_like_pdf_url(preprint_url):
-            add("citation_pdf_url", preprint_url)
+    if preprint_abs:
+        if looks_like_pdf_url(preprint_abs):
+            add("citation_pdf_url", preprint_abs)
         else:
-            add("citation_fulltext_html_url", preprint_url)
+            add("citation_fulltext_html_url", preprint_abs)
 
     # Dublin Core helps indexers that consume DC metadata.
     add("DC.type", "Text")
@@ -213,13 +218,14 @@ def publication_meta_tags(
     return tags
 
 
-def publication_jsonld(item: dict[str, Any], subsection: str, canonical_url: str) -> str:
+def publication_jsonld(item: dict[str, Any], subsection: str, canonical_url: str, site_url: str) -> str:
     title = item.get("title_guess") or item.get("text") or "Publication"
     authors = extract_authors(item.get("text") or title)
     venue = infer_venue(item.get("text") or "", item.get("title_guess"), subsection)
     year = item.get("year")
     doi = item.get("doi")
     preprint_url = item.get("preprint_url")
+    preprint_abs = abs_url(site_url, preprint_url) if preprint_url else None
     external_links = [link.get("url") for link in (item.get("links") or []) if link.get("url")]
 
     payload: dict[str, Any] = {
@@ -239,8 +245,8 @@ def publication_jsonld(item: dict[str, Any], subsection: str, canonical_url: str
         payload["isPartOf"] = {"@type": "Periodical", "name": venue}
     if doi:
         payload["identifier"] = [{"@type": "PropertyValue", "propertyID": "doi", "value": doi}]
-    if preprint_url:
-        payload["encoding"] = {"@type": "MediaObject", "contentUrl": preprint_url}
+    if preprint_abs:
+        payload["encoding"] = {"@type": "MediaObject", "contentUrl": preprint_abs}
     if external_links:
         payload["sameAs"] = external_links
 
@@ -264,13 +270,15 @@ def publication_links(item: dict[str, Any]) -> list[dict[str, str]]:
 
     doi = item.get("doi")
     if publisher:
-        links.append({"label": "publisher", "url": publisher, "external": "true"})
+        links.append({"label": "publisher", "url": publisher, "external": True})
     if doi:
-        links.append({"label": "doi", "url": f"https://doi.org/{doi}", "external": "true"})
+        links.append({"label": "doi", "url": f"https://doi.org/{doi}", "external": True})
     if item.get("preprint_url"):
-        links.append({"label": "pre-print", "url": item["preprint_url"], "external": "true"})
+        preprint_url = item["preprint_url"]
+        is_external = preprint_url.startswith("http://") or preprint_url.startswith("https://")
+        links.append({"label": "pre-print", "url": preprint_url, "external": is_external})
     if pdf_link:
-        links.append({"label": "pdf", "url": pdf_link, "external": "true"})
+        links.append({"label": "pdf", "url": pdf_link, "external": True})
 
     return links
 
@@ -517,8 +525,8 @@ def build_site(
             "links": item.get("links") or [],
             "detail_url": detail_url,
             "canonical_url": canonical_url,
-            "meta_tags": publication_meta_tags(item, subsection, canonical_url),
-            "jsonld": publication_jsonld(item, subsection, canonical_url),
+            "meta_tags": publication_meta_tags(item, subsection, canonical_url, site_url),
+            "jsonld": publication_jsonld(item, subsection, canonical_url, site_url),
         }
 
         rendered = publication_template.render(

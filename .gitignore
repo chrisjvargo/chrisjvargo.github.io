@@ -4,6 +4,8 @@ __pycache__/
 .venv/
 dist/
 src/cache/
+preprints/source/
+_qa/
 *.log
 *.aux
 *.fdb_latexmk
