@@ -71,6 +71,23 @@ main section {
   margin-bottom: 1.2rem;
 }
 
+.feature-photo {
+  max-width: 34rem;
+  margin: 0.25rem 0 0.1rem;
+}
+
+.feature-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #444;
+}
+
+.feature-photo figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+}
+
 main ol li,
 main ul li {
   margin-bottom: 0.25rem;
