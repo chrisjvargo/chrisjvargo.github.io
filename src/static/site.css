@@ -34,6 +34,14 @@ body {
   line-height: 1.45;
 }
 
+.site-contact-address {
+  margin-bottom: 0.1rem;
+}
+
+.site-contact-links {
+  margin-top: 0;
+}
+
 nav {
   margin-top: 0.2rem;
   margin-bottom: 0.6rem;
