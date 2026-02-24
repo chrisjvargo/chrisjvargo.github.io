@@ -294,6 +294,7 @@ def build_site(
     meta = cv_data.get("meta", {})
     meta.setdefault("name", "Chris J. Vargo")
     meta.setdefault("current_as_of", "")
+    meta.setdefault("scholar_url", "https://scholar.google.com/citations?user=LTnXrjYAAAAJ")
 
     bio_text = (
         "Chris J. Vargo is an associate professor whose research focuses on computational "

@@ -20,6 +20,9 @@
       {% if meta.orcid %}
         · <a href="https://orcid.org/{{ meta.orcid }}">ORCID {{ meta.orcid }}</a>
       {% endif %}
+      {% if meta.scholar_url %}
+        · <a href="{{ meta.scholar_url }}">Google Scholar</a>
+      {% endif %}
     </p>
     <nav aria-label="Primary">
       <ul class="top-nav">
