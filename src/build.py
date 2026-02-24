@@ -460,7 +460,9 @@ def build_site(
         sec["slug"] = slug
         optional_nav.append({"title": sec["title"], "url": f"/{slug}/"})
 
-    nav = base_nav + optional_nav
+    nav = base_nav + optional_nav + [
+        {"title": "GitHub", "url": "https://github.com/chrisjvargo", "external": True}
+    ]
 
     timestamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     cv_html, cv_html_status = run_pandoc(input_tex, out_dir)
