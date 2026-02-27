@@ -53,6 +53,7 @@ MONTHS = {
 }
 
 DEFAULT_OG_IMAGE = "/assets/og-default.png"
+HIDDEN_RESEARCH_SUBSECTIONS = {"manuscripts under review"}
 
 
 def slugify(text: str) -> str:
@@ -1043,9 +1044,13 @@ def build_publication_records(
         if section.get("title") != "Research":
             continue
         for subsection in section.get("subsections", []):
+            subsection_title = subsection.get("title", "Untitled")
+            normalized_subsection = normalize_whitespace(subsection_title).casefold()
+            if normalized_subsection in HIDDEN_RESEARCH_SUBSECTIONS:
+                continue
             items = [dict(x) for x in subsection.get("items", [])]
             if items:
-                groups.append({"title": subsection.get("title", "Untitled"), "items": items})
+                groups.append({"title": subsection_title, "items": items})
 
     flat = assign_detail_urls(groups)
     abstract_cache: dict[str, tuple[str, list[str]]] = {}
