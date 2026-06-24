@@ -1,0 +1,27 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<section class="record-strip" aria-label="Release record">
+  <span>Data through <strong>{{ release.data_through_date }}</strong></span>
+  <span>Release <strong>{{ release.release_version }}</strong></span>
+  <span>Primary tests <strong>{{ hypotheses|length }}</strong></span>
+  <span>Last verified <strong>{{ release.generated_at_utc[:10] }}</strong></span>
+</section>
+<section class="dv-hero">
+  <p class="eyebrow">Boulder County Domestic Violence Enforcement Audit</p>
+  <h1>The available public release cannot verify the asserted final gender-disparity findings.</h1>
+  <p class="lede">The publication machinery is built from the verified release. The claim that all preregistered gender-disparity hypotheses were confirmed is not reproducible from the available artifacts.</p>
+  <p class="qualification">This is a disclosure-safe status release, not a final disparity report.</p>
+  <p class="actions"><a class="button" href="/dv/findings/">Read the findings</a> <a class="button secondary" href="/dv/data/">Audit the release</a></p>
+</section>
+<section class="three">
+  <article><h2>Hypotheses</h2><p><strong>{{ hypothesis_status_counts.get('unresolved_required_data_unavailable', 0) }}</strong> preregistered hypotheses are unresolved because required case-level data or model artifacts are absent.</p></article>
+  <article><h2>Public calls</h2><p>{{ hero_claim.plain_language_claim }}</p><details><summary>See evidence</summary><p>{{ hero_claim.technical_claim }}</p><p>Denominator: {{ hero_claim.denominator }}. Scope: {{ hero_claim.agency_or_agencies }}, {{ hero_claim.period_start }} to {{ hero_claim.period_end }}.</p></details></article>
+  <article><h2>Cases and costs</h2><p>Verified case records distinguish settlements, favorable outcomes, failed claims, and unverified leads. No express private-allegation falsity finding appears in the current seed set.</p></article>
+</section>
+<section class="evidence-section">
+  {{ domestic_call_chart | safe }}
+  <h2>Public call-disposition table</h2>
+  {{ table_html(public_call_table) | safe }}
+</section>
+{% endblock %}
+

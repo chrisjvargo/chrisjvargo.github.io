@@ -1,0 +1,34 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<section class="dv-section">
+  <p class="eyebrow">Boulder County Domestic Violence Enforcement Audit</p>
+  <h1>{{ section_title }}</h1>
+  {% if section_title == 'Findings' %}
+    <p>The strongest verified finding is currently a limitation: the final disparity hypotheses are unresolved in the public release because the required model outputs and denominators are absent.</p>
+    {{ table_html(hypotheses) | safe }}
+  {% elif section_title == 'Funnel' %}
+    <p>Public CBI and Boulder Police data provide descriptive context but do not supply a linked police-prosecutor-court funnel by recorded sex or gender.</p>
+  {% elif section_title == 'Investigation' %}
+    <p>Investigation-completeness analysis remains pending incident-level records, narratives, feasible-action denominators, and reliability results.</p>
+  {% elif section_title == 'Civil And Criminal Classification' %}
+    <p>Civil-only escalation and probable-cause underenforcement require independent legal review. The public release contains the codebook and request package, not completed restricted-data classifications.</p>
+  {% elif section_title == 'Methods' %}
+    <p>The method separates calls, incidents, arrests, referrals, filings, convictions, sentences, settlements, and adjudicated findings. Raw male-majority statistics do not prove differential treatment, and favorable outcomes do not prove private-allegation falsity.</p>
+  {% elif section_title == 'Robustness' %}
+    <p>Specification-curve, missing-data, linkage, reviewer, and agency-exclusion robustness analyses are pending final model outputs. The site does not substitute publicized cases for denominators.</p>
+  {% elif section_title == 'Sources' %}
+    <p>Source files and hashes are available on the data page. Primary public seed records include official Boulder, DA, and Colorado Judicial records where available.</p>
+  {% elif section_title == 'Limitations' %}
+    <ul>{% for item in limitations %}<li>{{ item }}</li>{% endfor %}</ul>
+  {% elif section_title == 'Responses' %}
+    <p>No agency or expert responses have been requested or received for this publication branch. Future authorized responses will be linked to the specific claim addressed.</p>
+  {% elif section_title == 'Corrections' %}
+    <p>No public corrections have been issued. Send factual corrections to the public academic email on the root site. Do not send confidential case materials.</p>
+  {% elif section_title == 'Updates' %}
+    <p>Initial status release prepared on {{ release.generated_at_utc[:10] }}.</p>
+  {% else %}
+    <p>This section will display final verified results only when the corresponding release artifacts exist.</p>
+  {% endif %}
+</section>
+{% endblock %}
+

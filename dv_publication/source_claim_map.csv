@@ -1,0 +1,8 @@
+source_id,claim_id,source_file
+release_manifest,claim-002,data/dv_public_release/release.json
+hypothesis_verification,claim-002,data/dv_public_release/hypothesis_verification.csv
+claims_registry,claim-public-001,data/dv_public_release/claims.json
+case_summaries,claim-006,data/dv_public_release/case_summaries.json
+damages_summary,claim-008,data/dv_public_release/damages_summary.csv
+proof_matrix,claim-007,data/dv_public_release/proof_matrix.csv
+source_manifest,claim-public-001,data/dv_public_release/source_manifest_public.csv

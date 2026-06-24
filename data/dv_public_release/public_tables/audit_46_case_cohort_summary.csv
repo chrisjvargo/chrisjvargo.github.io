@@ -1,0 +1,9 @@
+category,n,notes,source
+total_cases_assigned_to_detective,46,"Cases assigned to Detective Kwame Williams from 2019 through 2022 and audited by DA",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+categorized_cases,43,"Three cases were unique and did not fit categories described in the audit letter",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+entered_criminal_justice_system,12,"One juvenile, five misdemeanor, and six felony cases; includes arrest, warrant, or filing criteria",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+district_attorney_declined,10,"Presented cases declined by DA at time of review",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+statute_of_limitations_expired,5,"All five involved allegations of misdemeanor domestic violence offenses",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+limitations_expired_sufficient_evidence,3,"Three misdemeanor domestic-violence cases had evidence sufficient to support criminal filing but became time-barred",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+limitations_expired_insufficient_evidence,2,"Two of the five were insufficient to support prosecution when limitations expired",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf
+insufficient_evidence,16,"Largest category after follow-up; most did not meet probable-cause standard",data/raw_public/unjust_claims/kwame_williams_independent_audit_2023-05-25.pdf

@@ -1,0 +1,20 @@
+{
+  "release_id": "bcdv-public-status-2026-06-24",
+  "release_version": "0.1.0-status",
+  "generated_at_utc": "2026-06-24T06:24:17.498144+00:00",
+  "data_through_date": "2026-06-24",
+  "analysis_commit": "research workspace is not a git repository",
+  "website_target_commit": "",
+  "preregistration_hash": "4cd0ab806332360a3fde285c63a1493540a862398c5bff0a9bc7c6332b6f47c5",
+  "codebook_version": "public export 2026-06-24",
+  "public_data_hash": "8726a848c59691b055559dc553cc6d200676da4a15c094409fd12bae38545a24",
+  "source_manifest_hash": "79a5668b3acb70358f947f62ecef29a87ffd381eda68071dd2960094ea723e85",
+  "privacy_review_status": "automated scan passed for exported text files",
+  "small_cell_rule": "no restricted microdata exported; case ledgers contain public names only for public officials/litigants already in seed public records",
+  "known_limitations": [
+    "No verified final gender-disparity model outputs were present in the research workspace.",
+    "The assertion that all preregistered gender-disparity hypotheses were confirmed was not reproducible from available artifacts.",
+    "Trend and disparity denominators requiring restricted/case-level records remain unavailable."
+  ],
+  "supersedes_release": ""
+}

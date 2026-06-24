@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+  <meta name="description" content="{{ page_description }}">
+  <title>{{ page_title }}</title>
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:type" content="{{ og_type or 'website' }}">
+  <meta property="og:title" content="{{ social_title or page_title }}">
+  <meta property="og:description" content="{{ social_description or page_description }}">
+  <meta property="og:url" content="{{ social_url or canonical_url }}">
+  <meta property="og:image" content="{{ social_image }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/dv/dv.css">
+  <link rel="stylesheet" href="/assets/dv/print.css" media="print">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  {{ json_ld | safe }}
+</head>
+<body class="dv-page">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="dv-header">
+    <a class="brand" href="/">Chris J. Vargo</a>
+    <nav aria-label="DV Audit">
+      <ul>{% for item in dv_nav %}<li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endfor %}</ul>
+    </nav>
+  </header>
+  <main id="content">{% block content %}{% endblock %}</main>
+  <footer class="dv-footer">
+    <p>Independent research by Chris J. Vargo. Not affiliated with or endorsed by Boulder County, its agencies, the District Attorney's Office, or the courts. Not legal advice.</p>
+    <p>Data through {{ release.data_through_date }}. Release {{ release.release_version }}. <a href="/dv/corrections/">Corrections</a> · <a href="/dv/downloads/">Downloads</a></p>
+  </footer>
+  <script src="/assets/dv/dv.js" defer></script>
+</body>
+</html>
+

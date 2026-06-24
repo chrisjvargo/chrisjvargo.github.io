@@ -1,0 +1,13 @@
+{
+  "status": "publication status release",
+  "reproducibility": "make all passes in research repo; final restricted-data models unavailable",
+  "stage_terms": [
+    "call",
+    "incident",
+    "arrest",
+    "referral",
+    "filing",
+    "conviction",
+    "sentence"
+  ]
+}

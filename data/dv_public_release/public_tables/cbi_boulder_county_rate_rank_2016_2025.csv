@@ -1,0 +1,11 @@
+year,jurisdiction,incident_rate_dv_per_100k,incident_rate_assault_per_100k,victimization_rate_dv_per_100k,victimization_rate_assault_per_100k,rank_victimization_rate_desc,county_count
+2016,Boulder County,245.83,229.03,256.49,239.69,35,60
+2017,Boulder County,214.86,200.90,225.34,211.06,41,61
+2018,Boulder County,262.98,245.22,269.41,251.35,31,61
+2019,Boulder County,231.23,215.41,237.32,221.19,38,61
+2020,Boulder County,251.41,229.14,263.62,241.04,35,59
+2021,Boulder County,274.74,248.37,287.31,260.33,34,61
+2022,Boulder County,251.64,224.23,264.44,235.50,31,60
+2023,Boulder County,271.94,249.10,286.25,260.06,26,58
+2024,Boulder County,240.85,209.50,247.79,215.53,29,59
+2025,Boulder County,122.09,109.73,125.40,113.04,53,59

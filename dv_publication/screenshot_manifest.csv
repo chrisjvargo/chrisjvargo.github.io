@@ -1,0 +1,3 @@
+path,viewport,url
+dv_publication/screenshots/dv-desktop.png,desktop,http://127.0.0.1:8765/dv/
+dv_publication/screenshots/dv-mobile.png,mobile,http://127.0.0.1:8765/dv/

@@ -1,0 +1,4 @@
+case_id,harm_type,amount_nominal,amount_status,payment_year,payor,allocation,no_admission_clause,adjudicated_or_settled,source
+cronin_2024_settlement,gross_settlement_amount,1000000,settled,2024,City of Boulder and excess insurer,$500000 city Property and Casualty Fund; $500000 excess insurance carrier,Agreement describes compromise of disputed fact and law; no liability adjudication located,settled,cronin_city_council_packet_2024-05-02.pdf
+cronin_2024_settlement,attorney_fees,,unknown,2024,each party bears own fees per agreement,no separate fee award,,not_awarded,cronin_city_council_packet_2024-05-02.pdf
+pollack_v_miller_2020_negative,emotional_distress,,claimed,,,,,none; defendant summary judgment,Pollack Document 108 browser source

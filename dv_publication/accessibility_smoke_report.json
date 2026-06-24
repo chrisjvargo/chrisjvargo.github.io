@@ -1,0 +1,161 @@
+{
+  "status": "pass",
+  "errors": [],
+  "pages_checked": 22,
+  "checks": [
+    {
+      "page": "dist/dv/brief/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/cases/benjamin-cronin/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/cases/charles-g-higdon-iii/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/cases/cu-boulder-doe-2015/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/cases/cu-boulder-doe-2016/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/cases/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/cases/reid-pollack/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/civil-criminal/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/corrections/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/costs/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/data/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/downloads/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/findings/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/funnel/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/investigation/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/limitations/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/methods/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/responses/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/robustness/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/sources/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    },
+    {
+      "page": "dist/dv/updates/index.html",
+      "h1_count": 1,
+      "main": true,
+      "nav": true,
+      "skip_link": true
+    }
+  ]
+}

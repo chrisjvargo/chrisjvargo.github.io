@@ -1,8 +1,8 @@
 VENV=.venv
-PY=$(VENV)/bin/python
+PY=$(shell test -x $(VENV)/bin/python && echo $(VENV)/bin/python || echo python3)
 PIP=$(VENV)/bin/pip
 
-.PHONY: init preprints build cv validate serve
+.PHONY: init preprints build cv validate serve dv-export dv-build dv-validate dv-serve dv-test dv-audit dv-screenshots dv-release
 
 init:
 	python3 -m venv $(VENV)
@@ -23,3 +23,28 @@ validate:
 
 serve:
 	cd dist && python3 -m http.server 8000
+
+dv-export:
+	test -f data/dv_public_release/release.json
+	test -f data/dv_public_release/claims.json
+	test -f data/dv_public_release/hypothesis_verification.csv
+	test -f data/dv_public_release/SHA256SUMS
+
+dv-build: dv-export build
+
+dv-validate: validate
+
+dv-serve: dv-build
+	cd dist && python3 -m http.server 8000
+
+dv-test:
+	$(PY) -m unittest discover -s tests/dv -p 'test_*.py'
+
+dv-audit: dv-test dv-build dv-validate
+
+dv-screenshots:
+	mkdir -p dv_publication/screenshots
+	printf 'Screenshots are generated during browser audit runs. See dv_publication/screenshot_manifest.csv.\n' > dv_publication/screenshots/README.txt
+
+dv-release: dv-audit
+	$(PY) src/dv/hash_publication_audit.py

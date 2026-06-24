@@ -1,0 +1,15 @@
+page,claim_id,display_context
+/dv/,claim-002,hero unresolved verification disclosure
+/dv/,claim-public-001,public descriptive context section
+/dv/findings/,claim-001,hypothesis and claim table
+/dv/findings/,claim-002,hypothesis and claim table
+/dv/findings/,claim-003,hypothesis and claim table
+/dv/findings/,claim-004,hypothesis and claim table
+/dv/findings/,claim-005,hypothesis and claim table
+/dv/cases/,claim-006,verified favorable outcome summary
+/dv/cases/,claim-007,false allegation limitation
+/dv/cases/,claim-009,Higdon limitation
+/dv/cases/,claim-010,negative case retention
+/dv/costs/,claim-008,settlement versus damages distinction
+/dv/costs/,claim-006,verified compensation context
+/dv/data/,claim-public-001,downloadable public context

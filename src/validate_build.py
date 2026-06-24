@@ -8,6 +8,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
+from dv.privacy import scan_dist
+
 
 class HeadScanner(HTMLParser):
     def __init__(self) -> None:
@@ -154,13 +156,51 @@ def main() -> None:
     for record in records:
         all_errors.extend(validate_record(dist, record, args.site_url.rstrip("/")))
 
+    dv_index = dist / "dv" / "index.html"
+    if not dv_index.exists():
+        all_errors.append("dv: missing /dv/ index.html")
+    else:
+        dv_html = dv_index.read_text(encoding="utf-8", errors="ignore")
+        if "Boulder County Domestic Violence Enforcement Audit" not in dv_html:
+            all_errors.append("dv: index is missing project title")
+        if "cannot verify the asserted final gender-disparity findings" not in dv_html:
+            all_errors.append("dv: index is missing unresolved-verification disclosure")
+
+    dv_report = dist / "dv" / "dv_build_report.json"
+    if not dv_report.exists():
+        all_errors.append("dv: missing dv_build_report.json")
+    else:
+        try:
+            report = json.loads(dv_report.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            all_errors.append(f"dv: invalid dv_build_report.json ({exc})")
+        else:
+            if not report.get("release_id"):
+                all_errors.append("dv: build report missing release_id")
+            if report.get("hypothesis_status_counts", {}).get("unresolved_required_data_unavailable", 0) < 1:
+                all_errors.append("dv: expected unresolved hypothesis status is absent")
+
+    for rel in [
+        "release.json",
+        "claims.json",
+        "hypothesis_verification.csv",
+        "source_manifest_public.csv",
+        "SHA256SUMS",
+    ]:
+        if not (dist / "dv" / "downloads" / rel).exists():
+            all_errors.append(f"dv: missing downloadable release file {rel}")
+
+    privacy_findings = scan_dist(dist / "dv")
+    for finding in privacy_findings:
+        all_errors.append(f"dv privacy: {finding}")
+
     if all_errors:
         sys.stderr.write("Build validation failed:\n")
         for err in all_errors:
             sys.stderr.write(f"- {err}\n")
         raise SystemExit(1)
 
-    print(f"Validation passed for {len(records)} publication record pages.")
+    print(f"Validation passed for {len(records)} publication record pages and DV release pages.")
 
 
 if __name__ == "__main__":

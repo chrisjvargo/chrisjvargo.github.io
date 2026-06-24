@@ -1,0 +1,9 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<section class="dv-section">
+  <h1>Costs</h1>
+  <p>Monetary categories distinguish settlement compensation from adjudicated awards.</p>
+  {{ table_html(damages) | safe }}
+</section>
+{% endblock %}
+
