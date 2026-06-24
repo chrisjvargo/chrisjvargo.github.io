@@ -1,14 +1,14 @@
 {
   "release_id": "bcdv-public-status-2026-06-24",
   "release_version": "0.1.0-status",
-  "generated_at_utc": "2026-06-24T15:58:47.513669+00:00",
+  "generated_at_utc": "2026-06-24T16:14:55.196529+00:00",
   "data_through_date": "2026-06-24",
   "analysis_commit": "research workspace is not a git repository",
   "website_target_commit": "",
   "preregistration_hash": "4cd0ab806332360a3fde285c63a1493540a862398c5bff0a9bc7c6332b6f47c5",
   "codebook_version": "public export 2026-06-24",
-  "public_data_hash": "aa566a1a7230ef7ac6c8005b52c48c5f1d533835bb94b429cc3f0412391ce9d8",
-  "source_manifest_hash": "79a5668b3acb70358f947f62ecef29a87ffd381eda68071dd2960094ea723e85",
+  "public_data_hash": "8053b37db7c51fc5641215b6a858aaea2fdd61d85583d3d2dfb319c8937f3c8b",
+  "source_manifest_hash": "08ed51192ea8abfd6cb7cc67fa16afbb0a8fa56ab9b0ac58de6f33e67cc09217",
   "privacy_review_status": "automated scan passed for exported text files",
   "small_cell_rule": "no restricted microdata exported; case ledgers contain public names only for public officials/litigants already in seed public records",
   "known_limitations": [
