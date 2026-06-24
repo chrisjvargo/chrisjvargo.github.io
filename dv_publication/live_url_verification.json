@@ -1,0 +1,22 @@
+{
+  "url": "https://chrisjvargo.com/dv/",
+  "http_status": 200,
+  "title_present": true,
+  "unresolved_status_present": true,
+  "downloads_link_present": true,
+  "canonical_present": true,
+  "restricted_phrase_findings": {
+    "data/restricted": false,
+    "date of birth": false,
+    "dob": false,
+    "ssn": false,
+    "phone number": false,
+    "war on men": false,
+    "rigged": false,
+    "witch hunt": false,
+    "anti-male conspiracy": false
+  },
+  "emails": [],
+  "sha256": "90bf933385ef9e2c3c5dc373cb31a7a4ae099176b396875ce1e7d209bb75d1e5",
+  "bytes": 7838
+}

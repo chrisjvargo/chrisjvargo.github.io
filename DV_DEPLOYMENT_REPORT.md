@@ -10,12 +10,16 @@ GitHub authentication and Pages settings were checked before implementation. The
 
 ## Deployment Status
 
-Not deployed from this branch. Draft PR: https://github.com/chrisjvargo/chrisjvargo.github.io/pull/1
+Deployed through GitHub Pages after PR #1 was squash-merged to `main`.
 
 The release is a status publication because the asserted final hypothesis-confirmation results were not reproducible from available artifacts.
 
 GitHub Actions PR result: build passed; deploy skipped as intended for pull requests.
 
-Live path check on 2026-06-24: `https://chrisjvargo.com/dv/` returned 404, as expected before merge.
+Main deployment run: https://github.com/chrisjvargo/chrisjvargo.github.io/actions/runs/28110209723
 
-Rollback, if merged later, is a normal revert of the merge commit.
+Deployment result: build passed and deploy passed.
+
+Live path check on 2026-06-24: `https://chrisjvargo.com/dv/` returned HTTP 200 and displayed the unresolved-verification status page. Verification artifact: `dv_publication/live_url_verification.json`.
+
+Rollback is a normal revert of the merge commit.
