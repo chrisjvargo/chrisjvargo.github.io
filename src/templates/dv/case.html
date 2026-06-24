@@ -1,0 +1,28 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<article class="dv-section case-page">
+  <h1>{{ case.public_name_or_pseudonym }}</h1>
+  <dl class="case-meta">
+    <dt>Procedural status</dt><dd>{{ case.disposition }}</dd>
+    <dt>Verification status</dt><dd>{{ case.verification_status }}</dd>
+    <dt>Finality</dt><dd>{{ case.finality_status }}</dd>
+    <dt>Forum</dt><dd>{{ case.forum }}</dd>
+    <dt>Agency</dt><dd>{{ case.agency }}</dd>
+  </dl>
+  <h2>What the primary record establishes</h2>
+  <p>{{ case.proof_summary }}</p>
+  <h2>What the record does not establish</h2>
+  <p>The public case record is limited to the procedural posture shown above. It does not prove propositions outside the proof summary.</p>
+  <h2>Chronology</h2>
+  <ul>
+    {% if case.incident_date %}<li>Incident: {{ case.incident_date }}</li>{% endif %}
+    {% if case.government_action_date %}<li>Government action: {{ case.government_action_date }}</li>{% endif %}
+    {% if case.final_disposition_date %}<li>Final or procedural disposition: {{ case.final_disposition_date }}</li>{% endif %}
+    {% if case.settlement_or_compensation_date %}<li>Settlement or compensation: {{ case.settlement_or_compensation_date }}</li>{% endif %}
+  </ul>
+  <h2>Sources</h2>
+  <p>{{ case.primary_documents }}</p>
+  <p class="note">Finality check date: {{ release.generated_at_utc[:10] }}.</p>
+</article>
+{% endblock %}
+

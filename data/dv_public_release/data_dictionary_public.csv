@@ -1,0 +1,19 @@
+table,field,type,allowed_values,description,source,restricted
+events,event_id,string,,Stable synthetic or real event key.,schema,false
+events,agency_id,string,,Responding agency identifier; not dispatch agency unless same.,schema,false
+events,incident_date,date,,Incident date used for law/policy version assignment.,schema,false
+events,initial_call_type,string,,Initial CAD classification.,schema,false
+events,final_call_type,string,,Final CAD classification.,schema,false
+events,event_category,string,civil_only|mixed_civil_criminal|criminal_dv_nexus|insufficient_indeterminate,Independent event-level civil/criminal classification.,codebook,false
+parties,party_id,string,,Stable party key.,schema,false
+parties,event_id,string,,Foreign key to events.,schema,false
+parties,recorded_sex,string,male|female|unknown|other_or_nonbinary|source_other,Exact source sex value mapped only for analysis display.,schema,false
+parties,recorded_gender,string,male|female|unknown|other_or_nonbinary|source_other,Exact source gender value when collected separately.,schema,false
+parties,role,string,alleged_victim|alleged_suspect|both|caller|witness|child|unknown,Party role at the stage being analyzed.,schema,false
+parties,arrest_outcome,string,none|single_arrest|dual_arrest|citation|summons|warrant|report_only|unfounded|other,Police enforcement outcome.,schema,false
+charges,charge_count_id,string,,Stable charge-count key.,schema,false
+charges,event_id,string,,Foreign key to events.,schema,false
+charges,party_id,string,,Foreign key to parties.,schema,false
+charges,stage,string,recommended|referred|filed|amended|final,Charge stage.,schema,false
+charges,statute,string,,CRS or municipal code citation.,schema,false
+

@@ -1,0 +1,19 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<section class="dv-section brief">
+  <h1>Institutional Brief</h1>
+  <p><strong>Principal verified finding:</strong> the available public release does not verify the asserted final gender-disparity findings.</p>
+  <p><strong>Supporting public evidence:</strong> Boulder Police public call labels show domestic-labeled calls have higher arrest-coded dispositions than civil-labeled calls, but the public data lack sex/gender and probable-cause fields.</p>
+  <p><strong>Case/proof pattern:</strong> Cronin is a settlement/favorable preliminary-hearing case, Higdon is a reversal/remand, and Pollack is a negative case where civil claims failed.</p>
+  <h2>What the study does not prove</h2>
+  <ul>{% for item in limitations %}<li>{{ item }}</li>{% endfor %}</ul>
+  <h2>Questions for agencies</h2>
+  <ol>
+    <li>Will deidentified incident-level records be released for independent replication?</li>
+    <li>How are opposing complaints documented and separately evaluated?</li>
+    <li>Which investigative actions are subject to supervisor audit?</li>
+    <li>How are false-positive and false-negative decisions reviewed?</li>
+    <li>Can settlement and complaint registers be released in machine-readable form?</li>
+  </ol>
+</section>
+{% endblock %}

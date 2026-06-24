@@ -1,0 +1,4 @@
+risk_id,page,claim_id,person_or_entity,risk_type,supporting_sources,proof_tier,public_interest,necessity_of_identification,mitigation,review_status,final_decision
+risk-001,/dv/,claim-002,none,unsupported_final_disparity_claim,"hypothesis_verification.csv",not_applicable,high,not_applicable,"Publish unresolved status; do not claim confirmed disparity.",reviewed,mitigated
+risk-002,/dv/cases/,claim-006,private complainants,privacy_and_defamation,"case_summaries.json",varies,medium,no,"Do not name private complainants; publish procedural posture only.",reviewed,mitigated
+risk-003,/dv/costs/,claim-008,City of Boulder,settlement_misclassification,"case_summaries.json; damages_summary.csv",tier_3,high,yes,"Label settlement separately from adjudicated damages or admitted liability.",reviewed,mitigated

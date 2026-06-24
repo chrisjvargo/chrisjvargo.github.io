@@ -1,0 +1,17 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<section class="dv-section">
+  <h1>Cases & Costs</h1>
+  <p>Cases are proof-coded. A settlement is not a verdict; a reversal is not an exoneration; a dismissal is not proof that a private allegation was false.</p>
+  <div class="case-list">
+    {% for case in cases %}
+    <article class="case-card">
+      <h2><a href="/dv/cases/{{ case.case_slug }}/">{{ case.public_name_or_pseudonym }}</a></h2>
+      <p><strong>Status:</strong> {{ case.verification_status }}</p>
+      <p>{{ case.proof_summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+

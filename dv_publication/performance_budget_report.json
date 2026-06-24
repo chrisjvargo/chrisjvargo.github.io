@@ -1,0 +1,13 @@
+{
+  "landing_plus_dv_assets_bytes": 12242,
+  "budget_bytes": 512000,
+  "within_budget": true,
+  "files": {
+    "dist/dv/index.html": 7838,
+    "dist/assets/dv/dv.js": 67,
+    "dist/assets/dv/print.css": 219,
+    "dist/assets/dv/dv.css": 3893,
+    "dist/assets/dv/icons.svg": 225
+  },
+  "lighthouse": "not run; lighthouse CLI not installed in local environment"
+}

@@ -1,0 +1,13 @@
+{% extends "dv/base.html" %}
+{% block content %}
+<section class="dv-section">
+  <h1>{{ section_title }}</h1>
+  <p>The public release is downloadable and hashed. Restricted records, narratives, media, and protected identities are not published.</p>
+  <ul class="download-list">
+    {% for rel, digest in downloads.items() %}
+    <li><a href="/dv/downloads/{{ rel }}">{{ rel }}</a> <code>{{ digest[:12] }}</code></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}
+

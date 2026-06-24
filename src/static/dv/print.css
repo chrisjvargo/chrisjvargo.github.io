@@ -1,0 +1,5 @@
+body.dv-page { background: white; color: black; }
+.dv-header nav,.actions,script { display: none !important; }
+a::after { content: " (" attr(href) ")"; font-size: .85em; }
+.dv-section,.dv-hero { break-inside: avoid; }
+

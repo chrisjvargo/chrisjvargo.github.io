@@ -22,6 +22,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from merge_preprints import attach_preprints, normalize_doi  # noqa: E402
 from parse_cv import clean_latex_text, parse_cv  # noqa: E402
+from dv.build import build_dv_pages, table_html  # noqa: E402
 
 AUTHOR_RE = re.compile(r"([A-Z][A-Za-z'’`.-]+),\s*((?:[A-Z]\.\s*){1,5})")
 
@@ -1336,6 +1337,7 @@ def build_site(
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    env.globals["table_html"] = table_html
 
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -1381,6 +1383,7 @@ def build_site(
         {"title": "Home", "url": "/"},
         {"title": "Publications", "url": "/publications/"},
         {"title": "CV", "url": "/cv/"},
+        {"title": "DV Research", "url": "/dv/"},
     ]
 
     optional_nav = []
@@ -1583,6 +1586,9 @@ def build_site(
         )
         write_text(out_dir / sec["slug"] / "index.html", rendered)
 
+    # DV public status release
+    dv_result = build_dv_pages(repo_root, out_dir, site_url, common_ctx, env)
+
     # Build reports
     report = {
         **preprint_report,
@@ -1594,6 +1600,7 @@ def build_site(
         "missing_abstracts": len([p for p in publications if not p.get("abstract")]),
         "abstract_todos": abstract_todos,
         "build_timestamp": build_timestamp,
+        "dv": dv_result["build_report"],
     }
     write_text(out_dir / "build_report.json", json.dumps(report, indent=2, ensure_ascii=False))
     write_text(out_dir / "build_report.txt", render_build_report_text(report))
@@ -1654,6 +1661,8 @@ def build_site(
         ("/publications_model.json", out_dir / "publications_model.json"),
     ]
     entries.extend(core_pages)
+    for page in dv_result["pages"]:
+        entries.append((page["url"], Path(page["path"])))
 
     for x in optional_nav:
         entries.append((x["url"], out_dir / x["url"].strip("/") / "index.html"))
