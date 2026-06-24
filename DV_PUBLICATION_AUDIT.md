@@ -11,6 +11,7 @@ The generated `/dv/` site is therefore a transparent status and evidence-release
 ## Passing Checks
 
 - `make dv-release`
+- GitHub Actions PR build: passed
 - Unit tests: 8 passed
 - Build validation: 87 publication pages plus DV release pages
 - Internal link check: 2,053 links checked, 0 errors
