@@ -1,0 +1,278 @@
+dataset,year,screen_category,public_label,count,unit,confirmatory_use
+calls,2026,civil_dispute,ABPROC - Abandoned Property,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,civil_dispute,CIVILC - Civil Standby,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,civil_dispute,FOPROC - Found Property,12,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,civil_dispute,LOPROC - Lost Property,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,harassment_stalking,HARASC - Harassment,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ALINTC - Intrusion Alarm,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ALTESC - Alarm Test,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ANCOMC - Animal Complaint,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ARCHEC - Area Check,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ASSISC - Assist,21,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ATLOCC - Attempt To Locate,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,AUTHEC - Auto Theft,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,BDNC - Barker Dam Non Cata,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,BIKEC - Bike Patrol,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,BIRELC - Bike Release,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,BITHEC - Bike Theft,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,BURGLC - Burglary,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,CAMPC - Camping/Camps,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,CODE1 - Code 1,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,CRMISC - Criminal Mischief,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,CRTREC - Criminal Trespass,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,CUREGC - CU Regs Violation,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,DISTUC - Disturbance,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,DNTOTC - Do Not Ticket or Tow,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,DPC - Directed Patrol*,169,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,DRILLC - Fire Drill,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,DRUNKC - Drunk Person,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,DUIC - DUI,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,EMSC - All Medical Calls,9,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,EXPATC - Extra Patrol*,72,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,FAMAIC - Fac Man Maintenance,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,FIALAC - Fire Alarm,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,FIREAC - Fire Assist,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,FOLLOC - Follow Up,22,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,FOOTC - Foot Patrol*,1002,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,FRAUDC - Fraud,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,GASC - Smell of Gas Inside,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,HANGUC - 9-1-1 Hang Up,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,HRACCC - Hit and Run Accident,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,INFORC - Information,48,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,K9TRNC - K9 TRAINING,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,LILAWC - Liquor Law Violation,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,MENTAC - Mental Hold,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,MIPERC - Missing Person,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,NOISEC - Noise,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,OAAC - Outside Agency Assist,37,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,ODAC - Open Door Assist,50,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,OPDOOC - Open door,9,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,OTHERC - Other,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,PARKIC - Parking Complaint,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,PDACCC - Prop. Damage Accident,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,PECONC - Pedestrian Contact,50,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,PHONEC - Phone Message,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,RELAYC - Relay,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,RELOCC - Vehicle Relocate,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,SAFE2C - Safe2Tell,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,SMOKEC-Smoke/Elec Smell Inside,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,SUSPIC - Suspicious,29,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,SUVEHC - Suspicious Vehicle,6,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,TESTC - TEST INCIDENT,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,THEFTC - Theft,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,TRAFFC - Traffic Complaint,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,TRESPC - Trespassing,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,TRSTOC - Traffic Stop,259,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,WARRAC - Warrant Arrest,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,WEAPONC - Weapon,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+calls,2026,not_screened_candidate,WECHEC - Welfare Check,22,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,assault_threat,Assault,30,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,assault_threat,Threats,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,civil_dispute,Damage-CUPD Property (IR),7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,civil_dispute,Damage-Other Property (IR),4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,civil_dispute,Damage-University Property (IR),12,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,civil_dispute,Property - Found,128,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,civil_dispute,Property - Impound,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,civil_dispute,Property - Lost,169,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,harassment_stalking,Harassment,41,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Accident - Bicycle,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Accident - Micromobility,15,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Accident - Other Vehicle,79,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Accident - UCPD Vehicle,11,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Accident - University Vehicle,17,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Accident- Unknown if Injury,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Alcohol Violation,341,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Arson,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Death,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Fire,10,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Humane Society,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Medical,42,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Mental Health,93,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Other,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Outside Police Agency,106,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Assist - Protective Custody,18,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Bike Theft,214,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Burglary,68,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Criminal Mischief,186,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Criminal Trespass,56,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,DUI/DWAI,14,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Drug Violation,142,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Fraud/Forgery,95,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Information-Housing (IR),15,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Information-Housing (IR) Alcohol,21,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Information-Housing (IR) Drugs,55,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Information-Housing (IR) Noise,12,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Information-Other (IR),56,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Information-UCPD (IR),34,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Missing Person,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Motor Vehicle Theft,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Other Criminal Offense,145,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Pedestrian Contact,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Robbery,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Safe to Tell,13,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Suspicious Activity,239,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Suspicious Vehicle,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Theft,231,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Traffic Offense,53,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Trespassing,107,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Vehicle Impound,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Warrant,38,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,not_screened_candidate,Weapon Violation,6,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,protection_order,Restraining Order Violation,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,protection_order,Violation of Court Order,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2023,sex_offense,Sex Offense,19,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,assault_threat,Assault,28,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,assault_threat,Threats,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,civil_dispute,Damage-Other Property (IR),4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,civil_dispute,Damage-University Property (IR),5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,civil_dispute,Property - Found,156,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,civil_dispute,Property - Impound,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,civil_dispute,Property - Lost,145,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,harassment_stalking,Harassment,41,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Accident - Bicycle,18,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Accident - Micromobility,16,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Accident - Other Vehicle,103,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Accident - UCPD Vehicle,9,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Accident - University Vehicle,13,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Accident- Unknown if Injury,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Alcohol Violation,407,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Arson,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Death,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Fire,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Humane Society,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Medical,55,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Mental Health,82,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Other,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Outside Police Agency,124,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Assist - Protective Custody,18,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Bike Theft,225,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Burglary,21,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Criminal Mischief,125,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Criminal Trespass,42,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,DUI/DWAI,29,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Drug Violation,165,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,False Imprisonment/Kidnapping,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Fraud/Forgery,106,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Information-Housing (IR),15,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Information-Housing (IR) Alcohol,26,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Information-Housing (IR) Drugs,34,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Information-Housing (IR) Noise,11,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Information-Other (IR),77,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Information-UCPD (IR),26,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Missing Person,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Motor Vehicle Theft,14,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Other Criminal Offense,143,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Pedestrian Contact,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Robbery,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Safe to Tell,32,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Suspicious Activity,170,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Suspicious Vehicle,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Theft,149,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Traffic Offense,85,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Traffic or Pedestrian Related Concern,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Trespassing,72,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Vehicle Impound,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Warrant,31,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,not_screened_candidate,Weapon Violation,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,protection_order,Restraining Order Violation,11,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2024,sex_offense,Sex Offense,30,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,assault_threat,Assault,29,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,assault_threat,Threats,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,civil_dispute,Damage-CUPD Property (IR),1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,civil_dispute,Damage-Other Property (IR),3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,civil_dispute,Damage-University Property (IR),5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,civil_dispute,Property - Found,161,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,civil_dispute,Property - Impound,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,civil_dispute,Property - Lost,168,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,harassment_stalking,Harassment,35,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Accident - Bicycle,10,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Accident - Micromobility,11,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Accident - Other Vehicle,120,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Accident - UCPD Vehicle,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Accident - University Vehicle,11,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Alcohol Violation,378,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Arson,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Death,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Fire,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Medical,30,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Mental Health,95,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Other,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Outside Police Agency,102,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Assist - Protective Custody,25,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Bike Theft,138,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Burglary,17,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Criminal Mischief,91,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Criminal Trespass,37,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,DUI/DWAI,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Drug Violation,145,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Fraud/Forgery,176,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Information-Housing (IR),35,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Information-Housing (IR) Alcohol,18,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Information-Housing (IR) Drugs,13,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Information-Housing (IR) Noise,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Information-Other (IR),82,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Information-UCPD (IR),26,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Missing Person,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Motor Vehicle Theft,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Ordinance Violation on the Hill,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Other Criminal Offense,113,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Pedestrian Contact,3,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Safe to Tell,53,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Suicide - Actual,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Suspicious Activity,149,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Suspicious Vehicle,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Theft,160,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Traffic Offense,56,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Traffic or Pedestrian Related Concern,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Trespassing,66,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Warrant,30,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,not_screened_candidate,Weapon Violation,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,protection_order,Restraining Order Violation,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2025,sex_offense,Sex Offense,20,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,assault_threat,Assault,10,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,civil_dispute,Damage-CUPD Property (IR),1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,civil_dispute,Damage-University Property (IR),1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,civil_dispute,Property - Found,77,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,civil_dispute,Property - Lost,58,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,harassment_stalking,Harassment,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Accident - Bicycle,6,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Accident - Micromobility,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Accident - Other Vehicle,41,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Accident - UCPD Vehicle,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Accident - University Vehicle,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Alcohol Violation,114,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Assist - Fire,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Assist - Medical,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Assist - Mental Health,49,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Assist - Outside Police Agency,35,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Assist - Protective Custody,5,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Bike Theft,40,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Burglary,9,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Criminal Mischief,38,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Criminal Trespass,7,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,DUI/DWAI,12,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Drug Violation,43,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,False Imprisonment/Kidnapping,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Fraud/Forgery,71,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Information-Housing (IR),12,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Information-Housing (IR) Alcohol,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Information-Housing (IR) Drugs,2,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Information-Other (IR),40,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Information-UCPD (IR),13,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Missing Person,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Motor Vehicle Theft,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Other Criminal Offense,60,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Pedestrian Contact,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Robbery,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Safe to Tell,36,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Suicide - Attempt,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Suspicious Activity,90,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Suspicious Vehicle,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Theft,82,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Traffic Offense,39,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Traffic or Pedestrian Related Concern,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Trespassing,43,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Vehicle Impound,1,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,not_screened_candidate,Warrant,9,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,protection_order,Restraining Order Violation,4,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
+incidents,2026,sex_offense,Sex Offense,8,public CUPD dashboard row,aggregate public context only; not a gender-disparity or legally comparable-treatment denominator
