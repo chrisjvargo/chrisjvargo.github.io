@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% set page_title = "Home" %}
 {% block content %}
-<section>
+<section class="home-hero">
+  <div class="home-hero-copy">
+    <p class="eyebrow">{{ hero_eyebrow }}</p>
+    <h2>{{ hero_title }}</h2>
+    <p class="home-subtitle">{{ hero_subtitle }}</p>
+  </div>
   <figure class="feature-photo">
     <img
       src="/assets/hicss_photo.jpeg"
@@ -9,30 +14,66 @@
       width="800"
       height="800"
       loading="lazy">
-    <figcaption>HICSS-58 (Hawaii International Conference on System Sciences), 2025.</figcaption>
+    <figcaption>HICSS-58, 2025.</figcaption>
   </figure>
 </section>
 
 <section>
-  <h2>Bio</h2>
+  <h2>Current Focus</h2>
+  <ul class="compact-list">
+    {% for item in focus_items %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <ul class="degree-list">
+    {% for degree in degrees %}
+      <li>
+        <span>{{ degree.degree }}</span>
+        <span>{{ degree.institution }}</span>
+        <span>{{ degree.date }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section>
+  <h2>AI Technical Enablement Proof</h2>
+  <div class="work-list">
+    {% for item in selected_work %}
+      <article class="aligned-item">
+        <div class="aligned-title-row">
+          <h3>{{ item.title }}</h3>
+          <span class="row-org">{{ item.org }}</span>
+          <time class="row-date">{{ item.date }}</time>
+        </div>
+        <p>{{ item.summary }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2>Selected Publications</h2>
+  <div class="publication-brief-list">
+    {% for pub in selected_publications %}
+      <article class="aligned-item publication-brief">
+        <div class="aligned-title-row">
+          <h3><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
+          <span class="row-org">{{ pub.impact }}</span>
+          <time class="row-date">{{ pub.date }}</time>
+        </div>
+        <p>{{ pub.venue }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <h2>Profile</h2>
   <p>{{ bio_text }}</p>
-</section>
-
-<section>
-  <h2>Research Interests</h2>
-  <ul>
-    {% for interest in research_interests %}
-      <li>{{ interest }}</li>
-    {% endfor %}
-  </ul>
-</section>
-
-<section>
-  <h2>Quick Links</h2>
-  <ul>
-    {% for item in quick_links %}
-      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-    {% endfor %}
-  </ul>
 </section>
 {% endblock %}

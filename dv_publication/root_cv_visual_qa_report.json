@@ -1,0 +1,87 @@
+{
+  "status": "pass",
+  "errors": [],
+  "pages_checked": 4,
+  "checks": [
+    {
+      "path": "/",
+      "viewport": "desktop",
+      "screenshot": "dv_publication/screenshots/home-desktop.png",
+      "title": "Home | Chris J. Vargo",
+      "h1_count": 1,
+      "h2_count": 6,
+      "main": true,
+      "nav": true,
+      "skip_link": true,
+      "horizontal_overflow": false,
+      "visible_text_checks": {
+        "required:Google Cloud AI work": true,
+        "required:Research, teaching, and software for AI field readiness.": true,
+        "required:AI Technical Enablement Proof": true,
+        "required:socialcontext.ai": true,
+        "forbidden_absent:Portfolio Links": true,
+        "forbidden_absent:Quick Links": true,
+        "forbidden_absent:4,499 citations": true
+      }
+    },
+    {
+      "path": "/",
+      "viewport": "mobile",
+      "screenshot": "dv_publication/screenshots/home-mobile.png",
+      "title": "Home | Chris J. Vargo",
+      "h1_count": 1,
+      "h2_count": 6,
+      "main": true,
+      "nav": true,
+      "skip_link": true,
+      "horizontal_overflow": false,
+      "visible_text_checks": {
+        "required:Google Cloud AI work": true,
+        "required:Research, teaching, and software for AI field readiness.": true,
+        "required:AI Technical Enablement Proof": true,
+        "required:socialcontext.ai": true,
+        "forbidden_absent:Portfolio Links": true,
+        "forbidden_absent:Quick Links": true,
+        "forbidden_absent:4,499 citations": true
+      }
+    },
+    {
+      "path": "/cv/",
+      "viewport": "desktop",
+      "screenshot": "dv_publication/screenshots/cv-desktop.png",
+      "title": "CV | Chris J. Vargo",
+      "h1_count": 10,
+      "h2_count": 22,
+      "main": true,
+      "nav": true,
+      "skip_link": true,
+      "horizontal_overflow": false,
+      "visible_text_checks": {
+        "required:Curriculum Vitae": true,
+        "required:Download CV (PDF)": true,
+        "required:Education": true,
+        "required:Master of Arts": true,
+        "forbidden_absent:Pandoc HTML conversion is not available": true
+      }
+    },
+    {
+      "path": "/cv/",
+      "viewport": "mobile",
+      "screenshot": "dv_publication/screenshots/cv-mobile.png",
+      "title": "CV | Chris J. Vargo",
+      "h1_count": 10,
+      "h2_count": 22,
+      "main": true,
+      "nav": true,
+      "skip_link": true,
+      "horizontal_overflow": false,
+      "visible_text_checks": {
+        "required:Curriculum Vitae": true,
+        "required:Download CV (PDF)": true,
+        "required:Education": true,
+        "required:Master of Arts": true,
+        "forbidden_absent:Pandoc HTML conversion is not available": true
+      }
+    }
+  ]
+}

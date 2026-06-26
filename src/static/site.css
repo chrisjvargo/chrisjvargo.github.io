@@ -71,9 +71,40 @@ main section {
   margin-bottom: 1.2rem;
 }
 
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12rem;
+  gap: 1.25rem;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 1rem;
+}
+
+.home-hero h2 {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.65rem, 4vw, 2.55rem);
+  line-height: 1.05;
+  hyphens: none;
+  overflow-wrap: normal;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-subtitle {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
 .feature-photo {
-  max-width: 17rem;
-  margin: 0.15rem auto 0.45rem;
+  max-width: 12rem;
+  margin: 0;
   text-align: center;
 }
 
@@ -93,6 +124,82 @@ main section {
 main ol li,
 main ul li {
   margin-bottom: 0.25rem;
+}
+
+.compact-list {
+  margin-top: 0.25rem;
+}
+
+.degree-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.degree-list li {
+  display: grid;
+  grid-template-columns: minmax(13rem, 1.05fr) minmax(15rem, 1.2fr) max-content;
+  gap: 0.7rem;
+  align-items: baseline;
+  border-top: 1px solid #ddd;
+  padding: 0.28rem 0;
+}
+
+.degree-list li:first-child {
+  border-top: 0;
+}
+
+.degree-list span:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.work-list,
+.publication-brief-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.aligned-item {
+  border-top: 1px solid #ddd;
+  padding: 0.42rem 0;
+}
+
+.aligned-title-row {
+  display: grid;
+  grid-template-columns: minmax(13rem, 1fr) minmax(14rem, 0.72fr) max-content;
+  gap: 0.7rem;
+  align-items: baseline;
+}
+
+.aligned-item h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.aligned-item p {
+  margin: 0.12rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.row-org {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: normal;
+}
+
+.row-date {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.publication-brief p {
+  font-size: 0.86rem;
 }
 
 .pub-links {
@@ -167,6 +274,27 @@ footer {
 
   .site-contact {
     margin-bottom: 0.35rem;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-photo {
+    max-width: 12rem;
+    margin: 0 auto;
+  }
+
+  .degree-list li,
+  .aligned-title-row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .degree-list span:last-child,
+  .row-date,
+  .row-org {
+    text-align: left;
   }
 
   #pub-filter {
