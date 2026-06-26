@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import subprocess
 from dataclasses import dataclass, asdict
@@ -29,6 +30,13 @@ def text(path: Path) -> str:
     if not path.exists():
         return ""
     return path.read_text(encoding="utf-8", errors="ignore")
+
+
+def read_csv_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8") as f:
+        return [{k: (v or "").strip() for k, v in row.items()} for row in csv.DictReader(f)]
 
 
 def git_status(repo: Path) -> str:
@@ -155,13 +163,26 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
 
     dv_statuses = dv_report.get("hypothesis_status_counts", {})
     unresolved = int(dv_statuses.get("unresolved_required_data_unavailable", 0) or 0)
+    gap_rows = read_csv_rows(repo / "dv_publication" / "evidence_gap_register.csv")
+    unresolved_gap_rows = [row for row in gap_rows if row.get("support_status") == "unresolved_required_data_unavailable"]
+    mapped_gap_rows = [
+        row
+        for row in unresolved_gap_rows
+        if row.get("missing_fields") and row.get("request_targets") and row.get("request_files")
+    ]
+    gap_register_md_exists = (repo / "DV_EVIDENCE_GAP_REGISTER.md").exists()
     checks.append(
         Check(
             "OPS005",
             "dv_publication_evidence",
             "open_gap" if unresolved else "pass",
-            f"hypothesis_status_counts={dv_statuses}",
-            "Acquire/verify required case-level data and model artifacts, then regenerate the DV public release."
+            (
+                f"hypothesis_status_counts={dv_statuses}; "
+                f"gap_register_rows={len(gap_rows)}; "
+                f"mapped_unresolved_gaps={len(mapped_gap_rows)}/{len(unresolved_gap_rows)}; "
+                f"gap_register_md_exists={gap_register_md_exists}"
+            ),
+            "Acquire/verify required case-level data and model artifacts using `DV_EVIDENCE_GAP_REGISTER.md`, then regenerate the DV public release."
             if unresolved
             else "No unresolved DV hypothesis status remains in the public release.",
         )

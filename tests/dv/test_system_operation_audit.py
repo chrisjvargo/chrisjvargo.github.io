@@ -1,4 +1,5 @@
 from pathlib import Path
+import csv
 import json
 import sys
 import tempfile
@@ -36,6 +37,30 @@ class SystemOperationAuditTests(unittest.TestCase):
                 json.dumps({"hypothesis_status_counts": {"unresolved_required_data_unavailable": 14}}),
                 encoding="utf-8",
             )
+            (repo / "dv_publication").mkdir()
+            with (repo / "dv_publication" / "evidence_gap_register.csv").open("w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(
+                    f,
+                    fieldnames=[
+                        "hypothesis_id",
+                        "support_status",
+                        "missing_fields",
+                        "request_targets",
+                        "request_files",
+                    ],
+                )
+                writer.writeheader()
+                for idx in range(14):
+                    writer.writerow(
+                        {
+                            "hypothesis_id": f"H{idx}",
+                            "support_status": "unresolved_required_data_unavailable",
+                            "missing_fields": "case-level facts",
+                            "request_targets": "agency custodian",
+                            "request_files": "records_requests/example.md",
+                        }
+                    )
+            (repo / "DV_EVIDENCE_GAP_REGISTER.md").write_text("gap register", encoding="utf-8")
             (dist / "index.html").write_text(
                 "\n".join(
                     [
@@ -67,6 +92,7 @@ class SystemOperationAuditTests(unittest.TestCase):
         self.assertEqual(checks["OPS002"].status, "pass")
         self.assertEqual(checks["OPS003"].status, "pass")
         self.assertEqual(checks["OPS005"].status, "open_gap")
+        self.assertIn("mapped_unresolved_gaps=14/14", checks["OPS005"].evidence)
         self.assertEqual(checks["OPS006"].status, "pass")
 
 
