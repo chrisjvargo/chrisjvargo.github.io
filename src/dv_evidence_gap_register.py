@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 from collections import Counter
 from pathlib import Path
 
@@ -48,6 +49,15 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
         writer.writeheader()
         for row in rows:
             writer.writerow({field: row.get(field, "") for field in fields})
+
+
+def write_sha256sums(root: Path) -> None:
+    files = [path for path in root.rglob("*") if path.is_file() and path.name != "SHA256SUMS"]
+    lines = [
+        f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}"
+        for path in sorted(files)
+    ]
+    (root / "SHA256SUMS").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def write_markdown(path: Path, rows: list[dict[str, str]]) -> None:
@@ -119,6 +129,17 @@ def main() -> None:
     )
     parser.add_argument("--out-csv", type=Path, default=Path("dv_publication/evidence_gap_register.csv"))
     parser.add_argument("--out-md", type=Path, default=Path("DV_EVIDENCE_GAP_REGISTER.md"))
+    parser.add_argument(
+        "--release-csv",
+        type=Path,
+        default=Path("data/dv_public_release/public_tables/evidence_gap_register.csv"),
+    )
+    parser.add_argument(
+        "--release-root",
+        type=Path,
+        default=Path("data/dv_public_release"),
+        help="Refresh this release directory's SHA256SUMS after writing --release-csv.",
+    )
     args = parser.parse_args()
 
     rows = read_rows(args.source)
@@ -134,9 +155,13 @@ def main() -> None:
         raise SystemExit("unresolved hypotheses missing gap mapping: " + ", ".join(incomplete))
 
     write_csv(args.out_csv, rows)
+    write_csv(args.release_csv, rows)
     write_markdown(args.out_md, rows)
+    write_sha256sums(args.release_root)
     print(f"Wrote {args.out_csv}")
+    print(f"Wrote {args.release_csv}")
     print(f"Wrote {args.out_md}")
+    print(f"Refreshed {args.release_root / 'SHA256SUMS'}")
 
 
 if __name__ == "__main__":
