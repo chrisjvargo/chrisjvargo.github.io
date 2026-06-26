@@ -54,6 +54,21 @@ class ReleaseTests(unittest.TestCase):
                 self.assertTrue((release_dir / rel_path).exists())
                 self.assertIn(f"  {rel_path}", sha_manifest)
 
+    def test_records_request_dispatch_matrix_is_public_hashed_and_unsent(self) -> None:
+        release_dir = self.repo / "data" / "dv_public_release"
+        rel_path = "public_tables/records_request_dispatch_matrix.csv"
+        self.assertTrue((release_dir / rel_path).exists())
+        sha_manifest = (release_dir / "SHA256SUMS").read_text(encoding="utf-8")
+        self.assertIn(f"  {rel_path}", sha_manifest)
+        with (release_dir / rel_path).open(newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        self.assertGreaterEqual(len(rows), 20)
+        self.assertTrue(any(row["linked_hypotheses"] for row in rows))
+        self.assertEqual(
+            {row["transmission_status"] for row in rows},
+            {"not_transmitted_requires_user_authorization"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

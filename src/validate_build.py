@@ -241,6 +241,7 @@ def main() -> None:
         "hypothesis_verification.csv",
         "source_manifest_public.csv",
         "public_tables/evidence_gap_register.csv",
+        "public_tables/records_request_dispatch_matrix.csv",
         "SHA256SUMS",
     ]:
         if not (dist / "dv" / "downloads" / rel).exists():

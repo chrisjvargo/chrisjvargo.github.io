@@ -5,6 +5,7 @@ import argparse
 import csv
 import hashlib
 from collections import Counter
+from collections import defaultdict
 from pathlib import Path
 
 REQUIRED_COLUMNS = [
@@ -106,6 +107,73 @@ def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
             writer.writerow({field: row.get(field, "") for field in fields})
 
 
+def read_request_title(path: Path) -> str:
+    if not path.exists():
+        return ""
+    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        if line.startswith("# "):
+            return line.removeprefix("# ").strip()
+    return path.stem.replace("_", " ").title()
+
+
+def build_dispatch_rows(release_root: Path, rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    linked_hypotheses: dict[str, list[str]] = defaultdict(list)
+    linked_missing_fields: dict[str, list[str]] = defaultdict(list)
+    linked_targets: dict[str, list[str]] = defaultdict(list)
+    for row in rows:
+        hypothesis_id = row.get("hypothesis_id", "")
+        for rel in expanded_request_files(row.get("request_files", "")):
+            if not rel.startswith("records_requests/"):
+                continue
+            linked_hypotheses[rel].append(hypothesis_id)
+            linked_missing_fields[rel].append(row.get("missing_fields", ""))
+            linked_targets[rel].append(row.get("request_targets", ""))
+
+    request_files = sorted(path.relative_to(release_root).as_posix() for path in (release_root / "records_requests").rglob("*.md"))
+    dispatch_rows: list[dict[str, str]] = []
+    for rel in request_files:
+        dispatch_rows.append(
+            {
+                "request_file": rel,
+                "public_download_path": f"/dv/downloads/{rel}",
+                "request_title": read_request_title(release_root / rel),
+                "linked_hypotheses": "; ".join(unique(linked_hypotheses.get(rel, []))),
+                "linked_missing_fields": " | ".join(unique([v for v in linked_missing_fields.get(rel, []) if v])),
+                "linked_request_targets": " | ".join(unique([v for v in linked_targets.get(rel, []) if v])),
+                "authorization_status": "not_authorized_to_transmit",
+                "transmission_status": "not_transmitted_requires_user_authorization",
+                "sent_date": "",
+                "response_status": "not_requested",
+                "response_date": "",
+                "current_next_action": "obtain explicit authorization before sending; update this matrix after transmission and response",
+            }
+        )
+    return dispatch_rows
+
+
+def write_dispatch_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fields = [
+        "request_file",
+        "public_download_path",
+        "request_title",
+        "linked_hypotheses",
+        "linked_missing_fields",
+        "linked_request_targets",
+        "authorization_status",
+        "transmission_status",
+        "sent_date",
+        "response_status",
+        "response_date",
+        "current_next_action",
+    ]
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({field: row.get(field, "") for field in fields})
+
+
 def write_sha256sums(root: Path) -> None:
     files = [path for path in root.rglob("*") if path.is_file() and path.name != "SHA256SUMS"]
     lines = [
@@ -185,6 +253,40 @@ def write_markdown(path: Path, rows: list[dict[str, str]]) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def write_dispatch_markdown(path: Path, rows: list[dict[str, str]]) -> None:
+    linked = [row for row in rows if row.get("linked_hypotheses")]
+    lines = [
+        "# DV Records Request Dispatch Matrix",
+        "",
+        "Generated from the public evidence-gap register and release request-package files.",
+        "",
+        "## Summary",
+        "",
+        f"- Request packages tracked: {len(rows)}",
+        f"- Request packages linked to unresolved hypotheses: {len(linked)}",
+        "- Transmission status: not transmitted; explicit user authorization is required before sending any request.",
+        "",
+        "## Request Packages",
+        "",
+        "| Request package | Linked hypotheses | Transmission status |",
+        "| --- | --- | --- |",
+    ]
+    for row in rows:
+        package = f"[{row.get('request_title')}]({row.get('public_download_path')})"
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    package,
+                    row.get("linked_hypotheses", "") or "supplemental/not directly linked",
+                    row.get("transmission_status", ""),
+                ]
+            )
+            + " |"
+        )
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -195,9 +297,24 @@ def main() -> None:
     parser.add_argument("--out-csv", type=Path, default=Path("dv_publication/evidence_gap_register.csv"))
     parser.add_argument("--out-md", type=Path, default=Path("DV_EVIDENCE_GAP_REGISTER.md"))
     parser.add_argument(
+        "--dispatch-csv",
+        type=Path,
+        default=Path("dv_publication/records_request_dispatch_matrix.csv"),
+    )
+    parser.add_argument(
+        "--dispatch-md",
+        type=Path,
+        default=Path("DV_RECORDS_REQUEST_DISPATCH_MATRIX.md"),
+    )
+    parser.add_argument(
         "--release-csv",
         type=Path,
         default=Path("data/dv_public_release/public_tables/evidence_gap_register.csv"),
+    )
+    parser.add_argument(
+        "--release-dispatch-csv",
+        type=Path,
+        default=Path("data/dv_public_release/public_tables/records_request_dispatch_matrix.csv"),
     )
     parser.add_argument(
         "--release-root",
@@ -219,14 +336,21 @@ def main() -> None:
     if incomplete:
         raise SystemExit("unresolved hypotheses missing gap mapping: " + ", ".join(incomplete))
     validate_release_request_files(args.release_root, rows)
+    dispatch_rows = build_dispatch_rows(args.release_root, rows)
 
     write_csv(args.out_csv, rows)
     write_csv(args.release_csv, rows)
     write_markdown(args.out_md, rows)
+    write_dispatch_csv(args.dispatch_csv, dispatch_rows)
+    write_dispatch_csv(args.release_dispatch_csv, dispatch_rows)
+    write_dispatch_markdown(args.dispatch_md, dispatch_rows)
     write_sha256sums(args.release_root)
     print(f"Wrote {args.out_csv}")
     print(f"Wrote {args.release_csv}")
     print(f"Wrote {args.out_md}")
+    print(f"Wrote {args.dispatch_csv}")
+    print(f"Wrote {args.release_dispatch_csv}")
+    print(f"Wrote {args.dispatch_md}")
     print(f"Refreshed {args.release_root / 'SHA256SUMS'}")
 
 
