@@ -174,6 +174,7 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
     dv_statuses = dv_report.get("hypothesis_status_counts", {})
     unresolved = int(dv_statuses.get("unresolved_required_data_unavailable", 0) or 0)
     gap_rows = read_csv_rows(repo / "dv_publication" / "evidence_gap_register.csv")
+    dispatch_rows = read_csv_rows(repo / "dv_publication" / "records_request_dispatch_matrix.csv")
     unresolved_gap_rows = [row for row in gap_rows if row.get("support_status") == "unresolved_required_data_unavailable"]
     mapped_gap_rows = [
         row
@@ -184,7 +185,13 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
     release_request_files_present = [
         rel for rel in sorted(request_refs) if (repo / "data" / "dv_public_release" / rel).exists()
     ]
+    dispatch_ready_not_sent = [
+        row
+        for row in dispatch_rows
+        if row.get("transmission_status") == "not_transmitted_requires_user_authorization"
+    ]
     gap_register_md_exists = (repo / "DV_EVIDENCE_GAP_REGISTER.md").exists()
+    dispatch_matrix_md_exists = (repo / "DV_RECORDS_REQUEST_DISPATCH_MATRIX.md").exists()
     checks.append(
         Check(
             "OPS005",
@@ -195,7 +202,10 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
                 f"gap_register_rows={len(gap_rows)}; "
                 f"mapped_unresolved_gaps={len(mapped_gap_rows)}/{len(unresolved_gap_rows)}; "
                 f"release_request_files={len(release_request_files_present)}/{len(request_refs)}; "
-                f"gap_register_md_exists={gap_register_md_exists}"
+                f"dispatch_rows={len(dispatch_rows)}; "
+                f"dispatch_ready_not_sent={len(dispatch_ready_not_sent)}/{len(dispatch_rows)}; "
+                f"gap_register_md_exists={gap_register_md_exists}; "
+                f"dispatch_matrix_md_exists={dispatch_matrix_md_exists}"
             ),
             "Acquire/verify required case-level data and model artifacts using `DV_EVIDENCE_GAP_REGISTER.md`, then regenerate the DV public release."
             if unresolved

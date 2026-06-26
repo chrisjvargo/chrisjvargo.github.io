@@ -65,6 +65,24 @@ class SystemOperationAuditTests(unittest.TestCase):
                         }
                     )
             (repo / "DV_EVIDENCE_GAP_REGISTER.md").write_text("gap register", encoding="utf-8")
+            with (repo / "dv_publication" / "records_request_dispatch_matrix.csv").open(
+                "w", newline="", encoding="utf-8"
+            ) as f:
+                writer = csv.DictWriter(
+                    f,
+                    fieldnames=[
+                        "request_file",
+                        "transmission_status",
+                    ],
+                )
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "request_file": "records_requests/example.md",
+                        "transmission_status": "not_transmitted_requires_user_authorization",
+                    }
+                )
+            (repo / "DV_RECORDS_REQUEST_DISPATCH_MATRIX.md").write_text("dispatch matrix", encoding="utf-8")
             (dist / "index.html").write_text(
                 "\n".join(
                     [
@@ -98,6 +116,7 @@ class SystemOperationAuditTests(unittest.TestCase):
         self.assertEqual(checks["OPS005"].status, "open_gap")
         self.assertIn("mapped_unresolved_gaps=14/14", checks["OPS005"].evidence)
         self.assertIn("release_request_files=1/1", checks["OPS005"].evidence)
+        self.assertIn("dispatch_ready_not_sent=1/1", checks["OPS005"].evidence)
         self.assertEqual(checks["OPS006"].status, "pass")
 
 
