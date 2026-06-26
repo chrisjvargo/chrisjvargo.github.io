@@ -83,6 +83,25 @@ class SystemOperationAuditTests(unittest.TestCase):
                     }
                 )
             (repo / "DV_RECORDS_REQUEST_DISPATCH_MATRIX.md").write_text("dispatch matrix", encoding="utf-8")
+            with (repo / "dv_publication" / "records_request_submission_channels.csv").open(
+                "w", newline="", encoding="utf-8"
+            ) as f:
+                writer = csv.DictWriter(
+                    f,
+                    fieldnames=[
+                        "request_file",
+                        "channel_status",
+                        "transmission_status",
+                    ],
+                )
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "request_file": "records_requests/example.md",
+                        "channel_status": "official_channel_identified",
+                        "transmission_status": "not_transmitted_requires_user_authorization",
+                    }
+                )
             (dist / "index.html").write_text(
                 "\n".join(
                     [
@@ -117,6 +136,8 @@ class SystemOperationAuditTests(unittest.TestCase):
         self.assertIn("mapped_unresolved_gaps=14/14", checks["OPS005"].evidence)
         self.assertIn("release_request_files=1/1", checks["OPS005"].evidence)
         self.assertIn("dispatch_ready_not_sent=1/1", checks["OPS005"].evidence)
+        self.assertIn("submission_channels=1/1", checks["OPS005"].evidence)
+        self.assertIn("channels_not_sent=1/1", checks["OPS005"].evidence)
         self.assertEqual(checks["OPS006"].status, "pass")
 
 

@@ -69,6 +69,23 @@ class ReleaseTests(unittest.TestCase):
             {"not_transmitted_requires_user_authorization"},
         )
 
+    def test_records_request_submission_channels_are_public_hashed_and_unsent(self) -> None:
+        release_dir = self.repo / "data" / "dv_public_release"
+        rel_path = "public_tables/records_request_submission_channels.csv"
+        self.assertTrue((release_dir / rel_path).exists())
+        sha_manifest = (release_dir / "SHA256SUMS").read_text(encoding="utf-8")
+        self.assertIn(f"  {rel_path}", sha_manifest)
+        with (release_dir / rel_path).open(newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        self.assertGreaterEqual(len(rows), 20)
+        self.assertEqual(
+            {row["transmission_status"] for row in rows},
+            {"not_transmitted_requires_user_authorization"},
+        )
+        self.assertTrue(all(row["source_verification_date"] == "2026-06-26" for row in rows))
+        self.assertTrue(any(row["official_submission_url"].startswith("https://") for row in rows))
+        self.assertTrue(any(row["channel_status"] == "multi_custodian_manual_verification_required" for row in rows))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -175,6 +175,7 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
     unresolved = int(dv_statuses.get("unresolved_required_data_unavailable", 0) or 0)
     gap_rows = read_csv_rows(repo / "dv_publication" / "evidence_gap_register.csv")
     dispatch_rows = read_csv_rows(repo / "dv_publication" / "records_request_dispatch_matrix.csv")
+    channel_rows = read_csv_rows(repo / "dv_publication" / "records_request_submission_channels.csv")
     unresolved_gap_rows = [row for row in gap_rows if row.get("support_status") == "unresolved_required_data_unavailable"]
     mapped_gap_rows = [
         row
@@ -188,6 +189,16 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
     dispatch_ready_not_sent = [
         row
         for row in dispatch_rows
+        if row.get("transmission_status") == "not_transmitted_requires_user_authorization"
+    ]
+    channels_identified = [
+        row
+        for row in channel_rows
+        if row.get("channel_status") in {"official_channel_identified", "multi_custodian_manual_verification_required"}
+    ]
+    channels_not_sent = [
+        row
+        for row in channel_rows
         if row.get("transmission_status") == "not_transmitted_requires_user_authorization"
     ]
     gap_register_md_exists = (repo / "DV_EVIDENCE_GAP_REGISTER.md").exists()
@@ -204,6 +215,8 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
                 f"release_request_files={len(release_request_files_present)}/{len(request_refs)}; "
                 f"dispatch_rows={len(dispatch_rows)}; "
                 f"dispatch_ready_not_sent={len(dispatch_ready_not_sent)}/{len(dispatch_rows)}; "
+                f"submission_channels={len(channels_identified)}/{len(channel_rows)}; "
+                f"channels_not_sent={len(channels_not_sent)}/{len(channel_rows)}; "
                 f"gap_register_md_exists={gap_register_md_exists}; "
                 f"dispatch_matrix_md_exists={dispatch_matrix_md_exists}"
             ),

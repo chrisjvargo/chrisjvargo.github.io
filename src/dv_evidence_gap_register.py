@@ -39,6 +39,131 @@ COURT_DA_REQUEST_FILES = [
     "records_requests/other_municipal_courts.md",
 ]
 
+SUBMISSION_CHANNELS = {
+    "records_requests/audit_46_cases/boulder_police_46_case_audit_crosswalk.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercolorado.gov/boulder-police-department-data-and-report-request",
+        "official_source_url": "https://bouldercolorado.gov/services/request-crime-reports-or-records",
+        "source_note": "City page says police records requests can include police reports, photos, body/dash camera video, 911 audio, and CAD incident reports.",
+    },
+    "records_requests/audit_46_cases/twentieth_da_46_case_audit_crosswalk.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercounty.gov/district-attorney/discovery-unit/",
+        "official_source_url": "https://bouldercounty.gov/district-attorney/discovery-unit/",
+        "source_note": "DA page directs other criminal-case record requests to the Open Records Portal.",
+    },
+    "records_requests/boulder_county_communications.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercounty.gov/records/colorado-open-records-act/",
+        "official_source_url": "https://bouldercounty.gov/records/colorado-open-records-act/",
+        "source_note": "Boulder County CORA page directs requesters to the county Open Records Center.",
+    },
+    "records_requests/boulder_county_jail.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercounty.gov/safety/sheriff/records/",
+        "official_source_url": "https://bouldercounty.gov/safety/sheriff/records/",
+        "source_note": "Sheriff Records Section page provides records-request contact information.",
+    },
+    "records_requests/boulder_county_sheriff_office.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercounty.gov/safety/sheriff/records/",
+        "official_source_url": "https://bouldercounty.gov/safety/sheriff/records/",
+        "source_note": "Sheriff Records Section page provides records-request contact information.",
+    },
+    "records_requests/boulder_municipal_court.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercolorado.gov/services/municipal-court-records-forms-and-requests",
+        "official_source_url": "https://bouldercolorado.gov/services/municipal-court-records-forms-and-requests",
+        "source_note": "Boulder Municipal Court records, forms, and requests page identifies the court contact and request area.",
+    },
+    "records_requests/boulder_police_department.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercolorado.gov/boulder-police-department-data-and-report-request",
+        "official_source_url": "https://bouldercolorado.gov/services/request-crime-reports-or-records",
+        "source_note": "City page says police records requests can include police reports, photos, body/dash camera video, 911 audio, and CAD incident reports.",
+    },
+    "records_requests/claims_and_settlements/boulder_county_claims_settlements.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercounty.gov/records/colorado-open-records-act/",
+        "official_source_url": "https://bouldercounty.gov/records/colorado-open-records-act/",
+        "source_note": "Boulder County CORA page directs requesters to the county Open Records Center.",
+    },
+    "records_requests/claims_and_settlements/city_of_boulder_claims_settlements.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercolorado.gov/open-records-request",
+        "official_source_url": "https://bouldercolorado.gov/open-records-request",
+        "source_note": "City CORA page directs non-police department requests through the open records form.",
+    },
+    "records_requests/colorado_bureau_of_investigation.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://cbi.colorado.gov/about/colorado-criminal-justice-records-act-ccjra/public-records-requests",
+        "official_source_url": "https://cbi.colorado.gov/about/colorado-criminal-justice-records-act-ccjra/public-records-requests",
+        "source_note": "CBI CCJRA page explains CBI can provide records that pertain to CBI and directs requests to the appropriate custodian.",
+    },
+    "records_requests/colorado_judicial_branch.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://www.coloradojudicial.gov/access-guide-public-records",
+        "official_source_url": "https://www.coloradojudicial.gov/access-guide-public-records",
+        "source_note": "Judicial Branch guide directs compiled-data requests to CJD 05-01 section 4.40 and Addendum A.",
+    },
+    "records_requests/court_outcomes/unjust_claims_court_outcomes.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://www.coloradojudicial.gov/access-guide-public-records",
+        "official_source_url": "https://www.coloradojudicial.gov/access-guide-public-records",
+        "source_note": "Judicial Branch guide covers compiled court-data requests; municipal court components require municipal custodians.",
+    },
+    "records_requests/cu_boulder/cu_boulder_oiec_litigation_settlements.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://www.cu.edu/university-relations/cu-offices/university-relations/open-records-requests",
+        "official_source_url": "https://www.cu.edu/university-relations/cu-offices/university-relations/open-records-requests",
+        "source_note": "CU open-records page identifies CORA as the formal vehicle for university public-information requests.",
+    },
+    "records_requests/cu_boulder_police.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://www.colorado.edu/police/content/request-criminal-justice-record",
+        "official_source_url": "https://www.colorado.edu/police/records",
+        "source_note": "CUPD records page points to an online form for police report requests and gives records contact information.",
+    },
+    "records_requests/erie_police.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://townoferiecopd.nextrequest.com/",
+        "official_source_url": "https://www.erieco.gov/2350/Police",
+        "source_note": "Erie Police page links to records requests; Erie Police NextRequest portal accepts public records requests.",
+    },
+    "records_requests/lafayette_police.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://www.lafayetteco.gov/528/Records-Division",
+        "official_source_url": "https://www.lafayetteco.gov/528/Records-Division",
+        "source_note": "Lafayette Records Division page provides records-request links and contact information.",
+    },
+    "records_requests/longmont_public_safety.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://longmontcolorado.gov/public-safety/about-longmont-public-safety/collaborative-services-division/public-safety-records/",
+        "official_source_url": "https://longmontcolorado.gov/public-safety/about-longmont-public-safety/collaborative-services-division/public-safety-records/",
+        "source_note": "Longmont Public Safety Records page describes public-safety records requests and release functions.",
+    },
+    "records_requests/louisville_police.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://www.louisvilleco.gov/local-government/public-records-requests",
+        "official_source_url": "https://www.louisvilleco.gov/local-government/public-records-requests",
+        "source_note": "Louisville public-records page distinguishes police criminal-justice records from City Clerk records.",
+    },
+    "records_requests/other_municipal_courts.md": {
+        "channel_status": "multi_custodian_manual_verification_required",
+        "official_submission_url": "https://www.coloradojudicial.gov/access-guide-public-records",
+        "official_source_url": "https://www.coloradojudicial.gov/access-guide-public-records",
+        "source_note": "Use Judicial Branch compiled-data guidance for state data; separate municipal court custodians require case-by-case channel verification.",
+    },
+    "records_requests/twentieth_judicial_da.md": {
+        "channel_status": "official_channel_identified",
+        "official_submission_url": "https://bouldercounty.gov/district-attorney/discovery-unit/",
+        "official_source_url": "https://bouldercounty.gov/district-attorney/discovery-unit/",
+        "source_note": "DA page directs other criminal-case record requests to the Open Records Portal.",
+    },
+}
+
+CHANNEL_VERIFICATION_DATE = "2026-06-26"
+
 
 def unique(values: list[str]) -> list[str]:
     seen: set[str] = set()
@@ -166,6 +291,49 @@ def write_dispatch_csv(path: Path, rows: list[dict[str, str]]) -> None:
         "response_status",
         "response_date",
         "current_next_action",
+    ]
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({field: row.get(field, "") for field in fields})
+
+
+def build_channel_rows(dispatch_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    channel_rows: list[dict[str, str]] = []
+    for row in dispatch_rows:
+        rel = row.get("request_file", "")
+        channel = SUBMISSION_CHANNELS.get(rel, {})
+        channel_rows.append(
+            {
+                "request_file": rel,
+                "request_title": row.get("request_title", ""),
+                "linked_hypotheses": row.get("linked_hypotheses", ""),
+                "channel_status": channel.get("channel_status", "manual_channel_verification_required"),
+                "official_submission_url": channel.get("official_submission_url", ""),
+                "official_source_url": channel.get("official_source_url", ""),
+                "source_verification_date": CHANNEL_VERIFICATION_DATE,
+                "source_note": channel.get("source_note", ""),
+                "authorization_status": row.get("authorization_status", "not_authorized_to_transmit"),
+                "transmission_status": row.get("transmission_status", "not_transmitted_requires_user_authorization"),
+            }
+        )
+    return channel_rows
+
+
+def write_channels_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fields = [
+        "request_file",
+        "request_title",
+        "linked_hypotheses",
+        "channel_status",
+        "official_submission_url",
+        "official_source_url",
+        "source_verification_date",
+        "source_note",
+        "authorization_status",
+        "transmission_status",
     ]
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
@@ -317,6 +485,16 @@ def main() -> None:
         default=Path("data/dv_public_release/public_tables/records_request_dispatch_matrix.csv"),
     )
     parser.add_argument(
+        "--channels-csv",
+        type=Path,
+        default=Path("dv_publication/records_request_submission_channels.csv"),
+    )
+    parser.add_argument(
+        "--release-channels-csv",
+        type=Path,
+        default=Path("data/dv_public_release/public_tables/records_request_submission_channels.csv"),
+    )
+    parser.add_argument(
         "--release-root",
         type=Path,
         default=Path("data/dv_public_release"),
@@ -337,6 +515,7 @@ def main() -> None:
         raise SystemExit("unresolved hypotheses missing gap mapping: " + ", ".join(incomplete))
     validate_release_request_files(args.release_root, rows)
     dispatch_rows = build_dispatch_rows(args.release_root, rows)
+    channel_rows = build_channel_rows(dispatch_rows)
 
     write_csv(args.out_csv, rows)
     write_csv(args.release_csv, rows)
@@ -344,6 +523,8 @@ def main() -> None:
     write_dispatch_csv(args.dispatch_csv, dispatch_rows)
     write_dispatch_csv(args.release_dispatch_csv, dispatch_rows)
     write_dispatch_markdown(args.dispatch_md, dispatch_rows)
+    write_channels_csv(args.channels_csv, channel_rows)
+    write_channels_csv(args.release_channels_csv, channel_rows)
     write_sha256sums(args.release_root)
     print(f"Wrote {args.out_csv}")
     print(f"Wrote {args.release_csv}")
@@ -351,6 +532,8 @@ def main() -> None:
     print(f"Wrote {args.dispatch_csv}")
     print(f"Wrote {args.release_dispatch_csv}")
     print(f"Wrote {args.dispatch_md}")
+    print(f"Wrote {args.channels_csv}")
+    print(f"Wrote {args.release_channels_csv}")
     print(f"Refreshed {args.release_root / 'SHA256SUMS'}")
 
 
