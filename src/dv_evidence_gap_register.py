@@ -21,6 +21,61 @@ REQUIRED_COLUMNS = [
     "current_answer",
 ]
 
+AGENCY_REQUEST_FILES = [
+    "records_requests/boulder_police_department.md",
+    "records_requests/boulder_county_sheriff_office.md",
+    "records_requests/longmont_public_safety.md",
+    "records_requests/lafayette_police.md",
+    "records_requests/louisville_police.md",
+    "records_requests/erie_police.md",
+    "records_requests/cu_boulder_police.md",
+]
+
+COURT_DA_REQUEST_FILES = [
+    "records_requests/twentieth_judicial_da.md",
+    "records_requests/colorado_judicial_branch.md",
+    "records_requests/boulder_municipal_court.md",
+    "records_requests/other_municipal_courts.md",
+]
+
+
+def unique(values: list[str]) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for value in values:
+        if value not in seen:
+            seen.add(value)
+            out.append(value)
+    return out
+
+
+def expanded_request_files(value: str) -> list[str]:
+    raw = value.strip()
+    if raw == "all agency records_requests/*.md":
+        return AGENCY_REQUEST_FILES
+    if raw == "agency, DA, and court records requests":
+        return unique(AGENCY_REQUEST_FILES + COURT_DA_REQUEST_FILES)
+
+    files: list[str] = []
+    for part in [item.strip() for item in raw.split(";") if item.strip()]:
+        if part == "agency records requests":
+            files.extend(AGENCY_REQUEST_FILES)
+        elif part.endswith(" and peer agency requests"):
+            first = part.removesuffix(" and peer agency requests").strip()
+            files.extend([first, *[f for f in AGENCY_REQUEST_FILES if f != first]])
+        else:
+            files.append(part)
+    return unique(files)
+
+
+def normalize_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    normalized: list[dict[str, str]] = []
+    for row in rows:
+        next_row = dict(row)
+        next_row["request_files"] = "; ".join(expanded_request_files(row.get("request_files", "")))
+        normalized.append(next_row)
+    return normalized
+
 
 def read_rows(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as f:
@@ -58,6 +113,16 @@ def write_sha256sums(root: Path) -> None:
         for path in sorted(files)
     ]
     (root / "SHA256SUMS").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def validate_release_request_files(root: Path, rows: list[dict[str, str]]) -> None:
+    missing: list[str] = []
+    for row in rows:
+        for rel in expanded_request_files(row.get("request_files", "")):
+            if rel.startswith("records_requests/") and not (root / rel).exists():
+                missing.append(rel)
+    if missing:
+        raise SystemExit("release is missing referenced request files: " + ", ".join(sorted(set(missing))))
 
 
 def write_markdown(path: Path, rows: list[dict[str, str]]) -> None:
@@ -142,7 +207,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    rows = read_rows(args.source)
+    rows = normalize_rows(read_rows(args.source))
     if len(rows) != 14:
         raise SystemExit(f"expected 14 hypotheses, found {len(rows)}")
     unresolved = [row for row in rows if row.get("support_status") == "unresolved_required_data_unavailable"]
@@ -153,6 +218,7 @@ def main() -> None:
     ]
     if incomplete:
         raise SystemExit("unresolved hypotheses missing gap mapping: " + ", ".join(incomplete))
+    validate_release_request_files(args.release_root, rows)
 
     write_csv(args.out_csv, rows)
     write_csv(args.release_csv, rows)

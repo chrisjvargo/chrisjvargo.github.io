@@ -38,6 +38,10 @@ class SystemOperationAuditTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (repo / "dv_publication").mkdir()
+            (repo / "data" / "dv_public_release" / "records_requests").mkdir(parents=True)
+            (repo / "data" / "dv_public_release" / "records_requests" / "example.md").write_text(
+                "example request", encoding="utf-8"
+            )
             with (repo / "dv_publication" / "evidence_gap_register.csv").open("w", newline="", encoding="utf-8") as f:
                 writer = csv.DictWriter(
                     f,
@@ -93,6 +97,7 @@ class SystemOperationAuditTests(unittest.TestCase):
         self.assertEqual(checks["OPS003"].status, "pass")
         self.assertEqual(checks["OPS005"].status, "open_gap")
         self.assertIn("mapped_unresolved_gaps=14/14", checks["OPS005"].evidence)
+        self.assertIn("release_request_files=1/1", checks["OPS005"].evidence)
         self.assertEqual(checks["OPS006"].status, "pass")
 
 

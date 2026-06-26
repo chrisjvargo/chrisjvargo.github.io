@@ -1,4 +1,5 @@
 from pathlib import Path
+import csv
 import sys
 import unittest
 
@@ -35,6 +36,23 @@ class ReleaseTests(unittest.TestCase):
         sha_manifest = (release_dir / "SHA256SUMS").read_text(encoding="utf-8")
         self.assertIn(f"  {rel_path}", sha_manifest)
         self.assertEqual(len(self.release["public_tables"]["evidence_gap_register.csv"]), 14)
+
+    def test_evidence_gap_request_files_exist_and_are_hashed(self) -> None:
+        release_dir = self.repo / "data" / "dv_public_release"
+        sha_manifest = (release_dir / "SHA256SUMS").read_text(encoding="utf-8")
+        with (release_dir / "public_tables" / "evidence_gap_register.csv").open(newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        request_files = {
+            item.strip()
+            for row in rows
+            for item in row["request_files"].split(";")
+            if item.strip().startswith("records_requests/")
+        }
+        self.assertGreaterEqual(len(request_files), 14)
+        for rel_path in sorted(request_files):
+            with self.subTest(rel_path=rel_path):
+                self.assertTrue((release_dir / rel_path).exists())
+                self.assertIn(f"  {rel_path}", sha_manifest)
 
 
 if __name__ == "__main__":

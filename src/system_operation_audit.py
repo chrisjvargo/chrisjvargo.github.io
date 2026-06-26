@@ -39,6 +39,16 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
         return [{k: (v or "").strip() for k, v in row.items()} for row in csv.DictReader(f)]
 
 
+def request_file_refs(rows: list[dict[str, str]]) -> set[str]:
+    refs: set[str] = set()
+    for row in rows:
+        for item in row.get("request_files", "").split(";"):
+            rel = item.strip()
+            if rel.startswith("records_requests/"):
+                refs.add(rel)
+    return refs
+
+
 def git_status(repo: Path) -> str:
     try:
         proc = subprocess.run(
@@ -170,6 +180,10 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
         for row in unresolved_gap_rows
         if row.get("missing_fields") and row.get("request_targets") and row.get("request_files")
     ]
+    request_refs = request_file_refs(gap_rows)
+    release_request_files_present = [
+        rel for rel in sorted(request_refs) if (repo / "data" / "dv_public_release" / rel).exists()
+    ]
     gap_register_md_exists = (repo / "DV_EVIDENCE_GAP_REGISTER.md").exists()
     checks.append(
         Check(
@@ -180,6 +194,7 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
                 f"hypothesis_status_counts={dv_statuses}; "
                 f"gap_register_rows={len(gap_rows)}; "
                 f"mapped_unresolved_gaps={len(mapped_gap_rows)}/{len(unresolved_gap_rows)}; "
+                f"release_request_files={len(release_request_files_present)}/{len(request_refs)}; "
                 f"gap_register_md_exists={gap_register_md_exists}"
             ),
             "Acquire/verify required case-level data and model artifacts using `DV_EVIDENCE_GAP_REGISTER.md`, then regenerate the DV public release."
