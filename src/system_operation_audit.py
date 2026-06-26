@@ -45,6 +45,20 @@ def git_status(repo: Path) -> str:
     return proc.stdout.strip()
 
 
+def git_branch(repo: Path) -> str:
+    try:
+        proc = subprocess.run(
+            ["git", "branch", "--show-current"],
+            cwd=repo,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return "git_branch_unavailable"
+    return proc.stdout.strip()
+
+
 def phrase_check(page: str, required: list[str], forbidden: list[str]) -> tuple[bool, str]:
     missing = [phrase for phrase in required if phrase not in page]
     present_forbidden = [phrase for phrase in forbidden if phrase in page]
@@ -62,6 +76,7 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
     home = text(dist / "index.html")
     cv = text(dist / "cv" / "index.html")
     status = git_status(repo)
+    branch = git_branch(repo)
     checks: list[Check] = []
 
     checks.append(
@@ -177,13 +192,23 @@ def build_audit(repo: Path, dist: Path) -> list[Check]:
         )
     )
 
+    deployment_ready = not status and branch == "main"
     checks.append(
         Check(
             "OPS007",
             "deployment_state",
-            "open_gap" if status else "pass",
-            "working_tree_clean" if not status else "working_tree_changes=" + status.replace("\n", " | "),
-            "Commit, push, and let the GitHub Pages workflow deploy." if status else "Verify live site after deployment.",
+            "pass" if deployment_ready else "open_gap",
+            (
+                f"branch={branch}; "
+                + ("working_tree_clean" if not status else "working_tree_changes=" + status.replace("\n", " | "))
+            ),
+            "Merge to `main`, push, and let the GitHub Pages workflow deploy."
+            if branch != "main"
+            else (
+                "Commit local changes, push, and let the GitHub Pages workflow deploy."
+                if status
+                else "Verify live site after deployment."
+            ),
         )
     )
 
