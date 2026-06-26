@@ -119,7 +119,7 @@ def run_checks(dist: Path, out_dir: Path) -> list[PageCheck]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dist", type=Path, default=Path("dist"))
-    parser.add_argument("--out-dir", type=Path, default=Path("dv_publication/screenshots"))
+    parser.add_argument("--out-dir", type=Path, default=Path("dv_publication/runtime/root_cv_screenshots"))
     parser.add_argument("--report", type=Path, default=Path("dv_publication/root_cv_visual_qa_report.json"))
     parser.add_argument("--manifest", type=Path, default=Path("dv_publication/root_cv_screenshot_manifest.csv"))
     args = parser.parse_args()

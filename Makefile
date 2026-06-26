@@ -25,7 +25,7 @@ operation-audit:
 	$(PY) src/system_operation_audit.py --dist dist --out-md SYSTEM_OPERATION_GAP_REVIEW.md --out-json dist/system_operation_audit.json
 
 site-visual-qa:
-	$(PY) src/site_visual_qa.py --dist dist --out-dir dv_publication/screenshots --report dv_publication/root_cv_visual_qa_report.json --manifest dv_publication/root_cv_screenshot_manifest.csv
+	$(PY) src/site_visual_qa.py --dist dist --out-dir dv_publication/runtime/root_cv_screenshots --report dv_publication/root_cv_visual_qa_report.json --manifest dv_publication/root_cv_screenshot_manifest.csv
 
 serve:
 	cd dist && python3 -m http.server 8000

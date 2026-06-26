@@ -6,7 +6,7 @@
     {
       "path": "/",
       "viewport": "desktop",
-      "screenshot": "dv_publication/screenshots/home-desktop.png",
+      "screenshot": "dv_publication/runtime/root_cv_screenshots/home-desktop.png",
       "title": "Home | Chris J. Vargo",
       "h1_count": 1,
       "h2_count": 6,
@@ -27,7 +27,7 @@
     {
       "path": "/",
       "viewport": "mobile",
-      "screenshot": "dv_publication/screenshots/home-mobile.png",
+      "screenshot": "dv_publication/runtime/root_cv_screenshots/home-mobile.png",
       "title": "Home | Chris J. Vargo",
       "h1_count": 1,
       "h2_count": 6,
@@ -48,9 +48,9 @@
     {
       "path": "/cv/",
       "viewport": "desktop",
-      "screenshot": "dv_publication/screenshots/cv-desktop.png",
+      "screenshot": "dv_publication/runtime/root_cv_screenshots/cv-desktop.png",
       "title": "CV | Chris J. Vargo",
-      "h1_count": 10,
+      "h1_count": 11,
       "h2_count": 22,
       "main": true,
       "nav": true,
@@ -67,9 +67,9 @@
     {
       "path": "/cv/",
       "viewport": "mobile",
-      "screenshot": "dv_publication/screenshots/cv-mobile.png",
+      "screenshot": "dv_publication/runtime/root_cv_screenshots/cv-mobile.png",
       "title": "CV | Chris J. Vargo",
-      "h1_count": 10,
+      "h1_count": 11,
       "h2_count": 22,
       "main": true,
       "nav": true,
