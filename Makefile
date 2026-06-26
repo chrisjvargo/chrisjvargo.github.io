@@ -2,7 +2,7 @@ VENV=.venv
 PY=$(shell test -x $(VENV)/bin/python && echo $(VENV)/bin/python || echo python3)
 PIP=$(VENV)/bin/pip
 
-.PHONY: init preprints build cv validate operation-audit site-visual-qa serve dv-export dv-build dv-validate dv-serve dv-test dv-audit dv-screenshots dv-release
+.PHONY: init preprints build cv validate dv-evidence-gaps operation-audit site-visual-qa serve dv-export dv-build dv-validate dv-serve dv-test dv-audit dv-screenshots dv-release
 
 init:
 	python3 -m venv $(VENV)
@@ -21,7 +21,10 @@ build:
 validate:
 	$(PY) src/validate_build.py --dist dist --site-url https://chrisjvargo.com
 
-operation-audit:
+dv-evidence-gaps:
+	$(PY) src/dv_evidence_gap_register.py --source data/dv_public_release/public_tables/hypothesis_data_resolution.csv --out-csv dv_publication/evidence_gap_register.csv --out-md DV_EVIDENCE_GAP_REGISTER.md
+
+operation-audit: dv-evidence-gaps
 	$(PY) src/system_operation_audit.py --dist dist --out-md SYSTEM_OPERATION_GAP_REVIEW.md --out-json dist/system_operation_audit.json
 
 site-visual-qa:
