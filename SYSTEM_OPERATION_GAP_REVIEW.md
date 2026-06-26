@@ -16,8 +16,8 @@ Generated from local inspection on 2026-06-26.
 | OPS003 | homepage_cv_positioning | pass | all required phrases present; forbidden phrases absent | No action needed locally. |
 | OPS004 | latex_artifact_hygiene | pass | no root-level Vargo_CV.* artifacts | No action needed. |
 | OPS005 | dv_publication_evidence | open_gap | hypothesis_status_counts={'unresolved_required_data_unavailable': 14} | Acquire/verify required case-level data and model artifacts, then regenerate the DV public release. |
-| OPS006 | publication_metadata | pass | required_publication_metadata_gaps=0; selected_publication_pages=3/3; metadata_policy_exists=True; optional_missing_abstracts=63; optional_unmatched_preprints=62 | Optional abstract/preprint enrichment remains backlog, not a full-operation blocker. |
-| OPS007 | deployment_state | open_gap | branch=feat/site-operation-gap-review; working_tree_clean | Merge to `main`, push, and let the GitHub Pages workflow deploy. |
+| OPS006 | publication_metadata | pass | required_publication_metadata_gaps=0; selected_publication_pages=3/3; metadata_policy_exists=True; optional_missing_abstracts=64; optional_unmatched_preprints=63 | Optional abstract/preprint enrichment remains backlog, not a full-operation blocker. |
+| OPS007 | deployment_state | open_gap | branch=main; working_tree_changes=M .gitignore \|  M Makefile \|  M SYSTEM_OPERATION_GAP_REVIEW.md \|  M dv_publication/root_cv_screenshot_manifest.csv \|  M dv_publication/root_cv_visual_qa_report.json \|  M src/site_visual_qa.py | Commit local changes, push, and let the GitHub Pages workflow deploy. |
 | OPS008 | visual_accessibility_performance_qa | pass | root_cv_visual_status=pass; artifacts=dv_publication/root_cv_visual_qa_report.json; dv_publication/root_cv_screenshot_manifest.csv; dv_publication/screenshot_manifest.csv; DV_ACCESSIBILITY_REPORT.md; DV_PERFORMANCE_REPORT.md | Local root/CV screenshot and smoke accessibility checks are current. |
 
 ## Recommended Verification Command

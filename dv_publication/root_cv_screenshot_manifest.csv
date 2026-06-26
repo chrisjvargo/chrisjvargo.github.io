@@ -1,5 +1,5 @@
 path,page,viewport
-dv_publication/screenshots/home-desktop.png,/,desktop
-dv_publication/screenshots/home-mobile.png,/,mobile
-dv_publication/screenshots/cv-desktop.png,/cv/,desktop
-dv_publication/screenshots/cv-mobile.png,/cv/,mobile
+dv_publication/runtime/root_cv_screenshots/home-desktop.png,/,desktop
+dv_publication/runtime/root_cv_screenshots/home-mobile.png,/,mobile
+dv_publication/runtime/root_cv_screenshots/cv-desktop.png,/cv/,desktop
+dv_publication/runtime/root_cv_screenshots/cv-mobile.png,/cv/,mobile
