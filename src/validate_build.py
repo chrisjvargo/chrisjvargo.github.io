@@ -60,6 +60,59 @@ def load_manifest(path: Path) -> list[dict]:
     return records
 
 
+def validate_home_page(dist: Path) -> list[str]:
+    errors: list[str] = []
+    home = dist / "index.html"
+    if not home.exists():
+        return ["home: missing index.html"]
+    html_text = home.read_text(encoding="utf-8", errors="ignore")
+    required = [
+        "Google Cloud AI work",
+        "Research, teaching, and software for AI field readiness.",
+        "Ph.D., Mass Communication",
+        "Master of Arts, Advertising &amp; Public Relations",
+        "Bachelor of Arts, Advertising &amp; Public Relations",
+        "Field-readiness needs analysis",
+        "Seller-readiness transcript demo",
+        "LLM deployment courseware",
+        "socialcontext.ai",
+        "Inside a Social Media Brand Safety Algorithm",
+        "Toward a Tweet Typology",
+        "From Ads to Addiction",
+    ]
+    for phrase in required:
+        if phrase not in html_text:
+            errors.append(f"home: missing required homepage phrase {phrase!r}")
+    forbidden = [
+        "Portfolio Links",
+        "Quick Links",
+        "4,499 citations",
+        "h-index 26",
+        "126,582 Coursera",
+    ]
+    for phrase in forbidden:
+        if phrase in html_text:
+            errors.append(f"home: forbidden stale homepage phrase is present {phrase!r}")
+    return errors
+
+
+def validate_cv_page(dist: Path) -> list[str]:
+    errors: list[str] = []
+    cv_index = dist / "cv" / "index.html"
+    cv_pdf = dist / "assets" / "cv.pdf"
+    if not cv_index.exists():
+        return ["cv: missing /cv/ index.html"]
+    html_text = cv_index.read_text(encoding="utf-8", errors="ignore")
+    if not cv_pdf.exists():
+        errors.append("cv: missing downloadable PDF at /assets/cv.pdf")
+    if "Pandoc HTML conversion is not available" in html_text:
+        errors.append("cv: Pandoc conversion fallback is visible despite generated HTML being expected")
+    for phrase in ["Curriculum Vitae", "id=\"education\"", "Master of Arts, Advertising &amp;"]:
+        if phrase not in html_text:
+            errors.append(f"cv: missing expected HTML CV phrase {phrase!r}")
+    return errors
+
+
 def validate_record(dist: Path, record: dict, site_url: str) -> list[str]:
     errors: list[str] = []
     slug = record.get("slug", "<unknown>")
@@ -153,6 +206,8 @@ def main() -> None:
 
     records = load_manifest(manifest_path)
     all_errors: list[str] = []
+    all_errors.extend(validate_home_page(dist))
+    all_errors.extend(validate_cv_page(dist))
     for record in records:
         all_errors.extend(validate_record(dist, record, args.site_url.rstrip("/")))
 

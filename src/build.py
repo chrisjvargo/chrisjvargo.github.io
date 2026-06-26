@@ -83,9 +83,9 @@ def copy_static(static_dir: Path, out_assets: Path) -> None:
 
 def extract_body_html(pandoc_html: str) -> str | None:
     m = re.search(r"<body[^>]*>(.*)</body>", pandoc_html, flags=re.S | re.I)
-    if not m:
+    body = m.group(1).strip() if m else pandoc_html.strip()
+    if not re.search(r"<(?:h1|h2|h3|p|table|ul|ol|div)\b", body, flags=re.I):
         return None
-    body = m.group(1).strip()
     return body or None
 
 
@@ -1403,17 +1403,110 @@ def build_site(
     for pub in publications:
         pub["author_links"] = build_author_links(pub.get("authors", []), meta.get("orcid"))
 
-    bio_text = (
-        "Chris J. Vargo is an associate professor whose research focuses on computational "
-        "content analysis, social media dynamics, advertising, and agenda-setting theory."
+    hero_eyebrow = "Google Cloud AI work"
+    hero_title = "Research, teaching, and software for AI field readiness."
+    hero_subtitle = (
+        "Google Cloud field teams are moving from AI awareness to AI execution. That shift needs "
+        "someone who can turn ambiguous seller behavior into measurable competencies, score real "
+        "conversations with evidence, teach modern LLM deployment, and ship working software. "
+        "That is the through-line of my research, teaching, and applied AI work."
     )
 
-    research_interests = [
-        "Computational content analysis and machine learning for media research",
-        "Agenda-setting, agendamelding, and intermedia influence",
-        "Political communication and online platform behavior",
-        "Advertising analytics and digital trace data methods",
+    bio_text = (
+        "Chris J. Vargo is a computational social scientist and associate professor at CU Boulder. "
+        "He studies language, search, media, and platform behavior, then builds practical systems "
+        "that turn those signals into measurement, coaching, and decision support. His current work "
+        "connects Google Cloud AI enablement, MSDS teaching, and applied software production."
+    )
+
+    focus_items = [
+        "Google Cloud AI field readiness: competencies, transcripts, scoring, coaching, and seller archetypes",
+        "Research: computational content analysis, brand safety, Google Trends signals, and public attention",
+        "Teaching: MSDS systems for LLM classification, vLLM, LoRA/QLoRA, Hugging Face, and evaluation",
+        "Software: production-oriented workflows, evidence capture, health checks, and CSV/JSON exports",
     ]
+
+    degrees = [
+        {
+            "degree": "Ph.D., Mass Communication",
+            "institution": "University of North Carolina at Chapel Hill",
+            "date": "May 2014",
+        },
+        {
+            "degree": "Master of Arts, Advertising & Public Relations",
+            "institution": "University of Alabama",
+            "date": "May 2011",
+        },
+        {
+            "degree": "Bachelor of Arts, Advertising & Public Relations",
+            "institution": "Pennsylvania State University",
+            "date": "May 2008",
+        },
+    ]
+
+    selected_work = [
+        {
+            "title": "Field-readiness needs analysis",
+            "org": "SBIGlobal / Google Cloud FSR",
+            "date": "Jun 2026",
+            "summary": (
+                "Mapped 107 behavior rows into 25 survey items, 17 competencies, 12 measurement "
+                "areas, 54 concept scores, 16 proficiency scores, and k=2-6 seller archetype clusters."
+            ),
+        },
+        {
+            "title": "Seller-readiness transcript demo",
+            "org": "SBIGlobal / Google Cloud FSR",
+            "date": "Jun 2026",
+            "summary": (
+                "Built a React, Express, and Zod workflow with Gemini/local fallback scoring, "
+                "source-quote evidence, health/readiness checks, coaching outputs, and CSV/JSON exports."
+            ),
+        },
+        {
+            "title": "LLM deployment courseware",
+            "org": "CU Boulder MSDS",
+            "date": "Sep 2025-Mar 2026",
+            "summary": (
+                "Shipped technical learning systems for MSDS teams and public learners: LLM "
+                "classification, vLLM, LoRA/QLoRA, Hugging Face workflows, model serving, and production evaluation."
+            ),
+        },
+        {
+            "title": "socialcontext.ai",
+            "org": "socialcontext LLC",
+            "date": "Jun 2019-2025",
+            "summary": (
+                "Founded and operated an applied AI company for contextual media intelligence: "
+                "brand safety, audience signals, agenda measurement, advertising context, and client-ready reporting."
+            ),
+        },
+    ]
+
+    selected_publications = [
+        {
+            "title": "Inside a Social Media Brand Safety Algorithm",
+            "impact": "Jigsaw-style brand-safety audit",
+            "date": "2023",
+            "venue": "American Academy of Advertising Annual Conference",
+            "url": "/publications/inside-a-social-media-brand-safety-algorithm-a-computational-investigation-of-subreddits/",
+        },
+        {
+            "title": "Toward a Tweet Typology",
+            "impact": "marketing-funnel content taxonomy",
+            "date": "2016",
+            "venue": "Journal of Interactive Advertising",
+            "url": "/publications/toward-a-tweet-typology-a-study-of-brand-message-content-types-and-corresponding-consume/",
+        },
+        {
+            "title": "From Ads to Addiction",
+            "impact": "Google Trends advertising signal",
+            "date": "2025",
+            "venue": "Hawaii International Conference on System Sciences",
+            "url": "/publications/from-ads-to-addiction-the-role-of-online-gambling-advertising-spend-in-problem-gambling/",
+        },
+    ]
+    selected_publication_urls = {pub["url"] for pub in selected_publications}
 
     common_ctx = {
         "meta": meta,
@@ -1426,12 +1519,17 @@ def build_site(
     home_html = env.get_template("index.html").render(
         **common_ctx,
         canonical_url=abs_url(site_url, "/"),
-        page_description="Academic profile, publications, and CV for Chris J. Vargo.",
+        page_description="Google Cloud AI enablement, computational content analysis, teaching, software, publications, and CV for Chris J. Vargo.",
+        hero_eyebrow=hero_eyebrow,
+        hero_title=hero_title,
+        hero_subtitle=hero_subtitle,
         bio_text=bio_text,
-        research_interests=research_interests,
-        quick_links=nav,
+        focus_items=focus_items,
+        degrees=degrees,
+        selected_work=selected_work,
+        selected_publications=selected_publications,
         social_title=f"{meta.get('name', 'Chris J. Vargo')} - Home",
-        social_description=shorten(bio_text, 200),
+        social_description=shorten(hero_subtitle, 200),
         social_image=abs_url(site_url, DEFAULT_OG_IMAGE),
         social_url=abs_url(site_url, "/"),
         og_type="website",
@@ -1590,15 +1688,34 @@ def build_site(
     dv_result = build_dv_pages(repo_root, out_dir, site_url, common_ctx, env)
 
     # Build reports
+    selected_publication_records = [p for p in publications if p.get("detail_url") in selected_publication_urls]
+    required_publication_metadata_gaps = [
+        p["slug"] for p in publications if not (p.get("abstract") or "").strip() and not bool(p.get("no_abstract_ok"))
+    ]
     report = {
         **preprint_report,
         "cv_html_status": cv_html_status,
         "cv_pdf_status": cv_pdf_status,
+        "publication_metadata_policy": "citation_metadata_required_abstracts_and_preprints_optional",
+        "required_publication_metadata_gaps": len(required_publication_metadata_gaps),
+        "required_publication_metadata_gap_slugs": required_publication_metadata_gaps,
         "publication_groups": [g.get("title") for g in publication_groups],
         "preprints_page_count": len([p for p in publications if p.get("local_pdf_url") or p.get("external_pdf_url")]),
         "publication_detail_pages": len(publication_detail_paths),
         "missing_abstracts": len([p for p in publications if not p.get("abstract")]),
         "abstract_todos": abstract_todos,
+        "selected_publication_detail_pages": len(selected_publication_records),
+        "selected_publication_expected_pages": len(selected_publication_urls),
+        "selected_publication_metadata": [
+            {
+                "slug": p["slug"],
+                "detail_url": p["detail_url"],
+                "abstract_present": bool((p.get("abstract") or "").strip()),
+                "no_abstract_ok": bool(p.get("no_abstract_ok")),
+                "has_public_pdf": bool(p.get("local_pdf_url") or p.get("external_pdf_url") or p.get("chapter_preprints")),
+            }
+            for p in selected_publication_records
+        ],
         "build_timestamp": build_timestamp,
         "dv": dv_result["build_report"],
     }
