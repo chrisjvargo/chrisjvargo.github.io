@@ -28,6 +28,14 @@ class ReleaseTests(unittest.TestCase):
         statuses = {row["support_status"] for row in self.release["hypotheses"]}
         self.assertEqual(statuses, {"unresolved_required_data_unavailable"})
 
+    def test_evidence_gap_register_is_public_and_hashed(self) -> None:
+        release_dir = self.repo / "data" / "dv_public_release"
+        rel_path = "public_tables/evidence_gap_register.csv"
+        self.assertTrue((release_dir / rel_path).exists())
+        sha_manifest = (release_dir / "SHA256SUMS").read_text(encoding="utf-8")
+        self.assertIn(f"  {rel_path}", sha_manifest)
+        self.assertEqual(len(self.release["public_tables"]["evidence_gap_register.csv"]), 14)
+
 
 if __name__ == "__main__":
     unittest.main()
