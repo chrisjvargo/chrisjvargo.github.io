@@ -25,6 +25,19 @@
           "public_pdf_filename": "chapter-11.pdf"
         }
       ]
+    },
+    "gambling-advertising-and-problem-gambling-in-the-united-states-multi-level-evidence-beyo": {
+      "abstract": "Background: U.S. gambling debates often center on legal status, but advertising is a distinct policy lever. Methods: Study 1 links quarterly state-level gambling advertising outlays across paid media (2014–2023) to Google Trends indices for 116 problem-gambling help-seeking queries across 41 states (1,640 state-quarters). Study 2 combines surveys with passive digital traces from 419 exposure-eligible mobile-platform users. Results: Higher state-level ad spend, but not sports-betting legal status, was associated with greater help-seeking search interest, and this association strengthened over time. Platform-specific gambling-ad exposure on Facebook, TikTok, and X was associated with gambler status, gambling frequency, and the probability of any observed gambling-site visit. Clean gambling ads were also associated with higher 24-hour odds of subsequent gambling touchpoints, especially web visits; among gamblers, ad-triggered touchpoints were associated with problem-gambling scores more consistently than raw clean ad volume. Conclusions: Convergent state-level and individual-level evidence links gambling advertising with engagement and harm-related indicators, while the observational designs do not identify causal effects. The findings support stronger restrictions on advertising volume, placement, inducements, and targeting.",
+      "keywords": [
+        "gambling advertising",
+        "gambling marketing",
+        "sports-betting legal status",
+        "problem gambling",
+        "digital trace data"
+      ],
+      "online_date": "2026-09-01",
+      "year": 2026,
+      "version_label": "Author-accepted manuscript (accepted September 1, 2026)"
     }
   },
   "by_doi": {}

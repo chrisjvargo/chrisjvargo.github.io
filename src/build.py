@@ -1595,13 +1595,17 @@ def build_site(
         ris_entries.append(ris_text)
 
         rights_note = None
+        version_label_display = None
+        if pub.get("version_label"):
+            version_label = str(pub["version_label"])
+            version_label_display = version_label[:1].lower() + version_label[1:]
         if pub.get("version_label") and pub.get("doi"):
             rights_note = (
-                f"This is the {pub['version_label'].lower()}. "
+                f"This is the {version_label_display}. "
                 "For the final published version, see the DOI above."
             )
         elif pub.get("version_label"):
-            rights_note = f"This is the {pub['version_label'].lower()}."
+            rights_note = f"This is the {version_label_display}."
 
         rendered = publication_template.render(
             **common_ctx,
