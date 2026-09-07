@@ -64,12 +64,13 @@ nav {
 }
 
 .top-nav a {
-  display: inline-grid;
-  width: 1.8rem;
-  height: 1.8rem;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  min-height: 1.8rem;
+  padding: 0 0.3rem;
   border: 1px solid transparent;
-  border-radius: 50%;
+  border-radius: 0.2rem;
   color: inherit;
   text-decoration: none;
 }
@@ -345,11 +346,13 @@ main ul li {
 
 .academic-path {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem 0.75rem;
+  gap: 0.3rem 0.45rem;
   margin-bottom: 0.65rem;
+  overflow-x: auto;
+  padding-bottom: 0.1rem;
 }
 
 .academic-path-label {
@@ -365,25 +368,16 @@ main ul li {
 .academic-credential {
   display: inline-flex;
   align-items: center;
-  gap: 0.42rem;
-  padding: 0.2rem 0.45rem;
-  border-left: 1px dotted #777;
-  color: inherit;
-  text-decoration: none;
-}
-
-.academic-credential:hover,
-.academic-credential:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
+  gap: 0.25rem;
+  white-space: nowrap;
 }
 
 .academic-logo {
   display: grid;
-  width: 4.4rem;
-  height: 2rem;
+  width: 2rem;
+  height: 1.1rem;
   place-items: center;
-  padding: 0.16rem 0.25rem;
+  padding: 0.08rem 0.12rem;
   box-sizing: border-box;
 }
 
@@ -408,17 +402,8 @@ main ul li {
 }
 
 .academic-credential-copy {
-  display: grid;
   font-size: 0.76rem;
   line-height: 1.12;
-}
-
-.academic-credential-copy strong {
-  font-size: 0.82rem;
-}
-
-.academic-credential-copy span {
-  color: #555;
 }
 
 @media (max-width: 760px) {
@@ -461,8 +446,7 @@ main ul li {
   }
 
   .academic-credential {
-    border-left: 0;
-    padding-left: 0;
+    flex: 0 0 auto;
   }
 
   #pub-filter {

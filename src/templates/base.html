@@ -62,7 +62,7 @@
         {% for item in nav %}
           <li>
             <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if item.icon %} aria-label="{{ item.title }}" title="{{ item.title }}"{% endif %}>
-              {% if item.icon %}<span class="nav-icon" aria-hidden="true">{{ item.icon | safe }}</span><span class="sr-only">{{ item.title }}</span>{% else %}{{ item.title }}{% endif %}
+              {% if item.icon %}<span class="nav-icon" aria-hidden="true">{{ item.icon | safe }}</span>{% endif %}<span>{{ item.title }}</span>
             </a>
           </li>
         {% endfor %}
@@ -82,15 +82,12 @@
     <div class="academic-path" aria-label="Education">
       <span class="academic-path-label"><span aria-hidden="true">✦</span> Academic path</span>
       {% for credential in academic_path %}
-      <a class="academic-credential" href="{{ credential.url }}" target="_blank" rel="noopener noreferrer">
+      <span class="academic-credential" title="{{ credential.logo_alt }} — {{ credential.degree }} in {{ credential.field }}, {{ credential.year }}">
         <span class="academic-logo {{ credential.logo_class }}">
           <img src="{{ credential.logo }}" alt="{{ credential.logo_alt }}" width="160" height="54" loading="lazy">
         </span>
-        <span class="academic-credential-copy">
-          <strong>{{ credential.degree }}</strong> {{ credential.field }}
-          <span>{{ credential.institution }} · {{ credential.year }}</span>
-        </span>
-      </a>
+        <span class="academic-credential-copy">{{ credential.institution }} · {{ credential.degree }} {{ credential.short_year }}</span>
+      </span>
       {% endfor %}
     </div>
     {% endif %}
