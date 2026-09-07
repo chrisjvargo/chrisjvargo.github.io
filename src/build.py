@@ -22,7 +22,6 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from merge_preprints import attach_preprints, normalize_doi  # noqa: E402
 from parse_cv import clean_latex_text, parse_cv  # noqa: E402
-from dv.build import build_dv_pages, table_html  # noqa: E402
 
 AUTHOR_RE = re.compile(r"([A-Z][A-Za-z'’`.-]+),\s*((?:[A-Z]\.\s*){1,5})")
 
@@ -1337,7 +1336,6 @@ def build_site(
         trim_blocks=True,
         lstrip_blocks=True,
     )
-    env.globals["table_html"] = table_html
 
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -1370,7 +1368,7 @@ def build_site(
         overrides=overrides,
     )
 
-    optional_titles = {"Teaching", "Service", "Awards"}
+    optional_titles = {"Teaching", "Awards"}
     optional_sections = []
     for section in cv_data.get("sections", []):
         title = section.get("title")
@@ -1379,22 +1377,30 @@ def build_site(
             if payload["entries"] or payload["subsections"]:
                 optional_sections.append(payload)
 
+    nav_icons = {
+        "Home": "⌂",
+        "Publications": "▤",
+        "CV": "▧",
+        "Teaching": "✎",
+        "Awards": "✦",
+        "GitHub": "&lt;/&gt;",
+        "LinkedIn": "in",
+    }
     base_nav = [
-        {"title": "Home", "url": "/"},
-        {"title": "Publications", "url": "/publications/"},
-        {"title": "CV", "url": "/cv/"},
-        {"title": "DV Research", "url": "/dv/"},
+        {"title": "Home", "url": "/", "icon": nav_icons["Home"]},
+        {"title": "Publications", "url": "/publications/", "icon": nav_icons["Publications"]},
+        {"title": "CV", "url": "/cv/", "icon": nav_icons["CV"]},
     ]
 
     optional_nav = []
     for sec in optional_sections:
         slug = slugify(sec["title"])
         sec["slug"] = slug
-        optional_nav.append({"title": sec["title"], "url": f"/{slug}/"})
+        optional_nav.append({"title": sec["title"], "url": f"/{slug}/", "icon": nav_icons.get(sec["title"])})
 
     nav = base_nav + optional_nav + [
-        {"title": "GitHub", "url": "https://github.com/chrisjvargo", "external": True},
-        {"title": "LinkedIn", "url": "https://www.linkedin.com/in/chrisjvargo/", "external": True},
+        {"title": "GitHub", "url": "https://github.com/chrisjvargo", "external": True, "icon": nav_icons["GitHub"]},
+        {"title": "LinkedIn", "url": "https://www.linkedin.com/in/chrisjvargo/", "external": True, "icon": nav_icons["LinkedIn"]},
     ]
 
     cv_html, cv_html_status = run_pandoc(input_tex, out_dir)
@@ -1420,27 +1426,43 @@ def build_site(
     )
 
     focus_items = [
+        "Gambling advertising, gambling discourse, and media effects",
         "Computational content analysis and machine learning for media research",
         "Agenda-setting, public attention, and intermedia influence",
         "Advertising analytics, digital trace data, and platform behavior",
         "Applied AI, LLM evaluation, and research software",
     ]
 
-    degrees = [
+    academic_path = [
         {
-            "degree": "Ph.D., Mass Communication",
-            "institution": "University of North Carolina at Chapel Hill",
-            "date": "May 2014",
+            "degree": "Ph.D.",
+            "field": "Mass Communication",
+            "institution": "UNC–Chapel Hill",
+            "year": "2014",
+            "url": "https://www.unc.edu/",
+            "logo": "/assets/education/unc-chapel-hill.svg",
+            "logo_alt": "University of North Carolina at Chapel Hill",
+            "logo_class": "academic-logo--unc",
         },
         {
-            "degree": "Master of Arts, Advertising & Public Relations",
-            "institution": "University of Alabama",
-            "date": "May 2011",
+            "degree": "M.A.",
+            "field": "Advertising & Public Relations",
+            "institution": "Alabama",
+            "year": "2011",
+            "url": "https://www.ua.edu/",
+            "logo": "/assets/education/university-of-alabama.svg",
+            "logo_alt": "The University of Alabama",
+            "logo_class": "academic-logo--alabama",
         },
         {
-            "degree": "Bachelor of Arts, Advertising & Public Relations",
-            "institution": "Pennsylvania State University",
-            "date": "May 2008",
+            "degree": "B.A.",
+            "field": "Advertising & Public Relations",
+            "institution": "Penn State",
+            "year": "2008",
+            "url": "https://www.psu.edu/",
+            "logo": "/assets/education/penn-state.svg",
+            "logo_alt": "Penn State",
+            "logo_class": "academic-logo--penn-state",
         },
     ]
 
@@ -1453,7 +1475,7 @@ def build_site(
             "A multi-level analysis of gambling advertising, help-seeking search behavior, and individual "
             "exposure in the United States."
         ),
-        "cta": "Read the clean, final preprint →",
+        "cta": "Read the preprint.",
         "url": "/publications/gambling-advertising-and-problem-gambling-in-the-united-states-multi-level-evidence-beyo/",
     }
 
@@ -1478,6 +1500,7 @@ def build_site(
     common_ctx = {
         "meta": meta,
         "nav": nav,
+        "academic_path": academic_path,
         "build_timestamp": build_timestamp,
         "site_url": site_url.rstrip("/"),
     }
@@ -1492,7 +1515,6 @@ def build_site(
         hero_subtitle=hero_subtitle,
         bio_text=bio_text,
         focus_items=focus_items,
-        degrees=degrees,
         featured_preprint=featured_preprint,
         selected_publications=selected_publications,
         social_title=f"{meta.get('name', 'Chris J. Vargo')} - Home",
@@ -1655,9 +1677,6 @@ def build_site(
         )
         write_text(out_dir / sec["slug"] / "index.html", rendered)
 
-    # DV public status release
-    dv_result = build_dv_pages(repo_root, out_dir, site_url, common_ctx, env)
-
     # Build reports
     selected_publication_records = [p for p in publications if p.get("detail_url") in selected_publication_urls]
     required_publication_metadata_gaps = [
@@ -1688,7 +1707,6 @@ def build_site(
             for p in selected_publication_records
         ],
         "build_timestamp": build_timestamp,
-        "dv": dv_result["build_report"],
     }
     write_text(out_dir / "build_report.json", json.dumps(report, indent=2, ensure_ascii=False))
     write_text(out_dir / "build_report.txt", render_build_report_text(report))
@@ -1749,8 +1767,6 @@ def build_site(
         ("/publications_model.json", out_dir / "publications_model.json"),
     ]
     entries.extend(core_pages)
-    for page in dv_result["pages"]:
-        entries.append((page["url"], Path(page["path"])))
 
     for x in optional_nav:
         entries.append((x["url"], out_dir / x["url"].strip("/") / "index.html"))

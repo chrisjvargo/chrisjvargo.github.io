@@ -6,7 +6,7 @@ dist/
 src/cache/
 preprints/source/
 _qa/
-dv_publication/runtime/
+site_qa/runtime/
 *.log
 *.aux
 *.fdb_latexmk

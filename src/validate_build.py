@@ -8,9 +8,6 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
-from dv.privacy import scan_dist
-
-
 class HeadScanner(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -69,9 +66,10 @@ def validate_home_page(dist: Path) -> list[str]:
     required = [
         "Current Research",
         "How AI and digital platforms shape attention, advertising, and public life.",
-        "Ph.D., Mass Communication",
-        "Master of Arts, Advertising &amp; Public Relations",
-        "Bachelor of Arts, Advertising &amp; Public Relations",
+        "Gambling advertising, gambling discourse, and media effects",
+        "Academic path",
+        "UNC–Chapel Hill",
+        "Penn State",
         "Selected Publications",
         "★ NEW PREPRINT ★",
         "Gambling advertising and problem gambling in the United States",
@@ -91,10 +89,15 @@ def validate_home_page(dist: Path) -> list[str]:
         "Selected Professional Work",
         "Google Cloud AI work",
         "SBIGlobal / Google Cloud FSR",
+        "Read the clean, final preprint",
+        "Read the preprint →",
+        'href="/service/"',
     ]
     for phrase in forbidden:
         if phrase in html_text:
             errors.append(f"home: forbidden stale homepage phrase is present {phrase!r}")
+    if html_text.find("<h2>Profile</h2>") > html_text.find("Current Research"):
+        errors.append("home: Profile must appear before Current Research")
     return errors
 
 
@@ -213,54 +216,13 @@ def main() -> None:
     for record in records:
         all_errors.extend(validate_record(dist, record, args.site_url.rstrip("/")))
 
-    dv_index = dist / "dv" / "index.html"
-    if not dv_index.exists():
-        all_errors.append("dv: missing /dv/ index.html")
-    else:
-        dv_html = dv_index.read_text(encoding="utf-8", errors="ignore")
-        if "Boulder County Domestic Violence Enforcement Audit" not in dv_html:
-            all_errors.append("dv: index is missing project title")
-        if "cannot verify the asserted final gender-disparity findings" not in dv_html:
-            all_errors.append("dv: index is missing unresolved-verification disclosure")
-
-    dv_report = dist / "dv" / "dv_build_report.json"
-    if not dv_report.exists():
-        all_errors.append("dv: missing dv_build_report.json")
-    else:
-        try:
-            report = json.loads(dv_report.read_text(encoding="utf-8"))
-        except json.JSONDecodeError as exc:
-            all_errors.append(f"dv: invalid dv_build_report.json ({exc})")
-        else:
-            if not report.get("release_id"):
-                all_errors.append("dv: build report missing release_id")
-            if report.get("hypothesis_status_counts", {}).get("unresolved_required_data_unavailable", 0) < 1:
-                all_errors.append("dv: expected unresolved hypothesis status is absent")
-
-    for rel in [
-        "release.json",
-        "claims.json",
-        "hypothesis_verification.csv",
-        "source_manifest_public.csv",
-        "public_tables/evidence_gap_register.csv",
-        "public_tables/records_request_dispatch_matrix.csv",
-        "public_tables/records_request_submission_channels.csv",
-        "SHA256SUMS",
-    ]:
-        if not (dist / "dv" / "downloads" / rel).exists():
-            all_errors.append(f"dv: missing downloadable release file {rel}")
-
-    privacy_findings = scan_dist(dist / "dv")
-    for finding in privacy_findings:
-        all_errors.append(f"dv privacy: {finding}")
-
     if all_errors:
         sys.stderr.write("Build validation failed:\n")
         for err in all_errors:
             sys.stderr.write(f"- {err}\n")
         raise SystemExit(1)
 
-    print(f"Validation passed for {len(records)} publication record pages and DV release pages.")
+    print(f"Validation passed for {len(records)} publication record pages.")
 
 
 if __name__ == "__main__":

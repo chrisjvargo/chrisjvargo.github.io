@@ -45,10 +45,6 @@ jobs:
         # actions/configure-pages@v5
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
 
-      - name: Run unit tests
-        run: |
-          python -m unittest discover -s tests/dv -p 'test_*.py'
-
       - name: Build static site
         run: |
           python src/build.py --input cv/Vargo_CV.tex --preprints preprints.csv --out dist --site-url https://chrisjvargo.com

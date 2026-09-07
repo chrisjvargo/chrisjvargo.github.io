@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% set page_title = "Home" %}
 {% block content %}
+<section class="profile-intro">
+  <h2>Profile</h2>
+  <p>{{ bio_text }}</p>
+</section>
+
 <section class="home-hero">
   <div class="home-hero-copy">
     <p class="eyebrow">{{ hero_eyebrow }}</p>
@@ -23,19 +28,6 @@
   <ul class="compact-list">
     {% for item in focus_items %}
       <li>{{ item }}</li>
-    {% endfor %}
-  </ul>
-</section>
-
-<section>
-  <h2>Education</h2>
-  <ul class="degree-list">
-    {% for degree in degrees %}
-      <li>
-        <span>{{ degree.degree }}</span>
-        <span>{{ degree.institution }}</span>
-        <span>{{ degree.date }}</span>
-      </li>
     {% endfor %}
   </ul>
 </section>
@@ -67,8 +59,4 @@
   </div>
 </section>
 
-<section>
-  <h2>Profile</h2>
-  <p>{{ bio_text }}</p>
-</section>
 {% endblock %}

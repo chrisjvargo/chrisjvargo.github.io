@@ -61,7 +61,9 @@
       <ul class="top-nav">
         {% for item in nav %}
           <li>
-            <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
+            <a href="{{ item.url }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if item.icon %} aria-label="{{ item.title }}" title="{{ item.title }}"{% endif %}>
+              {% if item.icon %}<span class="nav-icon" aria-hidden="true">{{ item.icon | safe }}</span><span class="sr-only">{{ item.title }}</span>{% else %}{{ item.title }}{% endif %}
+            </a>
           </li>
         {% endfor %}
       </ul>
@@ -75,7 +77,23 @@
     {% block content %}{% endblock %}
   </main>
 
-  <footer>
+  <footer class="site-footer">
+    {% if academic_path %}
+    <div class="academic-path" aria-label="Education">
+      <span class="academic-path-label"><span aria-hidden="true">✦</span> Academic path</span>
+      {% for credential in academic_path %}
+      <a class="academic-credential" href="{{ credential.url }}" target="_blank" rel="noopener noreferrer">
+        <span class="academic-logo {{ credential.logo_class }}">
+          <img src="{{ credential.logo }}" alt="{{ credential.logo_alt }}" width="160" height="54" loading="lazy">
+        </span>
+        <span class="academic-credential-copy">
+          <strong>{{ credential.degree }}</strong> {{ credential.field }}
+          <span>{{ credential.institution }} · {{ credential.year }}</span>
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
     <small>
       Last updated (CV): {{ meta.current_as_of or 'Unknown' }} | Site build: {{ build_timestamp }}
     </small>
