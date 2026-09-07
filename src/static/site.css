@@ -41,10 +41,11 @@ body {
   margin: 0;
 }
 
-.cu-boulder-logo {
+.cu-mark {
   display: block;
-  width: 6.5rem;
-  height: auto;
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: contain;
 }
 
 .site-role {
