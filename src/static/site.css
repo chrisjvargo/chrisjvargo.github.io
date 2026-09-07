@@ -356,19 +356,15 @@ main ul li {
 }
 
 .academic-credential {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  white-space: nowrap;
+  display: block;
+  line-height: 0;
 }
 
 .academic-logo {
   display: grid;
-  width: 2rem;
-  height: 1.1rem;
+  width: 3.1rem;
+  height: 1.2rem;
   place-items: center;
-  padding: 0.08rem 0.12rem;
-  box-sizing: border-box;
 }
 
 .academic-logo img {
@@ -378,22 +374,16 @@ main ul li {
   object-fit: contain;
 }
 
-.academic-logo--unc {
-  background: #4b9cd3;
+.academic-logo--unc img {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(59%) saturate(482%) hue-rotate(158deg) brightness(92%) contrast(90%);
 }
 
-.academic-logo--alabama {
-  background: #9e1b32;
+.academic-logo--alabama img {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(70%) saturate(2948%) hue-rotate(327deg) brightness(79%) contrast(93%);
 }
 
-.academic-logo--penn-state {
-  border: 1px solid #96bee6;
-  background: #fff;
-}
-
-.academic-credential-copy {
-  font-size: 0.76rem;
-  line-height: 1.12;
+.academic-logo--penn-state img {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(28%) saturate(1729%) hue-rotate(178deg) brightness(90%) contrast(89%);
 }
 
 @media (max-width: 760px) {
