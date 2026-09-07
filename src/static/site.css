@@ -160,6 +160,73 @@ main ul li {
   gap: 0.45rem;
 }
 
+.preprint-callout {
+  margin: 0.45rem 0 0.85rem;
+  padding: 0.85rem 1rem 0.8rem;
+  border: 3px ridge #1b4d9b;
+  background: repeating-linear-gradient(-45deg, #fff9d6 0, #fff9d6 0.6rem, #fff3bf 0.6rem, #fff3bf 1.2rem);
+  box-shadow: 4px 4px 0 #163c79;
+}
+
+.preprint-callout-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.45rem;
+  margin: -0.25rem -0.35rem 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px dotted #1b4d9b;
+  color: #09295e;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.preprint-label {
+  padding: 0.15rem 0.35rem;
+  background: #163c79;
+  color: #fff;
+}
+
+.preprint-status {
+  padding-top: 0.15rem;
+}
+
+.preprint-kicker,
+.preprint-venue,
+.preprint-callout p {
+  margin: 0.3rem 0;
+}
+
+.preprint-kicker {
+  color: #09295e;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.preprint-callout h3 {
+  margin: 0.25rem 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  line-height: 1.18;
+}
+
+.preprint-callout h3 a {
+  color: #09295e;
+}
+
+.preprint-venue {
+  font-weight: 700;
+}
+
+.preprint-cta {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+}
+
 .aligned-item {
   border-top: 1px solid #ddd;
   padding: 0.42rem 0;

@@ -41,23 +41,18 @@
 </section>
 
 <section>
-  <h2>AI Technical Enablement Proof</h2>
-  <div class="work-list">
-    {% for item in selected_work %}
-      <article class="aligned-item">
-        <div class="aligned-title-row">
-          <h3>{{ item.title }}</h3>
-          <span class="row-org">{{ item.org }}</span>
-          <time class="row-date">{{ item.date }}</time>
-        </div>
-        <p>{{ item.summary }}</p>
-      </article>
-    {% endfor %}
-  </div>
-</section>
-
-<section>
   <h2>Selected Publications</h2>
+  <article class="preprint-callout" aria-labelledby="featured-preprint-title">
+    <div class="preprint-callout-banner">
+      <span class="preprint-label">{{ featured_preprint.label }}</span>
+      <span class="preprint-status">{{ featured_preprint.status }}</span>
+    </div>
+    <p class="preprint-kicker">Selected publication</p>
+    <h3 id="featured-preprint-title"><a href="{{ featured_preprint.url }}">{{ featured_preprint.title }}</a></h3>
+    <p class="preprint-venue">{{ featured_preprint.venue }}</p>
+    <p>{{ featured_preprint.summary }}</p>
+    <p class="preprint-cta"><a href="{{ featured_preprint.url }}">{{ featured_preprint.cta }}</a></p>
+  </article>
   <div class="publication-brief-list">
     {% for pub in selected_publications %}
       <article class="aligned-item publication-brief">

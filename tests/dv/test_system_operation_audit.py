@@ -105,18 +105,16 @@ class SystemOperationAuditTests(unittest.TestCase):
             (dist / "index.html").write_text(
                 "\n".join(
                     [
-                        "Google Cloud AI work",
-                        "Research, teaching, and software for AI field readiness.",
+                        "Current Research",
+                        "How AI and digital platforms shape attention, advertising, and public life.",
                         "Ph.D., Mass Communication",
                         "Master of Arts, Advertising &amp; Public Relations",
                         "Bachelor of Arts, Advertising &amp; Public Relations",
-                        "Field-readiness needs analysis",
-                        "Seller-readiness transcript demo",
-                        "LLM deployment courseware",
-                        "socialcontext.ai",
-                        "Inside a Social Media Brand Safety Algorithm",
-                        "Toward a Tweet Typology",
-                        "From Ads to Addiction",
+                        "Selected Publications",
+                        "★ NEW PREPRINT ★",
+                        "Gambling advertising and problem gambling in the United States",
+                        "LLM exposure and funnel erosion in consumer journeys",
+                        "The agenda-setting power of fake news",
                     ]
                 ),
                 encoding="utf-8",

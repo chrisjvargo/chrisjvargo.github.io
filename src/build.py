@@ -1403,27 +1403,27 @@ def build_site(
     for pub in publications:
         pub["author_links"] = build_author_links(pub.get("authors", []), meta.get("orcid"))
 
-    hero_eyebrow = "Google Cloud AI work"
-    hero_title = "Research, teaching, and software for AI field readiness."
+    hero_eyebrow = "Current Research"
+    hero_title = "How AI and digital platforms shape attention, advertising, and public life."
     hero_subtitle = (
-        "Google Cloud field teams are moving from AI awareness to AI execution. That shift needs "
-        "someone who can turn ambiguous seller behavior into measurable competencies, score real "
-        "conversations with evidence, teach modern LLM deployment, and ship working software. "
-        "That is the through-line of my research, teaching, and applied AI work."
+        "I study information flows across search, social media, and advertising systems. Current projects use "
+        "digital trace data and machine learning to examine agenda-setting, platform behavior, consumer journeys, "
+        "and the social consequences of AI."
     )
 
     bio_text = (
-        "Chris J. Vargo is a computational social scientist and associate professor at CU Boulder. "
-        "He studies language, search, media, and platform behavior, then builds practical systems "
-        "that turn those signals into measurement, coaching, and decision support. His current work "
-        "connects Google Cloud AI enablement, MSDS teaching, and applied software production."
+        "Chris J. Vargo is an associate professor at the University of Colorado Boulder and a computational "
+        "social scientist who studies how media, platforms, advertising, and digital information systems shape "
+        "public attention and behavior. His research uses computational methods—including machine learning, "
+        "digital trace data, and network analysis—to examine agenda-setting, social media dynamics, advertising, "
+        "and political communication."
     )
 
     focus_items = [
-        "Google Cloud AI field readiness: competencies, transcripts, scoring, coaching, and seller archetypes",
-        "Research: computational content analysis, brand safety, Google Trends signals, and public attention",
-        "Teaching: MSDS systems for LLM classification, vLLM, LoRA/QLoRA, Hugging Face, and evaluation",
-        "Software: production-oriented workflows, evidence capture, health checks, and CSV/JSON exports",
+        "Computational content analysis and machine learning for media research",
+        "Agenda-setting, public attention, and intermedia influence",
+        "Advertising analytics, digital trace data, and platform behavior",
+        "Applied AI, LLM evaluation, and research software",
     ]
 
     degrees = [
@@ -1444,69 +1444,36 @@ def build_site(
         },
     ]
 
-    selected_work = [
-        {
-            "title": "Field-readiness needs analysis",
-            "org": "SBIGlobal / Google Cloud FSR",
-            "date": "Jun 2026",
-            "summary": (
-                "Mapped 107 behavior rows into 25 survey items, 17 competencies, 12 measurement "
-                "areas, 54 concept scores, 16 proficiency scores, and k=2-6 seller archetype clusters."
-            ),
-        },
-        {
-            "title": "Seller-readiness transcript demo",
-            "org": "SBIGlobal / Google Cloud FSR",
-            "date": "Jun 2026",
-            "summary": (
-                "Built a React, Express, and Zod workflow with Gemini/local fallback scoring, "
-                "source-quote evidence, health/readiness checks, coaching outputs, and CSV/JSON exports."
-            ),
-        },
-        {
-            "title": "LLM deployment courseware",
-            "org": "CU Boulder MSDS",
-            "date": "Sep 2025-Mar 2026",
-            "summary": (
-                "Shipped technical learning systems for MSDS teams and public learners: LLM "
-                "classification, vLLM, LoRA/QLoRA, Hugging Face workflows, model serving, and production evaluation."
-            ),
-        },
-        {
-            "title": "socialcontext.ai",
-            "org": "socialcontext LLC",
-            "date": "Jun 2019-2025",
-            "summary": (
-                "Founded and operated an applied AI company for contextual media intelligence: "
-                "brand safety, audience signals, agenda measurement, advertising context, and client-ready reporting."
-            ),
-        },
-    ]
+    featured_preprint = {
+        "label": "★ NEW PREPRINT ★",
+        "status": "NOW ONLINE",
+        "title": "Gambling advertising and problem gambling in the United States",
+        "venue": "Policy & Internet · author-accepted manuscript · 2026",
+        "summary": (
+            "A multi-level analysis of gambling advertising, help-seeking search behavior, and individual "
+            "exposure in the United States."
+        ),
+        "cta": "Read the clean, final preprint →",
+        "url": "/publications/gambling-advertising-and-problem-gambling-in-the-united-states-multi-level-evidence-beyo/",
+    }
 
     selected_publications = [
         {
-            "title": "Inside a Social Media Brand Safety Algorithm",
-            "impact": "Jigsaw-style brand-safety audit",
-            "date": "2023",
-            "venue": "American Academy of Advertising Annual Conference",
-            "url": "/publications/inside-a-social-media-brand-safety-algorithm-a-computational-investigation-of-subreddits/",
+            "title": "LLM exposure and funnel erosion in consumer journeys",
+            "impact": "LLM effects on consumer journeys",
+            "date": "2026",
+            "venue": "Journal of Marketing Analytics",
+            "url": "/publications/llm-exposure-and-funnel-erosion-in-consumer-journeys-measuring-journey-compression-and-r/",
         },
         {
-            "title": "Toward a Tweet Typology",
-            "impact": "marketing-funnel content taxonomy",
-            "date": "2016",
-            "venue": "Journal of Interactive Advertising",
-            "url": "/publications/toward-a-tweet-typology-a-study-of-brand-message-content-types-and-corresponding-consume/",
-        },
-        {
-            "title": "From Ads to Addiction",
-            "impact": "Google Trends advertising signal",
-            "date": "2025",
-            "venue": "Hawaii International Conference on System Sciences",
-            "url": "/publications/from-ads-to-addiction-the-role-of-online-gambling-advertising-spend-in-problem-gambling/",
+            "title": "The agenda-setting power of fake news",
+            "impact": "online media agenda-setting analysis",
+            "date": "2018",
+            "venue": "New Media & Society",
+            "url": "/publications/the-agenda-setting-power-of-fake-news-a-big-data-analysis-of-the-online-media-landscape/",
         },
     ]
-    selected_publication_urls = {pub["url"] for pub in selected_publications}
+    selected_publication_urls = {featured_preprint["url"], *(pub["url"] for pub in selected_publications)}
 
     common_ctx = {
         "meta": meta,
@@ -1519,14 +1486,14 @@ def build_site(
     home_html = env.get_template("index.html").render(
         **common_ctx,
         canonical_url=abs_url(site_url, "/"),
-        page_description="Google Cloud AI enablement, computational content analysis, teaching, software, publications, and CV for Chris J. Vargo.",
+        page_description="Research on AI, advertising, digital platforms, public attention, publications, and CV for Chris J. Vargo.",
         hero_eyebrow=hero_eyebrow,
         hero_title=hero_title,
         hero_subtitle=hero_subtitle,
         bio_text=bio_text,
         focus_items=focus_items,
         degrees=degrees,
-        selected_work=selected_work,
+        featured_preprint=featured_preprint,
         selected_publications=selected_publications,
         social_title=f"{meta.get('name', 'Chris J. Vargo')} - Home",
         social_description=shorten(hero_subtitle, 200),

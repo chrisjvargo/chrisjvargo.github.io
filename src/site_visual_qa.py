@@ -55,12 +55,19 @@ def run_checks(dist: Path, out_dir: Path) -> list[PageCheck]:
         "home": {
             "path": "/",
             "required": [
-                "Google Cloud AI work",
-                "Research, teaching, and software for AI field readiness.",
-                "AI Technical Enablement Proof",
-                "socialcontext.ai",
+                "Current Research",
+                "How AI and digital platforms shape attention, advertising, and public life.",
+                "★ NEW PREPRINT ★",
+                "Gambling advertising and problem gambling in the United States",
             ],
-            "forbidden": ["Portfolio Links", "Quick Links", "4,499 citations"],
+            "forbidden": [
+                "Portfolio Links",
+                "Quick Links",
+                "4,499 citations",
+                "AI Technical Enablement Proof",
+                "Google Cloud AI work",
+                "SBIGlobal / Google Cloud FSR",
+            ],
         },
         "cv": {
             "path": "/cv/",
