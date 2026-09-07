@@ -30,6 +30,27 @@ body {
   text-align: center;
 }
 
+.site-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.site-identity h1 {
+  margin: 0;
+}
+
+.cu-boulder-logo {
+  display: block;
+  width: 6.5rem;
+  height: auto;
+}
+
+.site-role {
+  margin: 0.2rem 0 0.05rem;
+}
+
 .site-contact {
   margin: 0.1rem 0 0.45rem;
   line-height: 1.45;

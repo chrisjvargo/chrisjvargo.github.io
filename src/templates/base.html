@@ -40,7 +40,13 @@
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
-    <h1>{{ meta.name }}</h1>
+    <div class="site-identity">
+      <img class="cu-boulder-logo" src="/assets/cu-boulder-logo.svg" alt="University of Colorado Boulder" width="300" height="45">
+      <h1>{{ meta.name }}</h1>
+    </div>
+    {% if meta.role %}
+      <p class="site-role">{{ meta.role }}</p>
+    {% endif %}
     {% if meta.address_lines %}
       <p class="site-contact site-contact-address">{{ meta.address_lines[0] }}</p>
     {% endif %}

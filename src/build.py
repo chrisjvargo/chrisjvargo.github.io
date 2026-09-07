@@ -1356,6 +1356,7 @@ def build_site(
 
     meta = cv_data.get("meta", {})
     meta.setdefault("name", "Chris J. Vargo")
+    meta.setdefault("role", "Associate Professor of Advertising and Information Analytics")
     meta.setdefault("current_as_of", "")
     meta.setdefault("scholar_url", "https://scholar.google.com/citations?user=LTnXrjYAAAAJ")
 
@@ -1435,12 +1436,12 @@ def build_site(
 
     academic_path = [
         {
-            "degree": "Ph.D.",
-            "field": "Mass Communication",
-            "institution": "UNC–Chapel Hill",
-            "year": "2014",
-            "logo": "/assets/education/unc-mark.png",
-            "logo_alt": "University of North Carolina at Chapel Hill",
+            "degree": "B.A.",
+            "field": "Advertising & Public Relations",
+            "institution": "Penn State",
+            "year": "2008",
+            "logo": "/assets/education/penn-state-mark.png",
+            "logo_alt": "Penn State",
         },
         {
             "degree": "M.A.",
@@ -1451,12 +1452,12 @@ def build_site(
             "logo_alt": "The University of Alabama",
         },
         {
-            "degree": "B.A.",
-            "field": "Advertising & Public Relations",
-            "institution": "Penn State",
-            "year": "2008",
-            "logo": "/assets/education/penn-state-mark.png",
-            "logo_alt": "Penn State",
+            "degree": "Ph.D.",
+            "field": "Mass Communication",
+            "institution": "UNC–Chapel Hill",
+            "year": "2014",
+            "logo": "/assets/education/unc-mark.png",
+            "logo_alt": "University of North Carolina at Chapel Hill",
         },
     ]
 
