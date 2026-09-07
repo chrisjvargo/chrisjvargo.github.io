@@ -82,9 +82,10 @@
     <div class="academic-path" aria-label="Education">
       {% for credential in academic_path %}
       <span class="academic-credential" title="{{ credential.logo_alt }} — {{ credential.degree }} in {{ credential.field }}, {{ credential.year }}">
-        <span class="academic-logo {{ credential.logo_class }}">
-          <img src="{{ credential.logo }}" alt="{{ credential.logo_alt }}" width="160" height="54" loading="lazy">
+        <span class="academic-logo">
+          <img src="{{ credential.logo }}" alt="{{ credential.logo_alt }}" width="64" height="64" loading="lazy">
         </span>
+        <span class="academic-credential-copy">{{ credential.degree }} {{ credential.field }} · {{ credential.year }}</span>
       </span>
       {% endfor %}
     </div>
