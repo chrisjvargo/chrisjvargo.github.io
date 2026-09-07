@@ -67,7 +67,6 @@ def validate_home_page(dist: Path) -> list[str]:
         "Current Research",
         "How AI and digital platforms shape attention, advertising, and public life.",
         "Gambling advertising, gambling discourse, and media effects",
-        "Academic path",
         "UNC–Chapel Hill",
         "Penn State",
         "Selected Publications",

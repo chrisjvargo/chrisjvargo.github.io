@@ -355,16 +355,6 @@ main ul li {
   padding-bottom: 0.1rem;
 }
 
-.academic-path-label {
-  color: #333;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
 .academic-credential {
   display: inline-flex;
   align-items: center;

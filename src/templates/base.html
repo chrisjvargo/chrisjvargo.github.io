@@ -80,7 +80,6 @@
   <footer class="site-footer">
     {% if academic_path %}
     <div class="academic-path" aria-label="Education">
-      <span class="academic-path-label"><span aria-hidden="true">✦</span> Academic path</span>
       {% for credential in academic_path %}
       <span class="academic-credential" title="{{ credential.logo_alt }} — {{ credential.degree }} in {{ credential.field }}, {{ credential.year }}">
         <span class="academic-logo {{ credential.logo_class }}">
