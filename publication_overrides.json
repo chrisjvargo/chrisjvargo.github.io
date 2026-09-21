@@ -55,6 +55,16 @@
     "incivility-in-reddit-s-top-political-and-news-subreddits-prevalence-moderation-and-engag": {
       "abstract": "We examine incivility across twenty high-traffic political and news subreddits to test how platform governance and social identity cues relate to on-platform discourse and participation. Building on theories of democratic communication and incivility, platform affordances and moderation, and uses-and-gratifications/network externalities, we specify how decentralized community rules and explicit in-group orientations could shape both the prevalence of uncivil language and patterns of engagement. We analyze a year-long, random sample of submissions and comments scored with established computational measures of incivility, and we link these scores to subreddit-level rule regimes and identity signaling. By distinguishing interpersonal impoliteness from democratic norm violations and by evaluating moderation complexity at the community level, this work clarifies when and how community governance relates to discourse quality and participation dynamics on Reddit. Findings inform ongoing debates about the efficacy of hybrid, human-centered moderation and the role of explicit identity norms in large online communities.",
       "version_label": "Author-accepted manuscript (Social Science Computer Review)"
+    },
+    "mainstream-news-media-trust-countermedia-attendance-and-political-learning": {
+      "abstract": "Using a two-wave panel dataset, this study set out to better understand the relationship between mainstream news trust, countermedia attendance (i.e., the use of informational sources that directly criticize, oppose, and challenge the mainstream news media), and political knowledge. The results of a lagged autoregressive path model indicated that mainstream news media trust was negatively associated with countermedia attendance and that countermedia attendance was negatively associated with political learning. An additional cross-lagged panel model estimating reciprocal effects between mainstream news trust and countermedia attendance suggested that frequent attendance to countermedia sources is also supportive of diminished levels of trust in the mainstream news media.",
+      "keywords": [
+        "countermedia",
+        "mainstream news media trust",
+        "political knowledge",
+        "political learning"
+      ],
+      "version_label": "Author-accepted manuscript (Journalism & Mass Communication Quarterly)"
     }
   },
   "by_doi": {}
