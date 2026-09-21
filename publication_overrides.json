@@ -38,6 +38,23 @@
       "online_date": "2026-09-01",
       "year": 2026,
       "version_label": "Author-accepted manuscript (accepted September 1, 2026)"
+    },
+    "llm-exposure-and-funnel-erosion-in-consumer-journeys-measuring-journey-compression-and-r": {
+      "abstract": "LLM assistants increasingly mediate product discovery, yet most journey analytics and attribution systems still assume that discovery begins with search, retailer browsing, or direct brand visits. That assumption misstates the observed journey. When evaluation moves into conversational interfaces, passive behavioral logs undercount early-stage activity and standard journey reconstruction can resemble funnel erosion. We develop a measurement framework that treats LLM usage as a first-class touchpoint in de-identified passive event logs linked to a post-trace survey. The framework detects observed LLM exposure from domain and app signals, operationalizes a non-linear stage codebook (consideration, intent, conversion-proximate), and computes journey metrics for compression, timing, channel mix, and transition structure without imposing a canonical path. A production-scale, no-lookahead labeling system combines deterministic cues, model-assisted classification, locked holdouts, and targeted adjudication audits to deliver reproducible measurement in noisy passive logs. In a one-month observation window, the most stable empirical result is a shift in visible pre-intent discovery: LLM-exposed journeys show substantially higher observable LLM share and higher review/UGC share, while unadjusted compression and time-to-intent differences shrink after adjustment. Conversational discovery changes what marketing analytics systems observe, and journey measurement must be updated accordingly.",
+      "keywords": [
+        "customer journey analytics",
+        "clickstream analysis",
+        "marketing attribution",
+        "generative AI",
+        "conversational search",
+        "funnel measurement"
+      ],
+      "year": 2026,
+      "version_label": "Author-accepted manuscript (Journal of Marketing Analytics, 2026)"
+    },
+    "incivility-in-reddit-s-top-political-and-news-subreddits-prevalence-moderation-and-engag": {
+      "abstract": "We examine incivility across twenty high-traffic political and news subreddits to test how platform governance and social identity cues relate to on-platform discourse and participation. Building on theories of democratic communication and incivility, platform affordances and moderation, and uses-and-gratifications/network externalities, we specify how decentralized community rules and explicit in-group orientations could shape both the prevalence of uncivil language and patterns of engagement. We analyze a year-long, random sample of submissions and comments scored with established computational measures of incivility, and we link these scores to subreddit-level rule regimes and identity signaling. By distinguishing interpersonal impoliteness from democratic norm violations and by evaluating moderation complexity at the community level, this work clarifies when and how community governance relates to discourse quality and participation dynamics on Reddit. Findings inform ongoing debates about the efficacy of hybrid, human-centered moderation and the role of explicit identity norms in large online communities.",
+      "version_label": "Author-accepted manuscript (Social Science Computer Review)"
     }
   },
   "by_doi": {}
