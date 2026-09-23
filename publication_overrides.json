@@ -65,6 +65,21 @@
         "political learning"
       ],
       "version_label": "Author-accepted manuscript (Journalism & Mass Communication Quarterly)"
+    },
+    "who-gets-what-ads-tail-aware-metrics-and-the-composition-of-mobile-political-exposure": {
+      "abstract": "We examine who receives explicitly partisan political ads on mobile social media. We passively metered Facebook, Instagram, X, and TikTok feeds for 379 U.S. adults; each respondent contributed the 30 days before their party-identification survey, and pooled impressions spanned October 4 through November 5, 2024 (UTC). The analysis includes 435,006 ad impressions. We distinguish partisan ad balance, the relative mix of Democratic versus Republican impressions, from partisan volume, the total number of explicitly partisan impressions. Explicitly partisan political-ad load was sparse for most respondents and concentrated for a small subset, especially on Facebook and Instagram when all observed respondent-platform cells were included; platform rankings changed under denominator restrictions. In respondent-level models, party identification was associated with partisan ad balance, while total partisan volume was not reliable after adjustment for activity, platform coverage, and demographics. The results support a composition-first view of delivered ad exposure and tail-aware transparency, while remaining descriptive rather than causal.",
+      "keywords": [
+        "political advertising",
+        "mobile social media",
+        "passive metering",
+        "ad delivery",
+        "microtargeting",
+        "political communication"
+      ],
+      "online_date": "2026-09-23",
+      "year": 2026,
+      "version_label": "Author-accepted manuscript (accepted September 23, 2026)",
+      "journal_title": "SAGE Open"
     }
   },
   "by_doi": {}
