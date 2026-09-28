@@ -341,6 +341,15 @@ def split_venue_tail(citation_text: str, title: str) -> str:
 
 def parse_venue_details(citation_text: str, title: str, subsection: str) -> dict[str, Any]:
     tail = split_venue_tail(citation_text, title)
+    # Drop trailing editorial notes (e.g. "[Accepted September 2026]") so they
+    # never leak into journal/conference/book venue fields.
+    cleaned = tail
+    while True:
+        stripped = re.sub(r"\s*\[[^\[\]]*\]\s*$", "", cleaned).strip(" .")
+        if stripped == cleaned:
+            break
+        cleaned = stripped
+    tail = cleaned
     details: dict[str, Any] = {
         "container_type": "other",
         "journal_title": None,
