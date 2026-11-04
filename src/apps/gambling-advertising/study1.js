@@ -71,7 +71,12 @@
       if (seen[key]) return; seen[key] = 1;
       s += '<text x="' + X(p.t) + '" y="' + (H - 8) + '" font-size="11" fill="#555" text-anchor="middle">' + lab + "</text>";
     });
-    el.innerHTML = s + "</svg>" + '<p class="fineprint"><span style="color:#2f5d3a">■</span> paper quarterly (Vivvix) · <span style="color:#8a3b2e">■</span> live monthly (MediaRadar, pulled today)</p>';
+    var kinds = {};
+    view.forEach(function (p) { kinds[p.kind] = 1; });
+    var legend = kinds.paper && kinds.live
+      ? '<span style="color:#2f5d3a">■</span> paper quarterly (Vivvix) · <span style="color:#8a3b2e">■</span> live monthly (MediaRadar, pulled today)'
+      : (kinds.live ? '<span style="color:#8a3b2e">■</span> live monthly (MediaRadar, pulled today)' : '<span style="color:#2f5d3a">■</span> paper quarterly (Vivvix)');
+    el.innerHTML = s + "</svg>" + '<p class="fineprint">' + legend + "</p>";
   }
 
   Promise.all([
@@ -105,8 +110,6 @@
         $("s1-state-now-chart").innerHTML = '<p class="fineprint">No current DMA-attributed spend pulled for this state.</p>';
         $("s1-state-now-meta").textContent = "";
       }
-      dualChart($("s1-state-chart"), d.states[st] || [], meta.legal, st + " ad spend and help-seeking searches");
-      $("s1-state-meta").textContent = st + ": " + money(meta.spend_total) + " total spend · " + money(meta.spend_2023) + " in 2023 · searches idx " + fmt(meta.trends_total) + (meta.legal ? " · sports betting legal " + meta.legal : " · not legal in window");
     }
     sel.addEventListener("change", drawState); drawState();
     var names = { spend100k_c: "Ad spend (+$100k/state-quarter)", legal_status: "Sports betting legal (yes/no)", time_spend: "Spend × time (strengthening)" };

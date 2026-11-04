@@ -110,11 +110,19 @@
   <div class="wrap wide">
     <p class="kicker">Ad Spend · MediaRadar / Vivvix · paper + live</p>
     <h2>Gambling ad spend, 2014 → today</h2>
+    <div class="top-charts">
     <figure class="chart-card">
       <figcaption class="chart-title">US gambling ad spend <span class="chart-sub">Paper quarterly (Vivvix, 41 states) → monthly MediaRadar/Vivvix through today — one continuous view, no gap.</span></figcaption>
       <div class="chart-tools"><label for="sp-range">Range</label><select id="sp-range"><option value="all">All (2014 → today)</option><option value="12m">Last 12 months</option><option value="2026">2026</option><option value="paper">Paper window</option></select></div>
       <div id="sp-long-chart"></div>
     </figure>
+    <figure class="chart-card">
+      <figcaption class="chart-title">State explorer — spend now <span class="chart-sub">MediaRadar DMA-attributed monthly spend by state, 2024–2026. State totals understate national totals by design (national buys are not DMA-attributed).</span></figcaption>
+      <select id="s1-state" class="meg-select" aria-label="Choose a state"></select>
+      <p class="deck" id="s1-state-now-meta" style="font-size:15px"></p>
+      <div id="s1-state-now-chart"></div>
+    </figure>
+    </div>
     <h3 class="section-head small">Current spend by advertiser — live</h3>
     <div id="sp-lanes"></div>
     <figure class="chart-card">
@@ -142,13 +150,6 @@
     <h3 class="section-head small">What predicts help-seeking?</h3>
     <div class="meg-findings" id="s1-models"></div>
     <p class="fineprint">Mixed models on 1,640 state-quarters with demographic controls (final paper, revision 3 outputs). Model 4: each +$100k of quarterly state ad spend predicts +1.23 help-seeking index points; legal status adds nothing detectable. Model 5 (AR1): the spend association itself grows over time. Observational — not causal identification.</p>
-    <h3 class="section-head small">State explorer — spend now (MediaRadar, monthly 2024–2026)</h3>
-    <select id="s1-state" class="meg-select" aria-label="Choose a state"></select>
-    <p class="deck" id="s1-state-now-meta" style="font-size:15px"></p>
-    <figure class="chart-card"><div id="s1-state-now-chart"></div></figure>
-    <h3 class="section-head small">State explorer — the paper window (quarterly)</h3>
-    <p class="deck" id="s1-state-meta" style="font-size:15px"></p>
-    <figure class="chart-card"><div id="s1-state-chart"></div></figure>
     <details class="methods"><summary>Methods &amp; limits: Study 1</summary><div class="methods-body">
       <p>Quarterly state gambling advertising outlays across paid media (Vivvix 360, 2014–2023) linked to Google Trends indices summed over 116 problem-gambling help-seeking queries (e.g. “gambling addiction hotline”, “how to stop gambling”). Trends values are indexed 0–100 within capture windows; the paper's Trends Sum is reproduced as archived. Legalization dates mark first legal online sports betting. One extra quarter in the archived file (2024-Q1) is outside the paper window and excluded here.</p>
     </div></details>
@@ -257,7 +258,7 @@
 <script src="app.js?v=20261102h"></script>
 <script src="meg.js?v=20261102f"></script>
 <script src="tabs.js?v=20261102b"></script>
-<script src="study1.js?v=20261102a"></script>
+<script src="study1.js?v=20261104b"></script>
 <script src="demand.js?v=20261102c"></script>
 <script src="cpm.js?v=20261104b"></script>
 <script src="flight.js?v=20261103e"></script>

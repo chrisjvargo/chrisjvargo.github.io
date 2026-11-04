@@ -76,3 +76,7 @@ table.meg-table td.num, table.meg-table th.num { text-align:right; font-variant-
 .heat-legend { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 8px 0 2px; font-size: 13px; }
 .heat-chip { display: inline-flex; align-items: center; gap: 5px; }
 .heat-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #ccc; display: inline-block; }
+
+/* --- tab 1 top charts (side by side) --- */
+.top-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+@media (max-width: 900px) { .top-charts { grid-template-columns: 1fr; } }
