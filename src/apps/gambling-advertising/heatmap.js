@@ -5,6 +5,24 @@
   "use strict";
   function $(id) { return document.getElementById(id); }
   var DATA = null, PATHS = null, timer = null;
+  var MODE = "cumulative"; // cumulative: running sum per state (only darkens)
+  var CUM = null, CUMREF = 200;
+  function buildCumulative() {
+    CUM = {};
+    var finals = [];
+    Object.keys(DATA.states).forEach(function (geo) {
+      var run = 0, seen = false, arr = [];
+      DATA.states[geo].forEach(function (v) {
+        if (v != null) { run += v; seen = true; }
+        arr.push(seen ? Math.round(run * 10) / 10 : null);
+      });
+      CUM[geo] = arr;
+      if (seen) finals.push(run);
+    });
+    finals.sort(function (a, b) { return a - b; });
+    if (finals.length) CUMREF = finals[Math.floor(finals.length * 0.92)] || 200;
+  }
+  function seriesFor(geo) { return MODE === "cumulative" ? CUM[geo] : DATA.states[geo]; }
   // The index sums 10 anchor-normalized terms in one window, so it is NOT
   // bounded at 100: 2026 runs ~10x the 2015 level (max ~600). A linear 0-100
   // ramp would hide everything before 2022 and saturate 2026. Sqrt scale
@@ -12,13 +30,16 @@
   var VREF = 200;
   function color(v) {
     if (v == null) return "#e3e0da";
-    var t = Math.sqrt(Math.max(0, Math.min(v, VREF)) / VREF);
+    var ref = MODE === "cumulative" ? CUMREF : VREF;
+    var t = Math.sqrt(Math.max(0, Math.min(v, ref)) / ref);
     var r = Math.round(247 - t * 60), g = Math.round(243 - t * 175), b = Math.round(238 - t * 175);
     return "rgb(" + r + "," + g + "," + b + ")";
   }
   function legend() {
-    var stops = [0, 10, 25, 50, 100, 200];
-    return '<div class="heat-legend"><span>Help-seeking index</span>' +
+    var stops = MODE === "cumulative"
+      ? [0, 0.1, 0.3, 0.55, 0.8, 1].map(function (f) { return Math.round(CUMREF * f); })
+      : [0, 10, 25, 50, 100, 200];
+    return '<div class="heat-legend"><span>' + (MODE === "cumulative" ? "Cumulative help-seeking (accumulated index)" : "Help-seeking index") + '</span>' +
       stops.map(function (v) {
         return '<span class="heat-chip"><span class="heat-swatch" style="background:' + color(v) + '"></span>' + v + (v === 200 ? "+" : "") + "</span>";
       }).join("") + '<span class="heat-chip"><span class="heat-swatch" style="background:#e3e0da"></span>no measurable volume</span></div>';
@@ -30,7 +51,7 @@
     Object.keys(PATHS.paths).forEach(function (abbr) {
       var el = document.getElementById("hs-" + abbr);
       if (!el) return;
-      var s = DATA.states["US-" + abbr];
+      var s = seriesFor("US-" + abbr);
       var v = s ? s[idx] : null;
       el.setAttribute("fill", color(v));
       el.querySelector("title").textContent = abbr + " · " + mo + " · " + (v == null ? "no measurable volume" : "index " + v);
@@ -56,12 +77,20 @@
           }
           sel.dispatchEvent(new Event("change"));
         }
-        var s = DATA.states["US-" + abbr];
+        var s = seriesFor("US-" + abbr);
         var idx = Number($("heat-time").value);
         $("heat-state").textContent = abbr + " in " + DATA.months[idx] + ": " + (s && s[idx] != null ? "index " + s[idx] : "no measurable volume") + " — drilled below.";
       });
     });
     $("heat-note").textContent = DATA.note;
+    var tog = $("heat-mode");
+    if (tog) tog.addEventListener("click", function () {
+      MODE = MODE === "cumulative" ? "monthly" : "cumulative";
+      tog.textContent = MODE === "cumulative" ? "Showing: cumulative (click for monthly)" : "Showing: monthly (click for cumulative)";
+      var lg = document.querySelector(".heat-legend");
+      if (lg) lg.outerHTML = legend();
+      render(Number($("heat-time").value));
+    });
     render(DATA.months.length - 1);
   }
   Promise.all([
@@ -69,6 +98,7 @@
     fetch("data/us_paths.json").then(function (r) { return r.json(); })
   ]).then(function (all) {
     DATA = all[0]; PATHS = all[1];
+    buildCumulative();
     var slider = $("heat-time");
     slider.max = DATA.months.length - 1; slider.value = DATA.months.length - 1;
     slider.addEventListener("input", function () { render(Number(slider.value)); });
