@@ -1,0 +1,27 @@
+{
+  "loops": {
+    "n": 15,
+    "users": 2,
+    "max_ads": 6,
+    "return_to_dk": 15
+  },
+  "ads_seen": {
+    "n": 331,
+    "users": 39,
+    "by_advertiser": {
+      "DraftKings Casino - Real Money": 102,
+      "DraftKings Sportsbook": 95,
+      "DraftKings Casino": 87,
+      "DraftKings Sportsbook & Casino": 36,
+      "Jose Cuervo . with DraftKings.": 3,
+      "UFC . with DraftKings Sportsbook.": 3,
+      "Donnell Maben follows DraftKings.": 1,
+      "DraftKings": 1
+    },
+    "by_tier": {
+      "same_advertiser": 53,
+      "weak": 278
+    }
+  },
+  "note": "DraftKings-anchored loops exist but no qualifying class meets the support rule with showable creative; shown here as aggregates only."
+}

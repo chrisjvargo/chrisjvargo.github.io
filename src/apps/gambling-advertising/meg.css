@@ -1,0 +1,65 @@
+/* Paper tabs (Study 1 / Trends live / Spend) */
+.meg-findings { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:14px 0; }
+.meg-find { background:var(--card); border:1px solid var(--hairline); border-radius:10px; padding:14px 16px; }
+.meg-find .n { font-family:var(--serif); font-size:30px; line-height:1.05; margin:0 0 6px; }
+.meg-find .l { font-size:13.5px; color:#333; margin:0; line-height:1.45; }
+.meg-tablewrap { overflow-x:auto; margin:14px 0; border:1px solid var(--hairline); border-radius:10px; background:var(--card); }
+table.meg-table { border-collapse:collapse; width:100%; font-size:14px; }
+table.meg-table th, table.meg-table td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--hairline); }
+table.meg-table th { font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+table.meg-table td.num, table.meg-table th.num { text-align:right; font-variant-numeric:tabular-nums; }
+.meg-tablewrap table.meg-table th:first-child, .meg-tablewrap table.meg-table td:first-child { position:sticky; left:0; background:var(--card); z-index:1; white-space:nowrap; }
+.meg-callout { border:1px solid var(--hairline); border-radius:10px; padding:16px 18px; background:var(--card); margin:14px 0; }
+.meg-callout .big { font-family:var(--serif); font-size:24px; margin:0 0 6px; }
+.meg-select { padding:9px 12px; border:1px solid var(--hairline); border-radius:8px; font-size:15px; background:#fff; margin:6px 0 10px; max-width:100%; }
+.chart-tools { display:flex; justify-content:flex-end; align-items:center; gap:8px; margin:4px 0 8px; font-size:13px; color:var(--muted); }
+.chart-tools select { padding:7px 10px; border:1px solid var(--hairline); border-radius:8px; font-size:14px; background:#fff; color:var(--ink); }
+/* Header findings strip */
+.meg-findings-list { list-style:none; margin:26px 0 4px; padding:0; max-width:760px; }
+.meg-findings-list li { padding:7px 0; border-top:1px solid var(--hairline); font-size:14px; line-height:1.45; }
+.meg-findings-list li:last-child { border-bottom:1px solid var(--hairline); }
+/* Creatives */
+.meg-filters { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:26px 0 18px; }
+.meg-filters select { padding:8px 10px; border:1px solid var(--hairline); border-radius:8px; font-size:14px; background:#fff; }
+.meg-count { color:var(--muted); font-size:13.5px; margin-left:auto; }
+.meg-panel-table { margin:0 0 22px; }
+.meg-wall { display:grid; grid-template-columns:repeat(auto-fill,minmax(215px,1fr)); gap:22px 16px; padding:6px; max-width:1600px; margin:0 auto 48px; }
+.meg-wall figure { margin:0; position:relative; background:#000; }
+.meg-wall video { display:block; width:100%; aspect-ratio:9/16; object-fit:cover; background:#000; cursor:pointer; }
+.meg-wall img { display:block; width:100%; aspect-ratio:9/16; object-fit:contain; background:#000; }
+.meg-wall figcaption { background:#fff; color:#333; font-size:12.5px; line-height:1.5; padding:9px 2px 0; }
+.meg-textcard { aspect-ratio:9/16; background:#f3efe8; color:#222; padding:18px 14px; overflow:hidden; }
+.meg-textcard p { font-size:14px; line-height:1.55; margin:0; }
+.live-cpm-lane{margin-top:1.4rem}
+.live-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.live-chip{border:1px solid var(--hairline);border-radius:999px;padding:.32rem .8rem;font-size:.82rem;background:var(--card,#111)}
+.live-details{margin-top:.7rem}
+.live-details summary{cursor:pointer;font-size:.9rem;color:var(--muted)}
+.live-table{width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.85rem}
+.live-table th,.live-table td{border-bottom:1px solid var(--hairline);padding:.35rem .5rem;text-align:left}
+
+
+/* --- findings + brand bars (2026-11-03) --- */
+.finding { margin: 26px 0 8px; }
+.finding h4 { font-family: var(--serif); font-size: 21px; margin: 0 0 6px; }
+.opacity-rows p { margin: 6px 0; font-size: 16px; }
+.brand-bar { display: flex; align-items: center; gap: 12px; margin: 7px 0; }
+.bb-name { flex: 0 0 190px; font-weight: 600; font-size: 14.5px; text-align: right; }
+.bb-track { position: relative; flex: 1; height: 18px; }
+.bb-zero { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: #999; }
+.bb-fill { position: absolute; top: 3px; height: 12px; border-radius: 3px; }
+.bb-fill.up { background: #8a3b2e; }
+.bb-fill.down { background: #2e5f8a; }
+.bb-val { flex: 0 0 190px; font-size: 13.5px; color: #444; font-variant-numeric: tabular-nums; }
+
+/* --- creative pressure (tab 1) --- */
+.flight-legend { margin: 8px 0 0; }
+.flight-chip { display: inline-block; margin: 0 10px 6px 0; font-size: 13.5px; }
+.flight-dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; }
+
+/* --- heatmap (tab 2) --- */
+.heat-controls { display: flex; align-items: center; gap: 12px; margin: 10px 0 4px; flex-wrap: wrap; }
+.heat-controls input[type="range"] { flex: 1; min-width: 220px; accent-color: #8a3b2e; }
+.heat-month { font-weight: 700; font-variant-numeric: tabular-nums; }
+#heatmap path { cursor: pointer; }
+#heatmap path:hover { stroke: #333; stroke-width: 0.003; }

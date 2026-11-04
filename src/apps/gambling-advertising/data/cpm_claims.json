@@ -1,0 +1,1464 @@
+{
+ "auction_cpm": {
+  "verdict": "inconclusive_auction_cpm_pending",
+  "as_of": "2026-11-03T07:52:51Z",
+  "method": "auction CPM claimed only from complete cells (dollars band AND impressions band, same row, same source). Cohort-window cells need money_basis + cohort=True; vendor cells are labelled vendor_model",
+  "coverage": {
+   "cells_n": 86,
+   "platforms": [
+    "google_atc",
+    "meta"
+   ]
+  },
+  "support": {
+   "groups": [
+    {
+     "market": "global",
+     "basis_flag": "cohort_disclosed",
+     "verdict": "insufficient_brands",
+     "median_slope_pct_yr": null,
+     "brands_n": 2,
+     "months_n": 1,
+     "brands": [
+      {
+       "brand": "DraftKings Sportsbook & Casino",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "skybet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      }
+     ]
+    }
+   ]
+  },
+  "cohort_money_snapshots": [
+   {
+    "brand": "32red",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "1294145292685896",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 442985,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1677521493245277",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 2864024,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "871560049257251",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 2849569,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "2071510673772734",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 354252,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "927514926749184",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 2572706,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1057870676802658",
+      "lifetime_disclosed_pounds": 25.56,
+      "uk_total_reach_int": 1906146,
+      "cohort_cpm_ratio_pounds": 0.013,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1294145292685896",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 442985,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1677521493245277",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 2864024,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "871560049257251",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 2849569,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "2071510673772734",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 354252,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "927514926749184",
+      "lifetime_disclosed_pounds": 0.12,
+      "uk_total_reach_int": 2572706,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1057870676802658",
+      "lifetime_disclosed_pounds": 25.56,
+      "uk_total_reach_int": 1906146,
+      "cohort_cpm_ratio_pounds": 0.013,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "bet365 Sportsbook",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "906066768789779",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 448110,
+      "cohort_cpm_ratio_pounds": 4.413,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "748840194904210",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 168658,
+      "cohort_cpm_ratio_pounds": 0.497,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1547737793035659",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 182816,
+      "cohort_cpm_ratio_pounds": 0.459,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "33670584149195347",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 135649,
+      "cohort_cpm_ratio_pounds": 0.618,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "872370761930361",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 84324,
+      "cohort_cpm_ratio_pounds": 0.994,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "32874819732166456",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 140652,
+      "cohort_cpm_ratio_pounds": 0.596,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1697235771318531",
+      "lifetime_disclosed_pounds": 0.01,
+      "uk_total_reach_int": 77861,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "906066768789779",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 448110,
+      "cohort_cpm_ratio_pounds": 4.413,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "748840194904210",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 168658,
+      "cohort_cpm_ratio_pounds": 0.497,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1547737793035659",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 182816,
+      "cohort_cpm_ratio_pounds": 0.459,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "33670584149195347",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 135649,
+      "cohort_cpm_ratio_pounds": 0.618,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "872370761930361",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 84324,
+      "cohort_cpm_ratio_pounds": 0.994,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "32874819732166456",
+      "lifetime_disclosed_pounds": 83.84,
+      "uk_total_reach_int": 140652,
+      "cohort_cpm_ratio_pounds": 0.596,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1697235771318531",
+      "lifetime_disclosed_pounds": 0.01,
+      "uk_total_reach_int": 77861,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "espn bet",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "1957779794842607",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 386798,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "3673132142835003",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 389518,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1506259657658611",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 288377,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "989253723687243",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 334092,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1389310222860351",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 235389,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "880343264524919",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 184671,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1957779794842607",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 386798,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "3673132142835003",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 389518,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1506259657658611",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 288377,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "989253723687243",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 334092,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1389310222860351",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 235389,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "880343264524919",
+      "lifetime_disclosed_pounds": 0.07,
+      "uk_total_reach_int": 184671,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "ladbrokes",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "3099249620248730",
+      "lifetime_disclosed_pounds": 0.91,
+      "uk_total_reach_int": 2335805,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "3099249620248730",
+      "lifetime_disclosed_pounds": 0.91,
+      "uk_total_reach_int": 2335805,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "paddypower",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "2162250501240407",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2804416,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1762607818515782",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 5224665,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1438209848146894",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2546126,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1926304491311695",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2315520,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "4708902512672648",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2991516,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "4044599932339593",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2818686,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "2540630486424778",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2481206,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "2162250501240407",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2804416,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1762607818515782",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 5224665,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1438209848146894",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2546126,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1926304491311695",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2315520,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "4708902512672648",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2991516,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "4044599932339593",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2818686,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "2540630486424778",
+      "lifetime_disclosed_pounds": 1.61,
+      "uk_total_reach_int": 2481206,
+      "cohort_cpm_ratio_pounds": 0.001,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "unibet",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "769520039563435",
+      "lifetime_disclosed_pounds": 1.14,
+      "uk_total_reach_int": 45645,
+      "cohort_cpm_ratio_pounds": 0.025,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "875162852007269",
+      "lifetime_disclosed_pounds": 1.14,
+      "uk_total_reach_int": 42982,
+      "cohort_cpm_ratio_pounds": 0.027,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "839776442252371",
+      "lifetime_disclosed_pounds": 1.14,
+      "uk_total_reach_int": 14447,
+      "cohort_cpm_ratio_pounds": 0.079,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "769520039563435",
+      "lifetime_disclosed_pounds": 1.14,
+      "uk_total_reach_int": 45645,
+      "cohort_cpm_ratio_pounds": 0.025,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "875162852007269",
+      "lifetime_disclosed_pounds": 1.14,
+      "uk_total_reach_int": 42982,
+      "cohort_cpm_ratio_pounds": 0.027,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "839776442252371",
+      "lifetime_disclosed_pounds": 1.14,
+      "uk_total_reach_int": 14447,
+      "cohort_cpm_ratio_pounds": 0.079,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "william hill",
+    "market": "gb",
+    "rows": [
+     {
+      "ad_id": "2242622752874339",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 3760481,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "997176449660182",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 7046435,
+      "cohort_cpm_ratio_pounds": 0.281,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1129453460259481",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 7185946,
+      "cohort_cpm_ratio_pounds": 0.275,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1519554689154762",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 5154196,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1293968099029983",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 2477814,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "939294202358447",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 2075501,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "4542682949351318",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 5383587,
+      "cohort_cpm_ratio_pounds": 0.367,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1664511221497612",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 3505862,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "26332259729793344",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 3299790,
+      "cohort_cpm_ratio_pounds": 0.599,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "850887994419526",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 3981208,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1481387026841848",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 2957479,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "2242622752874339",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 3760481,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "997176449660182",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 7046435,
+      "cohort_cpm_ratio_pounds": 0.281,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1129453460259481",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 7185946,
+      "cohort_cpm_ratio_pounds": 0.275,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1519554689154762",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 5154196,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1293968099029983",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 2477814,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "939294202358447",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 2075501,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "4542682949351318",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 5383587,
+      "cohort_cpm_ratio_pounds": 0.367,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1664511221497612",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 3505862,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "26332259729793344",
+      "lifetime_disclosed_pounds": 1977.39,
+      "uk_total_reach_int": 3299790,
+      "cohort_cpm_ratio_pounds": 0.599,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "850887994419526",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 3981208,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     },
+     {
+      "ad_id": "1481387026841848",
+      "lifetime_disclosed_pounds": 0.35,
+      "uk_total_reach_int": 2957479,
+      "cohort_cpm_ratio_pounds": 0.0,
+      "currency": "GBP",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "cohort disclosed money: minor-unit lifetime disclosure /100 = GBP spend over exact UK per-ad total_reach; lifetime window through as_of; declared NOT an auction CPM"
+     }
+    ]
+   },
+   {
+    "brand": "DraftKings Sportsbook & Casino",
+    "market": "global",
+    "rows": [
+     {
+      "ad_id": "CR01638166265463832577",
+      "lifetime_disclosed_pounds": 2840.0,
+      "uk_total_reach_int": 285009000,
+      "cohort_cpm_ratio_pounds": 0.014,
+      "currency": "USD",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "field17_window"
+     },
+     {
+      "ad_id": "CR01638166265463832577",
+      "lifetime_disclosed_pounds": 2840.0,
+      "uk_total_reach_int": 285009000,
+      "cohort_cpm_ratio_pounds": 0.014,
+      "currency": "USD",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "field17_window"
+     }
+    ]
+   },
+   {
+    "brand": "skybet",
+    "market": "global",
+    "rows": [
+     {
+      "ad_id": "CR18033515520585629697",
+      "lifetime_disclosed_pounds": 2840.0,
+      "uk_total_reach_int": 725516000,
+      "cohort_cpm_ratio_pounds": 0.007,
+      "currency": "USD",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "field17_window"
+     },
+     {
+      "ad_id": "CR18033515520585629697",
+      "lifetime_disclosed_pounds": 2840.0,
+      "uk_total_reach_int": 725516000,
+      "cohort_cpm_ratio_pounds": 0.007,
+      "currency": "USD",
+      "as_of": "2026-11-03T06:37:51Z",
+      "basis_note": "field17_window"
+     }
+    ]
+   }
+  ],
+  "spend_tiers": {
+   "disclosed": [
+    {
+     "market": "global",
+     "basis_flag": "disclosed_money",
+     "verdict": "insufficient_brands",
+     "median_slope_pct_yr": null,
+     "brands_n": 10,
+     "months_n": 5,
+     "brands": [
+      {
+       "brand": "AR-UNATTRIBUTED:Casino Party Aces, Inc.",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "AR-UNATTRIBUTED:Casino Party Planners Florida Inc",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "AR-UNATTRIBUTED:DADs Casino Party",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "AR-UNATTRIBUTED:WILLIAM ROBERT HILL",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betano",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betfair",
+       "months_n": 2,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betway",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "ladbrokes",
+       "months_n": 3,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "pointsbet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "william hill",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      }
+     ]
+    }
+   ],
+   "vendor_model": [
+    {
+     "market": "us",
+     "basis_flag": "vendor_model",
+     "verdict": "falling",
+     "median_slope_pct_yr": -16.5,
+     "brands_n": 12,
+     "months_n": 35,
+     "brands": [
+      {
+       "brand": "BetMGM Casino - Real Money",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": -41.3,
+       "ci95_pct_yr": [
+        -61.1,
+        -11.4
+       ]
+      },
+      {
+       "brand": "Borgata Casino - Real Money",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": 14.1,
+       "ci95_pct_yr": [
+        -26.9,
+        77.9
+       ]
+      },
+      {
+       "brand": "DraftKings Sportsbook & Casino",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": 8.1,
+       "ci95_pct_yr": [
+        -28.1,
+        62.5
+       ]
+      },
+      {
+       "brand": "FanDuel Casino",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": -16.5,
+       "ci95_pct_yr": [
+        -34.4,
+        6.3
+       ]
+      },
+      {
+       "brand": "Golden Nugget Online Casino",
+       "months_n": 30,
+       "supported": true,
+       "slope_pct_yr": -56.6,
+       "ci95_pct_yr": [
+        -69.4,
+        -38.5
+       ]
+      },
+      {
+       "brand": "Hard Rock Bet",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": 5.8,
+       "ci95_pct_yr": [
+        -20.5,
+        40.9
+       ]
+      },
+      {
+       "brand": "bet365 Sportsbook",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": 87.2,
+       "ci95_pct_yr": [
+        34.6,
+        160.3
+       ]
+      },
+      {
+       "brand": "betano",
+       "months_n": 12,
+       "supported": true,
+       "slope_pct_yr": 3.7,
+       "ci95_pct_yr": [
+        -98.9,
+        9318.5
+       ]
+      },
+      {
+       "brand": "betfair",
+       "months_n": 33,
+       "supported": true,
+       "slope_pct_yr": -68.7,
+       "ci95_pct_yr": [
+        -87.0,
+        -24.6
+       ]
+      },
+      {
+       "brand": "betrivers",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": -36.1,
+       "ci95_pct_yr": [
+        -53.7,
+        -11.8
+       ]
+      },
+      {
+       "brand": "caesars sportsbook",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": -52.5,
+       "ci95_pct_yr": [
+        -73.7,
+        -14.2
+       ]
+      },
+      {
+       "brand": "circa sportsbook & casino",
+       "months_n": 35,
+       "supported": true,
+       "slope_pct_yr": -52.2,
+       "ci95_pct_yr": [
+        -68.2,
+        -28.0
+       ]
+      }
+     ]
+    }
+   ],
+   "cohort_money": [
+    {
+     "market": "global",
+     "basis_flag": "cohort_money",
+     "verdict": "insufficient_brands",
+     "median_slope_pct_yr": null,
+     "brands_n": 2,
+     "months_n": 1,
+     "brands": [
+      {
+       "brand": "DraftKings Sportsbook & Casino",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "skybet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "volume": {
+  "verdict": "supported",
+  "as_of": "2026-11-03T07:52:51Z",
+  "method": "band midpoints of Impressions shown per book-month (Google bulk/country windows per creative) + live-creative counts per book-month; bands stay bands",
+  "coverage": {
+   "impression_groups": 1,
+   "adcount_groups": 2
+  },
+  "support": {
+   "impressions_groups": [
+    {
+     "market": "global",
+     "basis_flag": "disclosed_bands",
+     "verdict": "flat_or_mixed",
+     "median_slope_pct_yr": 11.1,
+     "brands_n": 9,
+     "months_n": 28,
+     "brands": [
+      {
+       "brand": "DraftKings Sportsbook & Casino",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betano",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betfair",
+       "months_n": 6,
+       "supported": true,
+       "slope_pct_yr": 11.1,
+       "ci95_pct_yr": [
+        -79.6,
+        505.7
+       ]
+      },
+      {
+       "brand": "betway",
+       "months_n": 3,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "ladbrokes",
+       "months_n": 3,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "pointsbet",
+       "months_n": 7,
+       "supported": true,
+       "slope_pct_yr": -30.5,
+       "ci95_pct_yr": [
+        -66.5,
+        43.9
+       ]
+      },
+      {
+       "brand": "skybet",
+       "months_n": 4,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "unibet",
+       "months_n": 4,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "william hill",
+       "months_n": 21,
+       "supported": true,
+       "slope_pct_yr": 17.1,
+       "ci95_pct_yr": [
+        -15.2,
+        61.8
+       ]
+      }
+     ]
+    }
+   ],
+   "adcount_groups": [
+    {
+     "market": "eea",
+     "basis_flag": "live_counts",
+     "verdict": "mixed_rising_tilt",
+     "median_slope_pct_yr": 59.6,
+     "brands_n": 13,
+     "months_n": 42,
+     "brands": [
+      {
+       "brand": "BetMGM Sportsbook",
+       "months_n": 28,
+       "supported": true,
+       "slope_pct_yr": -21.6,
+       "ci95_pct_yr": [
+        -52.9,
+        30.7
+       ]
+      },
+      {
+       "brand": "DraftKings Sportsbook & Casino",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "bet365 Sportsbook",
+       "months_n": 41,
+       "supported": true,
+       "slope_pct_yr": -15.9,
+       "ci95_pct_yr": [
+        -43.0,
+        24.1
+       ]
+      },
+      {
+       "brand": "betano",
+       "months_n": 6,
+       "supported": true,
+       "slope_pct_yr": 116388.5,
+       "ci95_pct_yr": [
+        -31.1,
+        196981727.8
+       ]
+      },
+      {
+       "brand": "betfair",
+       "months_n": 21,
+       "supported": true,
+       "slope_pct_yr": 82.7,
+       "ci95_pct_yr": [
+        -29.6,
+        373.8
+       ]
+      },
+      {
+       "brand": "betway",
+       "months_n": 21,
+       "supported": true,
+       "slope_pct_yr": 86.5,
+       "ci95_pct_yr": [
+        -13.6,
+        302.2
+       ]
+      },
+      {
+       "brand": "bwin",
+       "months_n": 39,
+       "supported": true,
+       "slope_pct_yr": 59.6,
+       "ci95_pct_yr": [
+        -8.1,
+        176.9
+       ]
+      },
+      {
+       "brand": "caesars sportsbook",
+       "months_n": 28,
+       "supported": true,
+       "slope_pct_yr": 15.9,
+       "ci95_pct_yr": [
+        -3.7,
+        39.5
+       ]
+      },
+      {
+       "brand": "golden nugget sportsbook",
+       "months_n": 15,
+       "supported": true,
+       "slope_pct_yr": 6.1,
+       "ci95_pct_yr": [
+        -25.5,
+        51.2
+       ]
+      },
+      {
+       "brand": "pinnacle sportsbook",
+       "months_n": 41,
+       "supported": true,
+       "slope_pct_yr": 5.4,
+       "ci95_pct_yr": [
+        -6.3,
+        18.6
+       ]
+      },
+      {
+       "brand": "pointsbet",
+       "months_n": 2,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "skybet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "unibet",
+       "months_n": 41,
+       "supported": true,
+       "slope_pct_yr": 67.1,
+       "ci95_pct_yr": [
+        29.3,
+        115.9
+       ]
+      }
+     ]
+    },
+    {
+     "market": "global",
+     "basis_flag": "live_counts",
+     "verdict": "insufficient_brands",
+     "median_slope_pct_yr": null,
+     "brands_n": 9,
+     "months_n": 1,
+     "brands": [
+      {
+       "brand": "DraftKings Sportsbook & Casino",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betano",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betfair",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "betway",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "ladbrokes",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "pointsbet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "skybet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "unibet",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      },
+      {
+       "brand": "william hill",
+       "months_n": 1,
+       "supported": false,
+       "slope_pct_yr": null,
+       "ci95_pct_yr": null
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "demand_sensitivity": {
+  "verdict": "pending_estimator_descriptive_features_banked",
+  "as_of": "2026-11-03T07:52:51Z",
+  "method": "brand-FE panel on log spend/volume vs same-market ruler+outcome series (intra = peer gambling spend/impressions; extra = ruler series + seasonality + political cycle). Correlational wording mandatory; estimator not run this pass",
+  "coverage": {
+   "feature_rows_n": 168,
+   "outcome_rows_n": 5056,
+   "ruler_series_n": 26,
+   "rulers_top": [
+    "derived_from_official_statements",
+    "hand_entered_from_filing",
+    "machine_parsed_filing",
+    "macro_market_ruler",
+    "official_industry_disclosure",
+    "official_industry_survey",
+    "operator_annual_report_audited_note",
+    "operator_annual_report_context",
+    "operator_disclosed_efficiency",
+    "operator_results_presentation",
+    "operator_results_statement_official",
+    "operator_rns_official",
+    "sec_xbrl",
+    "sec_xbrl_official_filing"
+   ]
+  },
+  "support": {}
+ },
+ "efficiency": {
+  "verdict": "inconclusive_pending",
+  "as_of": "2026-11-03T07:52:51Z",
+  "method": "vendor-rated cost-per-1k + ROAS bands (vendor_model, never implied true advertiser ROAS) paired with official outcomes (UKGC GGY etc) for disclosed efficiency-proxy context",
+  "coverage": {
+   "roas_feature_rows_n": 0,
+   "outcome_rows_n": 5056,
+   "outcome_markets": [
+    "GB"
+   ]
+  },
+  "support": {}
+ },
+ "_meta": {
+  "built_utc": "2026-11-03T07:52:51Z",
+  "bank_rows_n": 15198,
+  "complete_cells_n": 86,
+  "money_rows_disclosed_n": 126,
+  "money_rows_vendor_n": 780,
+  "currency_note": "currencies/units pinned per-row by their lane; ad-library monetary integers are minor units",
+  "coverage_note": "Google bulk = EEA coverage only (documented 0 GB rows); Google RPC = GLOBAL cohorts, no country scoping; Meta = GB view modal cohorts + GB card adcounts; TikTok = vendor-model dollars, no disclosed impressions"
+ }
+}

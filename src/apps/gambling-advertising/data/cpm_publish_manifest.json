@@ -1,0 +1,31 @@
+{
+ "generated_utc": "2026-11-03T16:58:27+00:00",
+ "files": {
+  "cpm_claims.json": {
+   "sha256_16": "4c5a7440237ad310",
+   "bytes": 50219,
+   "what": "claims machine: 4 refusal-safe verdicts + tiers + cohort money + coverage contract"
+  },
+  "cpm_econometric.jsonl": {
+   "sha256_16": "9286dfa8a18d9c93",
+   "bytes": 6258360,
+   "what": "typed panel bank (append-only) powering the claims"
+  },
+  "cpm_feature_cells.jsonl": {
+   "sha256_16": "fecf06681ad1eaf0",
+   "bytes": 136093,
+   "what": "demand rulers w/ source URL per row (filings machine-parsed + hand + vendor)"
+  },
+  "cpm_outcome_cells.jsonl": {
+   "sha256_16": "a607f861b8d14be3",
+   "bytes": 1268842,
+   "what": "official outcome cells (UKGC operator/industry through 2026-03)"
+  },
+  "cpm_endpoint_census.jsonl": {
+   "sha256_16": "c67a0b8ff5ed0407",
+   "bytes": 11611,
+   "what": "open-surface access census (appendix card; grouped open vs gated)"
+  }
+ },
+ "notes": "additive deploy for pending muse #cpm rebuild; legacy data/meg_cpm.json (licensed MediaRadar strata) left untouched"
+}

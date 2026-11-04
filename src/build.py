@@ -1721,6 +1721,16 @@ def build_site(
     # Static assets
     copy_static(static_dir, out_dir / "assets")
 
+    # Self-contained apps: src/apps/<name>/ -> dist/<name>/ (e.g. /gambling-advertising)
+    apps_dir = SCRIPT_DIR / "apps"
+    if apps_dir.is_dir():
+        for app in sorted(apps_dir.iterdir()):
+            if app.is_dir():
+                dst = out_dir / app.name
+                if dst.exists():
+                    shutil.rmtree(dst)
+                shutil.copytree(app, dst)
+
     # Site-level control files
     write_text(
         out_dir / "robots.txt",
