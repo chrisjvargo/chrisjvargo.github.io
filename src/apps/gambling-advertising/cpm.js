@@ -1,4 +1,4 @@
-/* Tab 6: CPM & competitiveness from meg_cpm.json */
+/* Tab 2: CPM & competitiveness from meg_cpm.json */
 (function () {
   "use strict";
   function $(id) { return document.getElementById(id); }
