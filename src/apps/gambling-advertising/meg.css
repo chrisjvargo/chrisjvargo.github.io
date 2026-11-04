@@ -65,10 +65,11 @@ table.meg-table td.num, table.meg-table th.num { text-align:right; font-variant-
 #heatmap path:hover { stroke: #333; stroke-width: 0.003; }
 
 /* --- media mix (tab 1) --- */
-.mix-row { display: flex; align-items: center; gap: 12px; margin: 6px 0; cursor: pointer; }
+.mix-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; cursor: pointer; width: 100%; }
 .mix-row:hover .mix-name, .mix-row.selected .mix-name { color: #8a3b2e; text-decoration: underline; }
 .mix-name { flex: 0 0 190px; text-align: right; font-weight: 600; font-size: 14.5px; }
-.mix-track { flex: 1; display: flex; height: 22px; border-radius: 4px; overflow: hidden; background: #eee; }
-.mix-seg { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11.5px; font-weight: 700; min-width: 0; }
+.mix-track { flex: 1 1 auto; min-width: 0; width: 100%; display: flex; height: 30px; border-radius: 4px; overflow: hidden; background: #eee; }
+.mix-seg { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12.5px; font-weight: 700; min-width: 0; transition: width 0.7s ease; overflow: hidden; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .mix-seg { transition: none; } }
 .mix-total { flex: 0 0 70px; font-size: 13.5px; color: #444; font-variant-numeric: tabular-nums; }
 .mix-detail-title { font-family: var(--serif); font-size: 19px; margin: 18px 0 4px; }
