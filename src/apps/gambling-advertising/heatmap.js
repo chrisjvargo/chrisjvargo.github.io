@@ -6,7 +6,25 @@
   function $(id) { return document.getElementById(id); }
   var DATA = null, PATHS = null, timer = null;
   var MODE = "cumulative"; // cumulative: running sum per state (only darkens)
-  var CUM = null, CUMREF = 200;
+  var CUM = null, CUMREF = 200, SMOOTH = null;
+  // Monthly display series: 12-month rolling mean. Raw monthly values include
+  // one-month normalization spikes (a lone measurable month reads 100), which
+  // flash a state dark for a single frame; the rolling mean removes the blink
+  // without inventing data (mean over months Google actually measured).
+  function buildSmooth() {
+    SMOOTH = {};
+    Object.keys(DATA.states).forEach(function (geo) {
+      var src = DATA.states[geo], out = [];
+      for (var i = 0; i < src.length; i++) {
+        var sum = 0, n = 0;
+        for (var k = Math.max(0, i - 11); k <= i; k++) {
+          if (src[k] != null) { sum += src[k]; n++; }
+        }
+        out.push(n ? Math.round(sum / n * 10) / 10 : null);
+      }
+      SMOOTH[geo] = out;
+    });
+  }
   function buildCumulative() {
     CUM = {};
     var finals = [];
@@ -22,7 +40,7 @@
     finals.sort(function (a, b) { return a - b; });
     if (finals.length) CUMREF = finals[Math.floor(finals.length * 0.92)] || 200;
   }
-  function seriesFor(geo) { return MODE === "cumulative" ? CUM[geo] : DATA.states[geo]; }
+  function seriesFor(geo) { return MODE === "cumulative" ? CUM[geo] : SMOOTH[geo]; }
   // The index sums 10 anchor-normalized terms in one window, so it is NOT
   // bounded at 100: 2026 runs ~10x the 2015 level (max ~600). A linear 0-100
   // ramp would hide everything before 2022 and saturate 2026. Sqrt scale
@@ -54,7 +72,7 @@
       var s = seriesFor("US-" + abbr);
       var v = s ? s[idx] : null;
       el.setAttribute("fill", color(v));
-      el.querySelector("title").textContent = abbr + " · " + mo + " · " + (v == null ? "no measurable volume" : "index " + v);
+      el.querySelector("title").textContent = abbr + " · " + mo + " · " + (v == null ? "no measurable volume" : (MODE === "cumulative" ? "cumulative " : "index (12-mo avg) ") + v);
     });
     $("heat-time").value = idx;
   }
@@ -79,7 +97,7 @@
         }
         var s = seriesFor("US-" + abbr);
         var idx = Number($("heat-time").value);
-        $("heat-state").textContent = abbr + " in " + DATA.months[idx] + ": " + (s && s[idx] != null ? "index " + s[idx] : "no measurable volume") + " — drilled below.";
+        $("heat-state").textContent = abbr + " in " + DATA.months[idx] + ": " + (s && s[idx] != null ? (MODE === "cumulative" ? "cumulative " : "index (12-mo avg) ") + s[idx] : "no measurable volume") + " — drilled below.";
       });
     });
     $("heat-note").textContent = DATA.note;
@@ -98,7 +116,7 @@
     fetch("data/us_paths.json").then(function (r) { return r.json(); })
   ]).then(function (all) {
     DATA = all[0]; PATHS = all[1];
-    buildCumulative();
+    buildCumulative(); buildSmooth();
     var slider = $("heat-time");
     slider.max = DATA.months.length - 1; slider.value = DATA.months.length - 1;
     slider.addEventListener("input", function () { render(Number(slider.value)); });
