@@ -127,6 +127,12 @@
       <div id="mr-pressure-chart"></div>
       <p class="fineprint" id="mr-pressure-note"></p>
     </figure>
+    <figure class="chart-card">
+      <figcaption class="chart-title">Ad spend by media — every major advertiser's mix <span class="chart-sub">Share of each advertiser's MediaRadar spend by media type, Jan 2022–Sep 2026 (finalized months). Click any advertiser to see their mix move month by month.</span></figcaption>
+      <div id="mix-bars"></div>
+      <div id="mix-chart"></div>
+      <p class="fineprint" id="mix-note"></p>
+    </figure>
     <h3 class="section-head small">The paper (Study 1) · state level</h3>
     <p class="deck" id="s1-keyline">Loading…</p>
     <h3 class="section-head small">What predicts help-seeking?</h3>
@@ -224,12 +230,6 @@
     </figure>
     <div id="cpm-table"></div>
     <figure class="chart-card">
-      <figcaption class="chart-title">Drill down: where does one advertiser's money go? <span class="chart-sub">Monthly spend by media type (MediaRadar). Pick an advertiser — the stack is their media mix.</span></figcaption>
-      <div class="chart-tools"><label for="xt-brand">Advertiser</label><select id="xt-brand"></select></div>
-      <div id="xt-chart"></div>
-      <p class="fineprint" id="xt-note"></p>
-    </figure>
-    <figure class="chart-card">
       <figcaption class="chart-title">Demand / supply index <span class="chart-sub">Monthly spend (demand) and impressions (supply), indexed · 2022 monthly average = 100 · politics = Political-category spend (election demand)</span></figcaption>
       <div id="cpm-index-chart"></div>
       <p class="fineprint" id="cpm-index-legend"></p>
@@ -254,8 +254,9 @@
 <script src="tabs.js?v=20261102b"></script>
 <script src="study1.js?v=20261102a"></script>
 <script src="demand.js?v=20261102c"></script>
-<script src="cpm.js?v=20261104a"></script>
+<script src="cpm.js?v=20261104b"></script>
 <script src="flight.js?v=20261103e"></script>
+<script src="mediamix.js?v=20261104a"></script>
 <script src="heatmap.js?v=20261104a"></script>
 </body>
 </html>

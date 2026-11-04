@@ -154,7 +154,7 @@
     $("cpm-strata").querySelectorAll("[data-stratum]").forEach(function (btn) {
       btn.addEventListener("click", function () { state.stratum = btn.getAttribute("data-stratum"); state.brand = ""; fillBrands(); renderAll(); });
     });
-    draw(); renderTable(); renderFindings(); fillXtBrands();
+    draw(); renderTable(); renderFindings();
   }
   function fillBrands() {
     var st = state.data.strata[state.stratum];
@@ -170,76 +170,6 @@ fetch("data/meg_cpm.json", { cache: "no-store" }).then(function (r) { return r.j
     $("cpm-brand").addEventListener("change", function () { state.brand = $("cpm-brand").value; draw(); });
     $("cpm-range").addEventListener("change", function () { state.range = $("cpm-range").value; draw(); });
   }).catch(function () {});
-
-  /* ---- Crosstab drill-down: one advertiser x media type (spend $). ---- */
-  var XT_MEDIA = [
-    { name: "TV", color: "#8a3b2e" },
-    { name: "Digital Video", color: "#c08a3e" },
-    { name: "Digital Display & Apps", color: "#2e5f8a" },
-    { name: "Radio", color: "#4a7a4f" },
-    { name: "Print", color: "#6b4a8a" }
-  ];
-  function renderXt() {
-    var el = $("xt-chart"); if (!el || !state.data) return;
-    var sel = $("xt-brand");
-    var brand = sel.value;
-    var monthSet = {};
-    XT_MEDIA.forEach(function (m) {
-      var b = (state.data.strata[m.name].brands || []).filter(function (x) { return x.brand === brand; })[0];
-      if (b) b.points.forEach(function (p) { if (!p.provisional) monthSet[p.month] = 1; });
-    });
-    var months = Object.keys(monthSet).sort();
-    if (!months.length) { el.innerHTML = '<p class="fineprint">No MediaRadar spend banked for this advertiser.</p>'; return; }
-    function val(mname, mo) {
-      var b = (state.data.strata[mname].brands || []).filter(function (x) { return x.brand === brand; })[0];
-      if (!b) return 0;
-      var p = b.points.filter(function (x) { return x.month === mo; })[0];
-      return p && !p.provisional ? (p.dollars || 0) : 0;
-    }
-    var totals = months.map(function (mo) { return XT_MEDIA.reduce(function (s, m) { return s + val(m.name, mo); }, 0); });
-    var mx = Math.max.apply(null, totals) * 1.08;
-    var W = 880, H = 290, L = 52, Rr = 14, T = 14, B = 30;
-    var X = function (j) { return L + (j + 0.5) / months.length * (W - L - Rr); };
-    var Y = function (v) { return T + (1 - v / mx) * (H - T - B); };
-    var out = '<svg viewBox="0 0 ' + W + " " + H + '" width="100%" role="img" aria-label="Spend by media type for ' + esc(brand) + '">';
-    [0, 0.5, 1].forEach(function (f) { var y = Y(mx * f); out += '<line x1="' + L + '" y1="' + y + '" x2="' + (W - Rr) + '" y2="' + y + '" stroke="#999" stroke-opacity=".25"/><text x="4" y="' + (y + 4) + '" font-size="11" fill="#555">$' + (mx * f / 1e6).toFixed(0) + "M</text>"; });
-    var base = months.map(function () { return 0; });
-    XT_MEDIA.forEach(function (m) {
-      var top = base.map(function (b, j) { return b + val(m.name, months[j]); });
-      var dTop = top.map(function (v, j) { return X(j).toFixed(1) + " " + Y(v).toFixed(1); }).join("L");
-      var dBase = base.slice().reverse().map(function (v, k) { var j = months.length - 1 - k; return X(j).toFixed(1) + " " + Y(v).toFixed(1); }).join("L");
-      out += '<path fill="' + m.color + '" fill-opacity="0.85" d="M' + dTop + "L" + dBase + 'Z"><title>' + esc(m.name) + "</title></path>";
-      base = top;
-    });
-    months.forEach(function (mo, j) { if (j % 12 === 0) out += '<text x="' + X(j) + '" y="' + (H - 8) + '" font-size="11" fill="#555" text-anchor="middle">' + mo.slice(0, 4) + "</text>"; });
-    out += "</svg>";
-    var shares = XT_MEDIA.map(function (m) {
-      var tot = months.reduce(function (s, mo) { return s + val(m.name, mo); }, 0);
-      return { name: m.name, color: m.color, tot: tot };
-    });
-    var grand = shares.reduce(function (s, x) { return s + x.tot; }, 0) || 1;
-    var legend = shares.filter(function (x) { return x.tot > 0; }).map(function (x) {
-      return '<span class="flight-chip"><span class="flight-dot" style="background:' + x.color + '"></span>' + esc(x.name) + " $" + (x.tot / 1e6).toFixed(0) + "M (" + Math.round(x.tot / grand * 100) + "%)</span>";
-    }).join(" ");
-    el.innerHTML = out + '<p class="flight-legend">' + legend + "</p>";
-    var note = $("xt-note");
-    if (note) note.textContent = brand + ": $" + (grand / 1e6).toFixed(0) + "M across these media, Jan 2022–Sep 2026 (finalized months; MediaRadar modelled gross spend). MediaRadar categories are mutually exclusive; digital total above is split into video vs display & apps.";
-  }
-  var XT_FILLED = false;
-  function fillXtBrands() {
-    var sel = $("xt-brand"); if (!sel || !state.data || XT_FILLED) return;
-    XT_FILLED = true;
-    var tot = {};
-    XT_MEDIA.forEach(function (m) {
-      (state.data.strata[m.name].brands || []).forEach(function (b) {
-        tot[b.brand] = (tot[b.brand] || 0) + b.points.reduce(function (s, p) { return s + (p.provisional ? 0 : (p.dollars || 0)); }, 0);
-      });
-    });
-    var brands = Object.keys(tot).sort(function (a, b) { return tot[b] - tot[a]; }).slice(0, 20);
-    sel.innerHTML = brands.map(function (b) { return '<option value="' + esc(b) + '">' + esc(b) + "</option>"; }).join("");
-    sel.addEventListener("change", renderXt);
-    renderXt();
-  }
 
   /* ---- Findings for a reader, not an analyst: chart first, provenance second. ---- */
   function divergenceSvg() {
