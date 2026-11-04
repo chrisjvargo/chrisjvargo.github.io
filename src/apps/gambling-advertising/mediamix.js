@@ -87,7 +87,7 @@
     });
     el.innerHTML = h;
     Array.prototype.forEach.call(el.querySelectorAll(".mix-row"), function (row) {
-      function go() { selected = row.getAttribute("data-brand"); renderBars(); renderDetail(); }
+      function go() { selected = row.getAttribute("data-brand"); renderBars(); }
       row.addEventListener("click", go);
       row.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
     });
@@ -109,40 +109,8 @@
     });
   }
 
-  function renderDetail() {
-    var el = $("mix-chart"); if (!el || !D || !selected) return;
-    var mos = months();
-    var totals = mos.map(function (mo) { return MEDIA.reduce(function (s, m) { return s + val(selected, m.name, mo); }, 0); });
-    var mx = Math.max.apply(null, totals) * 1.08;
-    var W = 880, H = 280, L = 52, Rr = 14, T = 14, B = 30;
-    var X = function (j) { return L + (j + 0.5) / mos.length * (W - L - Rr); };
-    var Y = function (v) { return T + (1 - v / mx) * (H - T - B); };
-    var out = '<h4 class="mix-detail-title">' + esc(selected) + ' — monthly spend by media</h4><svg viewBox="0 0 ' + W + " " + H + '" width="100%" role="img" aria-label="Monthly spend by media for ' + esc(selected) + '">';
-    [0, 0.5, 1].forEach(function (f) { var y = Y(mx * f); out += '<line x1="' + L + '" y1="' + y + '" x2="' + (W - Rr) + '" y2="' + y + '" stroke="#999" stroke-opacity=".25"/><text x="4" y="' + (y + 4) + '" font-size="11" fill="#555">$' + (mx * f / 1e6).toFixed(0) + "M</text>"; });
-    var base = mos.map(function () { return 0; });
-    MEDIA.forEach(function (m) {
-      var top = base.map(function (b, j) { return b + val(selected, m.name, mos[j]); });
-      var dTop = top.map(function (v, j) { return X(j).toFixed(1) + " " + Y(v).toFixed(1); }).join("L");
-      var dBase = base.slice().reverse().map(function (v, k) { var j = mos.length - 1 - k; return X(j).toFixed(1) + " " + Y(v).toFixed(1); }).join("L");
-      out += '<path fill="' + m.color + '" fill-opacity="0.85" d="M' + dTop + "L" + dBase + 'Z"><title>' + esc(m.name) + "</title></path>";
-      base = top;
-    });
-    mos.forEach(function (mo, j) { if (j % 12 === 0) out += '<text x="' + X(j) + '" y="' + (H - 8) + '" font-size="11" fill="#555" text-anchor="middle">' + mo.slice(0, 4) + "</text>"; });
-    out += "</svg>";
-    var grand = totals.reduce(function (s, v) { return s + v; }, 0);
-    var shares = MEDIA.map(function (m) {
-      var t = mos.reduce(function (s, mo) { return s + val(selected, m.name, mo); }, 0);
-      return { name: m.name, color: m.color, tot: t };
-    }).filter(function (x) { return x.tot > 0; });
-    out += '<p class="flight-legend">' + shares.map(function (x) {
-      return '<span class="flight-chip"><span class="flight-dot" style="background:' + x.color + '"></span>' + esc(x.name) + " $" + (x.tot / 1e6).toFixed(0) + "M (" + Math.round(x.tot / (grand || 1) * 100) + "%)</span>";
-    }).join(" ") + "</p>";
-    el.innerHTML = out;
-    var note = $("mix-note");
-    if (note) note.textContent = "MediaRadar/Vivvix (CU Boulder license), modelled gross spend, finalized months Jan 2022–Sep 2026. Categories are mutually exclusive. The pattern to see: the TV-first books (FanDuel) versus the digital-first challengers — same market, opposite media bets.";
-  }
 
   fetch("data/meg_cpm.json").then(function (r) { return r.json(); }).then(function (d) {
-    D = d; wireYearControls(); renderBars(); renderDetail();
+    D = d; wireYearControls(); renderBars();
   }).catch(function () {});
 })();
