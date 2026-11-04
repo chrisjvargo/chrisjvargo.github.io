@@ -5,12 +5,23 @@
   "use strict";
   function $(id) { return document.getElementById(id); }
   var DATA = null, PATHS = null, timer = null;
+  // The index sums 10 anchor-normalized terms in one window, so it is NOT
+  // bounded at 100: 2026 runs ~10x the 2015 level (max ~600). A linear 0-100
+  // ramp would hide everything before 2022 and saturate 2026. Sqrt scale
+  // against a fixed reference (200) keeps both ends readable.
+  var VREF = 200;
   function color(v) {
     if (v == null) return "#e3e0da";
-    var t = Math.max(0, Math.min(1, v / 100));
-    // paper white -> deep red ramp
+    var t = Math.sqrt(Math.max(0, Math.min(v, VREF)) / VREF);
     var r = Math.round(247 - t * 60), g = Math.round(243 - t * 175), b = Math.round(238 - t * 175);
     return "rgb(" + r + "," + g + "," + b + ")";
+  }
+  function legend() {
+    var stops = [0, 10, 25, 50, 100, 200];
+    return '<div class="heat-legend"><span>Help-seeking index</span>' +
+      stops.map(function (v) {
+        return '<span class="heat-chip"><span class="heat-swatch" style="background:' + color(v) + '"></span>' + v + (v === 200 ? "+" : "") + "</span>";
+      }).join("") + '<span class="heat-chip"><span class="heat-swatch" style="background:#e3e0da"></span>no measurable volume</span></div>';
   }
   function render(idx) {
     if (!DATA || !PATHS) return;
@@ -34,7 +45,7 @@
       svg += '<path id="hs-' + abbr + '" d="' + PATHS.paths[abbr] + '" stroke="#fff" stroke-width="0.0016" fill="#e3e0da" data-abbr="' + abbr + '"><title>' + abbr + "</title></path>";
     });
     svg += "</svg>";
-    $("heatmap").innerHTML = svg;
+    $("heatmap").innerHTML = svg + legend();
     Array.prototype.forEach.call(document.querySelectorAll("#heatmap path"), function (p) {
       p.addEventListener("click", function () {
         var abbr = p.getAttribute("data-abbr");

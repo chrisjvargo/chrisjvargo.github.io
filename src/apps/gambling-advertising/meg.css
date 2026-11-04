@@ -73,3 +73,6 @@ table.meg-table td.num, table.meg-table th.num { text-align:right; font-variant-
 @media (prefers-reduced-motion: reduce) { .mix-seg { transition: none; } }
 .mix-total { flex: 0 0 70px; font-size: 13.5px; color: #444; font-variant-numeric: tabular-nums; }
 .mix-detail-title { font-family: var(--serif); font-size: 19px; margin: 18px 0 4px; }
+.heat-legend { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 8px 0 2px; font-size: 13px; }
+.heat-chip { display: inline-flex; align-items: center; gap: 5px; }
+.heat-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid #ccc; display: inline-block; }
