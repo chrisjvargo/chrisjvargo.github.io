@@ -83,6 +83,20 @@
       "year": 2026,
       "version_label": "Author-accepted manuscript (accepted September 23, 2026)",
       "journal_title": "SAGE Open"
+    },
+    "elm-disrupted-large-language-models-that-recognize-advertising-evidence-without-using-it": {
+      "abstract": "Large language models (LLMs) are increasingly involved in advertising decisions, including creative evaluation, agency pretesting, and product recommendation. However, an LLM’s ability to identify or describe advertising information does not necessarily mean that the same information drives its judgments. Study 1 synthesizes decades of human advertising research across 3,276 reports to identify persuasive features and document how their effects vary across conditions and outcomes. In a source-verified reference synthesis, stronger arguments were associated with more favorable evaluations (r = .41, 95% CI [.28, .53]), although substantial heterogeneity was present (I² = 82.5%; 95% prediction interval [.02, .69]). Study 2 tests five fixed open-weight LLMs using a 22,800-trial controlled advertising battery and 12,320 recognition trials, distinguishing recognition from functional reliance. Although models recognized advertising content with 91.6% pooled accuracy, stronger evidence met the full robustness criteria in none of the 12 H1 panel families because meaning-preserving control edits often produced similar changes in judgment. In addition, only 8% – 34% of derivable model explanations were behaviorally supported. Together, the findings show why recognizing persuasive information should be distinguished from reliably using that information in advertising evaluation.",
+      "keywords": [
+        "advertising effectiveness",
+        "elaboration likelihood model",
+        "large language models",
+        "computational behavioral testing",
+        "meta-analysis",
+        "marketing funnel"
+      ],
+      "online_date": "2026-11-17",
+      "year": 2027,
+      "version_label": "Author-accepted manuscript (AAA 2027 competitive paper, accepted November 17, 2026; anonymized review version)"
     }
   },
   "by_doi": {}
