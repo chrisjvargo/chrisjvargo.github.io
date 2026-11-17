@@ -1498,6 +1498,13 @@ def build_site(
             "venue": "New Media & Society",
             "url": "/publications/the-agenda-setting-power-of-fake-news-a-big-data-analysis-of-the-online-media-landscape/",
         },
+        {
+            "title": "ELM, Disrupted: Large Language Models That Recognize Advertising Evidence Without Using It",
+            "impact": "LLM recognition vs. reliance in ad evaluation",
+            "date": "2027",
+            "venue": "American Academy of Advertising Annual Conference",
+            "url": "/publications/elm-disrupted-large-language-models-that-recognize-advertising-evidence-without-using-it/",
+        },
     ]
     selected_publication_urls = {featured_preprint["url"], *(pub["url"] for pub in selected_publications)}
 
