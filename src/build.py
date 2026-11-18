@@ -1470,27 +1470,41 @@ def build_site(
         },
     ]
 
-    featured_preprint = {
-        "label": "★ NEW PREPRINT ★",
-        "status": "NOW ONLINE",
-        "title": "Gambling advertising and problem gambling in the United States",
-        "venue": "Policy & Internet · author-accepted manuscript · 2026",
-        "summary": (
-            "A multi-level analysis of gambling advertising, help-seeking search behavior, and individual "
-            "exposure in the United States."
-        ),
-        "cta": "Read the preprint.",
-        "url": "/publications/gambling-advertising-and-problem-gambling-in-the-united-states-multi-level-evidence-beyo/",
-    }
-
-    selected_publications = [
+    featured_preprints = [
         {
+            "label": "PREPRINT ONLINE",
+            "status": "PUBLISHED · 2026",
+            "kicker": "LLMs in the consumer journey",
             "title": "LLM exposure and funnel erosion in consumer journeys",
-            "impact": "LLM effects on consumer journeys",
-            "date": "2026",
-            "venue": "Journal of Marketing Analytics",
+            "venue": "Journal of Marketing Analytics · author-accepted manuscript · 2026",
+            "summary": (
+                "LLM assistants increasingly mediate product discovery. Using de-identified passive behavioral "
+                "logs linked to a post-trace survey, we measure how LLM exposure compresses and reorders consumer "
+                "journeys — and show why journey analytics must treat conversational discovery as a first-class "
+                "touchpoint. In a one-month window, LLM-exposed journeys show substantially higher observable LLM "
+                "and review/UGC share in pre-intent discovery, while unadjusted compression and time-to-intent "
+                "differences shrink after adjustment."
+            ),
+            "cta": "Read the preprint.",
             "url": "/publications/llm-exposure-and-funnel-erosion-in-consumer-journeys-measuring-journey-compression-and-r/",
         },
+        {
+            "label": "★ NEW PREPRINT ★",
+            "status": "ACCEPTED · AAA 2027",
+            "kicker": "Companion study · LLMs evaluating ads",
+            "title": "ELM, Disrupted: Large Language Models That Recognize Advertising Evidence Without Using It",
+            "venue": "American Academy of Advertising 2027 · author-accepted manuscript · Las Vegas",
+            "summary": (
+                "Five open-weight LLMs recognize ad content at 91.6% accuracy, yet stronger evidence fails to "
+                "reliably move their judgments in any of 12 ad families — sham edits sway them as readily as real "
+                "upgrades. Fluency without diagnostic sensitivity is the appearance of judgment, not judgment."
+            ),
+            "cta": "Read the preprint.",
+            "url": "/publications/elm-disrupted-large-language-models-that-recognize-advertising-evidence-without-using-it/",
+        },
+    ]
+
+    selected_publications = [
         {
             "title": "The agenda-setting power of fake news",
             "impact": "online media agenda-setting analysis",
@@ -1498,15 +1512,11 @@ def build_site(
             "venue": "New Media & Society",
             "url": "/publications/the-agenda-setting-power-of-fake-news-a-big-data-analysis-of-the-online-media-landscape/",
         },
-        {
-            "title": "ELM, Disrupted: Large Language Models That Recognize Advertising Evidence Without Using It",
-            "impact": "LLM recognition vs. reliance in ad evaluation",
-            "date": "2027",
-            "venue": "American Academy of Advertising Annual Conference",
-            "url": "/publications/elm-disrupted-large-language-models-that-recognize-advertising-evidence-without-using-it/",
-        },
     ]
-    selected_publication_urls = {featured_preprint["url"], *(pub["url"] for pub in selected_publications)}
+    selected_publication_urls = {
+        *(panel["url"] for panel in featured_preprints),
+        *(pub["url"] for pub in selected_publications),
+    }
 
     common_ctx = {
         "meta": meta,
@@ -1526,7 +1536,7 @@ def build_site(
         hero_subtitle=hero_subtitle,
         bio_text=bio_text,
         focus_items=focus_items,
-        featured_preprint=featured_preprint,
+        featured_preprints=featured_preprints,
         selected_publications=selected_publications,
         social_title=f"{meta.get('name', 'Chris J. Vargo')} - Home",
         social_description=shorten(hero_subtitle, 200),

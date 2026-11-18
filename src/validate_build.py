@@ -72,8 +72,9 @@ def validate_home_page(dist: Path) -> list[str]:
         "/assets/education/penn-state-mark.png",
         "Selected Publications",
         "★ NEW PREPRINT ★",
-        "Gambling advertising and problem gambling in the United States",
+        "The Gambling Advertising Observatory",
         "LLM exposure and funnel erosion in consumer journeys",
+        "ELM, Disrupted: Large Language Models That Recognize Advertising Evidence Without Using It",
         "The agenda-setting power of fake news",
     ]
     for phrase in required:
