@@ -1,0 +1,67 @@
+{% extends "kidadlens_base.html" %}
+{% block heading %}KidAdLens{% endblock %}
+{% block tagline %}Academic Research Platform for Mobile Advertising Transparency &amp; Child Safety{% endblock %}
+
+{% block content %}
+<h2>About KidAdLens</h2>
+<p>
+  <strong>KidAdLens</strong> is an academic research application developed and operated by
+  <a href="{{ site_url }}/">Dr. Chris J. Vargo</a> (Associate Professor of Advertising and Information Analytics,
+  University of Colorado Boulder). The purpose of KidAdLens is to systematically audit and evaluate mobile
+  advertising creatives shown inside child-directed and general-audience mobile applications for
+  age-appropriateness, disclosure practices, and marketing transparency.
+</p>
+<p>
+  This home page is publicly accessible with no account or login required. KidAdLens is a researcher-operated
+  analysis workflow rather than a commercial consumer service, and it does not display advertisements or collect
+  personal information from children or the general public.
+</p>
+
+<h2>What KidAdLens Does</h2>
+<ul>
+  <li><strong>Ad Creative Auditing:</strong> Processes researcher-collected mobile ad creative screenshots, frames, and metadata to measure content categories, disclosure cues, and child-safety indicators for peer-reviewed scholarly research.</li>
+  <li><strong>Automated Multimodal Evaluation:</strong> Runs structured vision-language model inference batches across captured ad creatives to produce reproducible, auditable coding verdicts for academic analysis.</li>
+  <li><strong>Compute Orchestration:</strong> Schedules and monitors temporary GPU compute runtimes authorized by the researcher so large-scale evaluations finish reliably within user-defined compute budgets.</li>
+</ul>
+
+<h2>How KidAdLens Uses Google Sign-In &amp; Google APIs</h2>
+<p>
+  KidAdLens uses Google OAuth 2.0 solely to let an authorized researcher connect their own Google Colab
+  subscription to execute automated GPU inference jobs for the KidAdLens research pipeline.
+</p>
+<ul>
+  <li><strong>Requested OAuth Scope:</strong> <code>https://www.googleapis.com/auth/colaboratory</code> (Google Colab).</li>
+  <li><strong>Exact Purpose:</strong> Inspecting the authorizing user's Colab subscription tier and available GPU accelerators, provisioning and managing temporary Colab runtimes, transferring ad-evaluation inference batches to those runtimes, retrieving evaluation outputs, and terminating runtimes when work completes.</li>
+  <li><strong>Strict Data Minimization:</strong> KidAdLens does <em>not</em> request access to Gmail, Google Drive personal files, Google Contacts, Google Calendar, Google Photos, or any other personal Google Workspace data.</li>
+  <li><strong>No Sale, Sharing, or Model Training:</strong> Data accessed via Google APIs is never sold, never shared with third parties, never used for advertising, and never used to train generalized AI or machine learning models.</li>
+</ul>
+
+<div class="callout">
+  <p>
+    <strong>Google API Services User Data Policy:</strong> KidAdLens's use and transfer to any other app of
+    information received from Google APIs adheres to the
+    <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+    including the Limited Use requirements.
+  </p>
+</div>
+
+<h2>Privacy, Terms &amp; Contact</h2>
+<p>
+  Full details on what data KidAdLens accesses, how credentials are secured locally, and how you can revoke
+  access or request deletion at any time are published in our
+  <a href="{{ site_url }}/privacy">Privacy Policy</a> and
+  <a href="{{ site_url }}/terms">Terms of Service</a>.
+</p>
+<div class="policy-links">
+  <a class="button-link" href="{{ site_url }}/privacy">Read the KidAdLens Privacy Policy</a>
+  <a class="button-link" href="{{ site_url }}/terms">Read the Terms of Service</a>
+</div>
+
+<h2>Operator &amp; Support</h2>
+<p>
+  <strong>Application Name:</strong> KidAdLens<br>
+  <strong>Developer / Operator:</strong> Dr. Chris J. Vargo, University of Colorado Boulder<br>
+  <strong>Support &amp; Privacy Contact:</strong> <a href="mailto:christopherjvargo@gmail.com">christopherjvargo@gmail.com</a><br>
+  <strong>Researcher Website:</strong> <a href="{{ site_url }}/">{{ site_url }}/</a>
+</p>
+{% endblock %}

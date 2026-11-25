@@ -1,0 +1,61 @@
+{% extends "kidadlens_base.html" %}
+{% block heading %}Terms of Service{% endblock %}
+{% block tagline %}Terms of Service for KidAdLens ({{ site_url }}/kidadlens){% endblock %}
+
+{% block content %}
+<p class="meta-line">
+  <strong>Application:</strong> KidAdLens (<a href="{{ site_url }}/kidadlens">{{ site_url }}/kidadlens</a>)<br>
+  <strong>Operator:</strong> Dr. Chris J. Vargo, University of Colorado Boulder<br>
+  <strong>Contact Email:</strong> <a href="mailto:christopherjvargo@gmail.com">christopherjvargo@gmail.com</a><br>
+  <strong>Effective Date:</strong> {{ policy_effective_date }}
+</p>
+
+<h2>1. Acceptance of Terms</h2>
+<p>
+  By authorizing or using <strong>KidAdLens</strong> (available at
+  <a href="{{ site_url }}/kidadlens">{{ site_url }}/kidadlens</a>), you agree to these Terms of Service and to the
+  <a href="{{ site_url }}/privacy">KidAdLens Privacy Policy</a>. KidAdLens is an academic research software tool
+  operated by Dr. Chris J. Vargo for scholarly investigation of mobile advertising transparency and child safety.
+</p>
+
+<h2>2. Intended Academic Research Use</h2>
+<p>
+  KidAdLens is provided strictly for legitimate, non-commercial academic research and compute orchestration. Users
+  who connect a Google account to KidAdLens must be authorized to use that Google account and must comply with all
+  applicable laws, institutional policies, the
+  <a href="https://policies.google.com/terms" rel="noopener noreferrer">Google Terms of Service</a>, and the
+  <a href="https://research.google.com/colaboratory/tos_v3.html" rel="noopener noreferrer">Google Colaboratory Terms of Service</a>.
+</p>
+
+<h2>3. Google OAuth Authorization &amp; Compute Resources</h2>
+<ul>
+  <li>KidAdLens accesses Google Colab compute resources only after explicit user consent via Google OAuth 2.0 (scope <code>https://www.googleapis.com/auth/colaboratory</code>).</li>
+  <li>You are solely responsible for your Google Colab subscription, compute-unit consumption, and any charges incurred on your Google account.</li>
+  <li>You may revoke KidAdLens's authorization at any time via <a href="https://myaccount.google.com/permissions" rel="noopener noreferrer">https://myaccount.google.com/permissions</a>.</li>
+</ul>
+
+<h2>4. Privacy &amp; Data Handling</h2>
+<p>
+  Our collection, use, storage, protection, and deletion of Google API data are governed by our
+  <a href="{{ site_url }}/privacy">Privacy Policy</a>, including full adherence to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>
+  and its Limited Use requirements.
+</p>
+
+<h2>5. Disclaimer of Warranties &amp; Limitation of Liability</h2>
+<p>
+  KidAdLens is academic research software provided on an "AS IS" and "AS AVAILABLE" basis without warranties of
+  any kind, whether express or implied, including implied warranties of merchantability, fitness for a particular
+  purpose, or uninterrupted availability. To the fullest extent permitted by law, the operator shall not be liable
+  for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to use of
+  KidAdLens or third-party cloud compute services.
+</p>
+
+<h2>6. Changes &amp; Contact</h2>
+<p>
+  We may update these Terms of Service as KidAdLens evolves by posting updated terms on this page with a revised
+  effective date. For questions or support, contact
+  <a href="mailto:christopherjvargo@gmail.com">christopherjvargo@gmail.com</a> or return to the
+  <a href="{{ site_url }}/kidadlens">KidAdLens Home Page</a>.
+</p>
+{% endblock %}

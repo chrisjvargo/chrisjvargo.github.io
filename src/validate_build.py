@@ -119,6 +119,83 @@ def validate_cv_page(dist: Path) -> list[str]:
     return errors
 
 
+def validate_kidadlens_pages(dist: Path, site_url: str) -> list[str]:
+    errors: list[str] = []
+    base = site_url.rstrip("/")
+
+    for icon_name in ["kidadlens-icon-120.png", "kidadlens-icon-512.png"]:
+        if not (dist / "assets" / icon_name).exists():
+            errors.append(f"kidadlens: missing icon asset /assets/{icon_name}")
+
+    expected_pages = {
+        "kidadlens": (
+            dist / "kidadlens.html",
+            f"{base}/kidadlens",
+            [
+                "<h1>KidAdLens</h1>",
+                f'href="{base}/privacy"',
+                f'href="{base}/terms"',
+                "/assets/kidadlens-icon-120.png",
+                "https://www.googleapis.com/auth/colaboratory",
+                "Google API Services User Data Policy",
+                "christopherjvargo@gmail.com",
+            ],
+        ),
+        "privacy": (
+            dist / "privacy.html",
+            f"{base}/privacy",
+            [
+                "<h1>Privacy Policy</h1>",
+                "KidAdLens",
+                f'href="{base}/kidadlens"',
+                "https://www.googleapis.com/auth/colaboratory",
+                "Google API Services User Data Policy",
+                "Limited Use",
+                "https://myaccount.google.com/permissions",
+                "christopherjvargo@gmail.com",
+            ],
+        ),
+        "terms": (
+            dist / "terms.html",
+            f"{base}/terms",
+            [
+                "<h1>Terms of Service</h1>",
+                "KidAdLens",
+                f'href="{base}/kidadlens"',
+                f'href="{base}/privacy"',
+                "christopherjvargo@gmail.com",
+            ],
+        ),
+    }
+
+    rendered_bodies: dict[str, str] = {}
+    for name, (html_path, expected_canonical, phrases) in expected_pages.items():
+        if not html_path.exists():
+            errors.append(f"kidadlens: missing {html_path.name}")
+            continue
+        html_text = html_path.read_text(encoding="utf-8", errors="ignore")
+        rendered_bodies[name] = html_text
+        scanner = HeadScanner()
+        scanner.feed(html_text)
+        canon = canonical_links(scanner)
+        if not canon or canon[0] != expected_canonical:
+            errors.append(
+                f"kidadlens/{name}: canonical mismatch (found {canon!r}, expected {expected_canonical!r})"
+            )
+        robots_tags = meta_values(scanner, "robots")
+        if any("noindex" in tag.lower() for tag in robots_tags):
+            errors.append(f"kidadlens/{name}: robots meta contains noindex")
+        for phrase in phrases:
+            if phrase not in html_text:
+                errors.append(f"kidadlens/{name}: missing required phrase {phrase!r}")
+
+    if "kidadlens" in rendered_bodies and "privacy" in rendered_bodies:
+        if rendered_bodies["kidadlens"] == rendered_bodies["privacy"]:
+            errors.append("kidadlens: privacy page content is identical to home page")
+
+    return errors
+
+
 def validate_record(dist: Path, record: dict, site_url: str) -> list[str]:
     errors: list[str] = []
     slug = record.get("slug", "<unknown>")
@@ -211,11 +288,13 @@ def main() -> None:
         raise SystemExit(f"Manifest missing: {manifest_path}")
 
     records = load_manifest(manifest_path)
+    site_url = args.site_url.rstrip("/")
     all_errors: list[str] = []
     all_errors.extend(validate_home_page(dist))
     all_errors.extend(validate_cv_page(dist))
+    all_errors.extend(validate_kidadlens_pages(dist, site_url))
     for record in records:
-        all_errors.extend(validate_record(dist, record, args.site_url.rstrip("/")))
+        all_errors.extend(validate_record(dist, record, site_url))
 
     if all_errors:
         sys.stderr.write("Build validation failed:\n")

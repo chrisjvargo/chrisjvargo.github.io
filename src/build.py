@@ -1698,6 +1698,62 @@ def build_site(
         )
         write_text(out_dir / sec["slug"] / "index.html", rendered)
 
+    # KidAdLens OAuth app homepage and public legal policies (extensionless HTML
+    # files so GitHub Pages serves /kidadlens, /privacy, and /terms with HTTP 200 directly).
+    policy_effective_date = "November 25, 2026"
+    kidadlens_pages = [
+        {
+            "template": "kidadlens.html",
+            "out_name": "kidadlens.html",
+            "path": "/kidadlens",
+            "active_page": "kidadlens",
+            "page_title": "KidAdLens — Mobile Advertising & Child Safety Research Tool",
+            "social_title": "KidAdLens",
+            "page_description": (
+                "KidAdLens is an academic research application operated by Dr. Chris J. Vargo "
+                "(University of Colorado Boulder) to audit mobile ad creatives for child safety "
+                "and advertising transparency using researcher-authorized Google Colab runtimes."
+            ),
+        },
+        {
+            "template": "privacy.html",
+            "out_name": "privacy.html",
+            "path": "/privacy",
+            "active_page": "privacy",
+            "page_title": "Privacy Policy — KidAdLens",
+            "social_title": "Privacy Policy — KidAdLens",
+            "page_description": (
+                "Privacy Policy for KidAdLens detailing Google OAuth 2.0 Colab scope usage, "
+                "Google API Services User Data Policy (Limited Use) compliance, local token "
+                "security, and revocation/deletion instructions."
+            ),
+        },
+        {
+            "template": "terms.html",
+            "out_name": "terms.html",
+            "path": "/terms",
+            "active_page": "terms",
+            "page_title": "Terms of Service — KidAdLens",
+            "social_title": "Terms of Service — KidAdLens",
+            "page_description": (
+                "Terms of Service for KidAdLens, an academic research tool for mobile "
+                "advertising transparency and child safety operated by Dr. Chris J. Vargo."
+            ),
+        },
+    ]
+    for page_cfg in kidadlens_pages:
+        rendered_page = env.get_template(page_cfg["template"]).render(
+            site_url=site_url.rstrip("/"),
+            canonical_url=abs_url(site_url, page_cfg["path"]),
+            active_page=page_cfg["active_page"],
+            page_title=page_cfg["page_title"],
+            social_title=page_cfg["social_title"],
+            page_description=page_cfg["page_description"],
+            social_description=page_cfg["page_description"],
+            policy_effective_date=policy_effective_date,
+        )
+        write_text(out_dir / page_cfg["out_name"], rendered_page)
+
     # Build reports
     selected_publication_records = [p for p in publications if p.get("detail_url") in selected_publication_urls]
     required_publication_metadata_gaps = [
@@ -1790,6 +1846,9 @@ def build_site(
         ("/", out_dir / "index.html"),
         ("/publications/", out_dir / "publications" / "index.html"),
         ("/cv/", out_dir / "cv" / "index.html"),
+        ("/kidadlens", out_dir / "kidadlens.html"),
+        ("/privacy", out_dir / "privacy.html"),
+        ("/terms", out_dir / "terms.html"),
         ("/feed.xml", out_dir / "feed.xml"),
         ("/llms.txt", out_dir / "llms.txt"),
         ("/publications.bib", out_dir / "publications.bib"),

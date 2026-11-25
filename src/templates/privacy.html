@@ -1,0 +1,132 @@
+{% extends "kidadlens_base.html" %}
+{% block heading %}Privacy Policy{% endblock %}
+{% block tagline %}Privacy Policy for KidAdLens ({{ site_url }}/kidadlens) and chrisjvargo.com{% endblock %}
+
+{% block content %}
+<p class="meta-line">
+  <strong>Application:</strong> KidAdLens (<a href="{{ site_url }}/kidadlens">{{ site_url }}/kidadlens</a>)<br>
+  <strong>Operator:</strong> Dr. Chris J. Vargo, University of Colorado Boulder<br>
+  <strong>Contact Email:</strong> <a href="mailto:christopherjvargo@gmail.com">christopherjvargo@gmail.com</a><br>
+  <strong>Effective Date:</strong> {{ policy_effective_date }}
+</p>
+
+<h2>1. Overview &amp; Scope</h2>
+<p>
+  This Privacy Policy explains how <strong>KidAdLens</strong> (hosted at
+  <a href="{{ site_url }}/kidadlens">{{ site_url }}/kidadlens</a>) and the accompanying informational pages on
+  <a href="{{ site_url }}/">chrisjvargo.com</a> access, use, store, protect, and delete information, including
+  data accessed through Google OAuth 2.0 and Google APIs. KidAdLens is an academic research tool developed and
+  operated by Dr. Chris J. Vargo for scholarly analysis of mobile advertising transparency and child safety.
+</p>
+
+<h2>2. Information Accessed &amp; Collected</h2>
+<h3>2.1 Google User Data Accessed via Google OAuth 2.0</h3>
+<p>
+  When an authorized researcher explicitly grants consent through Google's OAuth 2.0 screen, KidAdLens requests
+  access only to the following Google API scope:
+</p>
+<ul>
+  <li><code>https://www.googleapis.com/auth/colaboratory</code> — used to interact with Google Colab compute resources associated with the authorizing Google account.</li>
+</ul>
+<p>Through this scope, KidAdLens accesses only the minimum operational metadata required to run user-initiated compute jobs:</p>
+<ul>
+  <li>OAuth 2.0 access tokens and refresh tokens issued by Google for authenticating API requests on the user's behalf;</li>
+  <li>Google Colab account tier, compute-unit balance, and available GPU accelerator specifications;</li>
+  <li>Temporary Colab runtime identifiers, assignment endpoints, health status, and execution logs produced by KidAdLens research scripts running inside those temporary runtimes.</li>
+</ul>
+
+<h3>2.2 Data We Do NOT Access</h3>
+<p>
+  KidAdLens does <strong>not</strong> request, access, read, or collect Gmail messages, Google Drive personal
+  files or folders, Google Contacts, Google Calendar events, Google Photos, YouTube watch history, payment
+  instruments, or any other Google Workspace or personal user data outside the single Google Colab API scope
+  listed above.
+</p>
+
+<h3>2.3 Static Informational Website</h3>
+<p>
+  The informational web pages hosted on <code>chrisjvargo.com</code> (including <code>/kidadlens</code>,
+  <code>/privacy</code>, and <code>/terms</code>) are static HTML pages served via GitHub Pages. We do not place
+  advertising cookies, behavioral trackers, or user login walls on these pages. GitHub Pages may collect standard
+  HTTP server logs (such as IP address and request timestamp) in accordance with GitHub's privacy practices.
+</p>
+
+<h2>3. How We Use Google User Data</h2>
+<p>KidAdLens uses Google user data strictly and exclusively to perform the compute tasks initiated by the authorizing user:</p>
+<ul>
+  <li>Authenticating API calls to Google Colab on behalf of the authorizing researcher;</li>
+  <li>Verifying available compute capacity and GPU runtime options before scheduling research workloads;</li>
+  <li>Provisioning temporary Colab GPU runtimes, uploading research inference scripts and ad-creative analysis batches, retrieving structured evaluation outputs, and cleanly terminating runtimes upon completion;</li>
+  <li>Tracking compute-unit expenditure so automated research jobs stay within user-specified limits.</li>
+</ul>
+<p>We explicitly commit to the following restrictions:</p>
+<ul>
+  <li>We do <strong>not</strong> sell, rent, lease, or trade Google user data to any third party.</li>
+  <li>We do <strong>not</strong> use Google user data for targeted advertising, personalized marketing, data brokering, or creditworthiness evaluation.</li>
+  <li>We do <strong>not</strong> use any data obtained through Google APIs to develop, improve, or train generalized artificial intelligence (AI) or machine learning (ML) models.</li>
+</ul>
+
+<h2>4. Google API Services User Data Policy (Limited Use)</h2>
+<div class="callout">
+  <p>
+    KidAdLens's use and transfer to any other app of information received from Google APIs will adhere to the
+    <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+    including the Limited Use requirements.
+  </p>
+</div>
+
+<h2>5. Data Sharing &amp; Disclosure</h2>
+<p>
+  KidAdLens does not share, disclose, or transfer Google user data or OAuth tokens to third parties. API requests
+  are transmitted directly between the researcher's controlled execution environment and official Google API
+  endpoints (<code>oauth2.googleapis.com</code>, <code>colab.research.google.com</code>, and
+  <code>colab.pa.googleapis.com</code>). We would disclose information only if strictly required to comply with
+  applicable law or a valid legal process.
+</p>
+
+<h2>6. Data Storage &amp; Security</h2>
+<ul>
+  <li><strong>Encrypted in Transit:</strong> All communication between KidAdLens and Google OAuth / Google Colab services is encrypted using HTTPS/TLS.</li>
+  <li><strong>Restricted Local Storage:</strong> OAuth 2.0 access and refresh tokens are stored solely on the operator's access-controlled local Linux host with strict owner-only filesystem permissions (<code>0600</code>). Credentials are never committed to source control, exposed in client-side browser code, or uploaded to third-party databases.</li>
+  <li><strong>Ephemeral Runtimes:</strong> Provisioned Google Colab runtimes are temporary compute environments that are automatically unassigned and released when research inference batches finish or stop.</li>
+</ul>
+
+<h2>7. Data Retention, Revocation &amp; Deletion</h2>
+<p>
+  OAuth tokens and runtime operational state are retained locally only for as long as the authorizing researcher
+  actively operates KidAdLens compute jobs. You remain in complete control of your Google account authorization
+  and can revoke access or request deletion at any time:
+</p>
+<ul>
+  <li><strong>Instant Revocation via Google:</strong> Visit your Google Account third-party access settings at <a href="https://myaccount.google.com/permissions" rel="noopener noreferrer">https://myaccount.google.com/permissions</a>, select <strong>KidAdLens</strong>, and choose <em>Remove access</em>.</li>
+  <li><strong>Local Credential &amp; Data Deletion:</strong> Upon revocation—or upon emailing a deletion request to <a href="mailto:christopherjvargo@gmail.com">christopherjvargo@gmail.com</a>—all locally stored OAuth tokens, refresh tokens, and cached session metadata associated with your Google account are permanently deleted immediately (and no later than 24 hours after an email request is received).</li>
+</ul>
+
+<h2>8. Children's Privacy</h2>
+<p>
+  Although KidAdLens studies advertising shown in child-directed mobile applications for academic child-safety
+  research, KidAdLens itself is a scholarly software tool operated exclusively by adult researchers. It does not
+  offer accounts to children and does not knowingly collect personal information from children under 13 (or the
+  applicable age of digital consent in any jurisdiction).
+</p>
+
+<h2>9. Changes to This Privacy Policy</h2>
+<p>
+  We may update this Privacy Policy from time to time to reflect changes in KidAdLens's technical workflow or
+  applicable legal and platform requirements. Any updates will be published on this page with a revised effective
+  date.
+</p>
+
+<h2>10. Contact Us</h2>
+<p>
+  If you have questions about this Privacy Policy, KidAdLens's handling of Google API data, or wish to request
+  deletion of any stored credentials or logs, please contact:
+</p>
+<p>
+  <strong>Dr. Chris J. Vargo</strong><br>
+  University of Colorado Boulder<br>
+  Email: <a href="mailto:christopherjvargo@gmail.com">christopherjvargo@gmail.com</a><br>
+  KidAdLens Home Page: <a href="{{ site_url }}/kidadlens">{{ site_url }}/kidadlens</a><br>
+  Terms of Service: <a href="{{ site_url }}/terms">{{ site_url }}/terms</a>
+</p>
+{% endblock %}
