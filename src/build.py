@@ -1730,9 +1730,21 @@ def build_site(
         },
         {
             "template": "terms.html",
+            "out_name": "tos.html",
+            "path": "/tos",
+            "active_page": "tos",
+            "page_title": "Terms of Service — KidAdLens",
+            "social_title": "Terms of Service — KidAdLens",
+            "page_description": (
+                "Terms of Service for KidAdLens, an academic research tool for mobile "
+                "advertising transparency and child safety operated by Dr. Chris J. Vargo."
+            ),
+        },
+        {
+            "template": "terms.html",
             "out_name": "terms.html",
-            "path": "/terms",
-            "active_page": "terms",
+            "path": "/tos",
+            "active_page": "tos",
             "page_title": "Terms of Service — KidAdLens",
             "social_title": "Terms of Service — KidAdLens",
             "page_description": (
@@ -1848,7 +1860,7 @@ def build_site(
         ("/cv/", out_dir / "cv" / "index.html"),
         ("/kidadlens", out_dir / "kidadlens.html"),
         ("/privacy", out_dir / "privacy.html"),
-        ("/terms", out_dir / "terms.html"),
+        ("/tos", out_dir / "tos.html"),
         ("/feed.xml", out_dir / "feed.xml"),
         ("/llms.txt", out_dir / "llms.txt"),
         ("/publications.bib", out_dir / "publications.bib"),

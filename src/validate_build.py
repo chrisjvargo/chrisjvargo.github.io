@@ -134,7 +134,7 @@ def validate_kidadlens_pages(dist: Path, site_url: str) -> list[str]:
             [
                 "<h1>KidAdLens</h1>",
                 f'href="{base}/privacy"',
-                f'href="{base}/terms"',
+                f'href="{base}/tos"',
                 "/assets/kidadlens-icon-120.png",
                 "https://www.googleapis.com/auth/colaboratory",
                 "Google API Services User Data Policy",
@@ -155,9 +155,9 @@ def validate_kidadlens_pages(dist: Path, site_url: str) -> list[str]:
                 "christopherjvargo@gmail.com",
             ],
         ),
-        "terms": (
-            dist / "terms.html",
-            f"{base}/terms",
+        "tos": (
+            dist / "tos.html",
+            f"{base}/tos",
             [
                 "<h1>Terms of Service</h1>",
                 "KidAdLens",
