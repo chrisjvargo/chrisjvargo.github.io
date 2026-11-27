@@ -1316,6 +1316,11 @@ def build_llms_txt(site_url: str, optional_nav: list[dict[str, str]]) -> str:
         f"- [Publications BibTeX]({site_url.rstrip('/')}/publications.bib)",
         f"- [Publications RIS]({site_url.rstrip('/')}/publications.ris)",
         "",
+        "## Public Research Portals",
+        f"- [KidAdLens — Children's Mobile Ad Safety & COPPA Transparency]({site_url.rstrip('/')}/kidadlens/)",
+        f"- [KidAdLens Full GEO Index (llms.txt)]({site_url.rstrip('/')}/kidadlens/llms.txt)",
+        f"- [KidAdLens API & Research Data Requests]({site_url.rstrip('/')}/kidadlens/api.html)",
+        "",
     ]
 
     if optional_nav:
@@ -1816,12 +1821,29 @@ def build_site(
                     shutil.rmtree(dst)
                 shutil.copytree(app, dst)
 
-    # Site-level control files
+    # Site-level control files (encourage Search & GEO indexing; deny aggressive bulk scrapers on /kidadlens/)
     write_text(
         out_dir / "robots.txt",
+        "User-agent: Googlebot\nAllow: /\n\n"
+        "User-agent: Bingbot\nAllow: /\n\n"
+        "User-agent: Applebot\nAllow: /\n\n"
+        "User-agent: DuckDuckBot\nAllow: /\n\n"
+        "User-agent: OAI-SearchBot\nAllow: /\n\n"
+        "User-agent: ChatGPT-User\nAllow: /\n\n"
+        "User-agent: PerplexityBot\nAllow: /\n\n"
+        "User-agent: Claude-SearchBot\nAllow: /\n\n"
+        "User-agent: Bytespider\nDisallow: /kidadlens/\n\n"
+        "User-agent: CCBot\nDisallow: /kidadlens/\n\n"
+        "User-agent: Diffbot\nDisallow: /kidadlens/\n\n"
+        "User-agent: Scrapy\nDisallow: /kidadlens/\n\n"
+        "User-agent: AhrefsBot\nDisallow: /kidadlens/\n\n"
+        "User-agent: SemrushBot\nDisallow: /kidadlens/\n\n"
+        "User-agent: MJ12bot\nDisallow: /kidadlens/\n\n"
+        "User-agent: DataForSeoBot\nDisallow: /kidadlens/\n\n"
         "User-agent: *\n"
         "Allow: /\n"
-        f"Sitemap: {site_url.rstrip('/')}/sitemap.xml\n",
+        f"Sitemap: {site_url.rstrip('/')}/sitemap.xml\n"
+        f"Sitemap: {site_url.rstrip('/')}/kidadlens/sitemap.xml\n",
     )
 
     write_text(
